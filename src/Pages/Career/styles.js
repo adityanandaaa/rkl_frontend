@@ -16,7 +16,7 @@ export const Flex = styled.div`
 
 export const Wrapper = styled.div`
     // margin-top: 1em;
-    width: 100vw;
+    width: 100%;
 `
 
 export const Header = styled.div`
@@ -56,9 +56,6 @@ export const Header = styled.div`
     }
 
     @media (max-width: 414px){
-        width: 413px;
-        height: auto;
-        // background-size: 414px 600px;
         .join{
             h1{
                 font-size: 30px;

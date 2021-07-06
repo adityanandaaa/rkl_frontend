@@ -59,7 +59,7 @@ const Career = () => {
                         </FormControl>
                     </Flex>
 
-                    <Flex direction="column" alignItems="center" style={{marginTop: '5em'}}>
+                    {/* <Flex direction="column" alignItems="center" style={{marginTop: '5em'}}>
                         <Flex direction="row" justify="space-around" className="section">
                             <h1>Spesification</h1>
                             <ul>
@@ -183,11 +183,11 @@ const Career = () => {
                                 </Accordion.Collapse>
                             </Accordion>   
                         </Flex>
-                    </Flex>
+                    </Flex> */}
                     
                 </Content>
             </Wrapper>
-            {/* <Footer /> */}
+            <Footer />
         </div>
         
     )
