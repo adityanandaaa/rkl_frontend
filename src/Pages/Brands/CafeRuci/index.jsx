@@ -20,5 +20,6 @@ export const Ruci = {
         eventPic: [Promo1, Promo2]
     },
     gallery: [RuciBanner, BrandCover],
-    locationBackground: LocationCover
+    locationBackground: LocationCover,
+    insta: '@caferuci'
 }

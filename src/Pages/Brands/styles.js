@@ -24,8 +24,17 @@ export const Header = styled.div`
     // -o-background-size:cover;
     background-size:cover;
     background-position:center;
-    width: 100vw;
+    width: 100%;
     height: 600px;
+
+    .brand{
+        margin-bottom: 9em;
+    }
+    @media (max-width: 414px){
+        .brand{
+            width: 300px;
+        }
+    }
     
 `
 
@@ -63,6 +72,26 @@ export const Content = styled.div`
             color: white;
         }
     }
+
+    @media (max-width: 414px){
+        .description{
+            font-size: 16px;
+            padding-left: 3em;
+            padding-right: 3em;
+        }
+        .title{
+            font-size: 30px;
+        }
+        .line{
+            border: 1px solid #000000;
+            width: 13em;
+        }
+        .menu{
+            flex-direction: column;
+            align-items: center;
+            margin-top: 2em;
+        }
+    }
 `
 
 export const Menu = styled.div`
@@ -74,8 +103,15 @@ export const Menu = styled.div`
     // -o-background-size:cover;
     background-size:cover;
     background-position:center;
-    width: 500px;
-    height: 200px;
+    width: 330px;
+    height: 150px;
+
+    @media (max-width: 414px){
+        width: 380px; 
+    }
+    @media (max-width: 375px){
+        width: 100%;
+    }
 `
 
 export const Event = styled.div`
@@ -87,7 +123,7 @@ export const Event = styled.div`
     // -o-background-size:cover;
     background-size:cover;
     background-position:center;
-    width: 100vw;
+    width: 100%;
     height: 300px;
     margin-top: 5em;
 
@@ -104,12 +140,7 @@ export const Event = styled.div`
         width: 22em;
     }
     .promo{
-        position: absolute;
-        img{
-            width: 270px;
-            height: 370px;
-        }
-        
+        margin-top: 2em;
     }
     .title{
         font-weight: 600;
@@ -124,6 +155,50 @@ export const Event = styled.div`
         line-height: 150%;
         letter-spacing: 0.02em;
         color: #828282;
+    }
+
+    @media (max-width: 414px){
+        // background: none;
+        h1{
+            // color: black;
+            font-size: 30px;
+        }
+        .line{
+            // border: 1px solid #000000;
+            width: 17em;
+        }
+        .promo{
+            // position: absolute;
+            img{
+                width: 185px;
+                height: 240px;
+            }
+            
+        }
+        .title{
+            font-size: 16px;
+        }
+        .date{
+            font-size: 14px;
+            width: 10em;
+        }
+    }
+
+    @media (max-width: 375px){
+        h1{
+            font-size: 25px;
+        }
+        line{
+            width: 15em;
+        }
+        .promo{
+            img{
+                width: 170px;
+            }
+        }
+        .title{
+            font-size: 15px;
+        }
     }
 `
 
@@ -140,9 +215,26 @@ export const Gallery = styled.div`
         border: 1px solid #000000;
         width: 12em;
     }
+    .pic{
+        margin-top: 3em;
+    }
     img{
         width: 900px;
         height: 530px;
+    }
+
+    @media (max-width: 414px){
+        margin-top: 15em;
+        h1{
+            font-size: 30px;
+        }
+        .pic{
+            margin-top: 1em;
+        }
+        img{
+            width: 370px;
+            height: 270px;
+        }
     }
 `
 
@@ -155,7 +247,7 @@ export const Location = styled.div`
     // -o-background-size:cover;
     background-size:cover;
     background-position:center;
-    width: 100vw;
+    width: 100%;
     height: 350px;
     margin-top: 5em;
     padding-left: 15em;
@@ -176,6 +268,23 @@ export const Location = styled.div`
     img{
         height: 200px;
         margin-bottom: 2em;
+    }
+
+    @media (max-width: 414px){
+        padding: 0;
+        .logo{
+            flex-direction: column;
+        }
+        .location-wrap{
+            flex-direction: column;
+            // justify-content: flex-start;
+            padding-bottom: 2em;
+            p{
+                font-size: 14px;
+                // text-align: center;
+                padding-left: 3.5em;
+            }
+        }
     }
     
 `
