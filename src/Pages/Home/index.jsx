@@ -1,5 +1,6 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {Flex, Wrapper, Header, Events, Gallerys, Parts} from './styles'
+import axios from 'axios'
 import Carousel from "react-multi-carousel";
 import 'react-multi-carousel/lib/styles.css';
 import Gallery from 'react-grid-gallery'
@@ -61,6 +62,7 @@ const Home = () => {
             slidesToSlide: 1 // optional, default to 1.
         }
     };
+    
 
     const IMAGESandro = [
         {
@@ -145,6 +147,17 @@ const Home = () => {
         }
     }
 
+    const [items, setItems] = useState([])
+    useEffect(() => {
+        axios.get('http://admin.rklokal.com/api/gallery')
+        .then((res) => {
+            const items = res.data
+            console.log(items)
+            setItems(items)
+        })
+
+    }, [])
+
     return(
         <Wrapper>
             <Header>
@@ -188,7 +201,7 @@ const Home = () => {
                     autoPlay={false}
                     autoPlaySpeed={1000}
                     keyBoardControl={true}
-                    customTransition="all .5"
+                    // customTransition="ease .5"
                     transitionDuration={500}
                     containerClass="carousel-container"
                     // removeArrowOnDeviceType={["tablet", "mobile"]}

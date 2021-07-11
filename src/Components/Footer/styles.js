@@ -26,7 +26,7 @@ export const Wrapper = styled.div`
     padding-left: 140px;
     
     .logo{
-        width: 50px;
+        width: 120px;
         height: 50px;
     }
     .description{
@@ -45,6 +45,9 @@ export const Wrapper = styled.div`
         letter-spacing: 0.02em;
         padding-top: 20px;
     }
+    // .menu-wrap{
+    //     margin-top: 5em;
+    // }
     .menu{
         width: 15em;
     }
@@ -64,9 +67,9 @@ export const Wrapper = styled.div`
         letter-spacing: 0.02em;
     }
     // .copy-icon{
-    //     margin-top: 1.5em;
+    //     // margin-top: 1.5em;
     //     img{
-    //         margin-top: 4px;
+    //         // margin-top: 4px;
     //         width: 17px;
     //         height: 17px;
     //     }
@@ -77,10 +80,10 @@ export const Wrapper = styled.div`
         height: auto;
         padding: 3em 3em;
         flex-direction: column;
-        .logo{
-            width: 50px;
-            height: 50px;
-        }
+        // .logo{
+        //     width: 50px;
+        //     height: 50px;
+        // }
         .description{
             font-size: 14px;
             width: 24em;
@@ -115,16 +118,13 @@ export const Wrapper = styled.div`
                 width: 17px;
                 height: 17px;
             }
-            
-        }
-        .menu-wrap{
-            margin-right: 5em;
-        }
-        .copy-icon{
             p{
                 font-size: 14px;
                 padding: 1.8px;
             }
+        }
+        .menu-wrap{
+            margin-right: 5em;
         }
     }
 

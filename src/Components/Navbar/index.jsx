@@ -2,7 +2,7 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Flex, Wrapper} from './styles'
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
-import Logo from './Media/Logo.png'
+import Logo from './Media/Logo2.png'
 import DehazeIcon from '@material-ui/icons/Dehaze';
 import CloseIcon from '@material-ui/icons/Close';
 

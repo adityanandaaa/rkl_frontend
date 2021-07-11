@@ -12,7 +12,13 @@ export const Flex = styled.div`
 
 export const Wrapper = styled.div`
     // margin-top: 1em;
-    width: 100vw;
+    width: 100%;
+    .paper{
+        width: 950px;
+        height: 500px;
+        font-size: 55px;
+        background: red;
+    }
 `
 
 export const Header = styled.div`
@@ -103,8 +109,8 @@ export const Menu = styled.div`
     // -o-background-size:cover;
     background-size:cover;
     background-position:center;
-    width: 330px;
-    height: 150px;
+    width: 530px;
+    height: 180px;
 
     @media (max-width: 414px){
         width: 380px; 

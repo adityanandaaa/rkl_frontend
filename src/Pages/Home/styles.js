@@ -17,7 +17,7 @@ export const Flex = styled.div`
 
 export const Wrapper = styled.div`
     // margin-top: 1em;
-    width: 100vw;
+    width: 100%;
     // .lala{
     //     font-size: 30px;
     // }
@@ -26,7 +26,7 @@ export const Wrapper = styled.div`
 export const Header = styled.div`
     background-image: url(${banner});
     background-size: cover;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
 
     .description{
@@ -46,6 +46,11 @@ export const Header = styled.div`
             height: 200px;
         }
     }
+    .brands div:nth-child(2){
+        padding-left: 15em;
+        padding-right: 15em;
+    }
+    
 
     @media (max-width: 414px){
         width: 100%;
@@ -54,10 +59,22 @@ export const Header = styled.div`
             font-size: 22px;
             width: 15em;
         }
+        .brands :nth-child(1){
+            flex-direction: column;
+            align-items: center;
+        }
+        .brands :nth-child(2){
+            flex-direction: column;
+            align-items: center;
+
+        }
+        .brands div:nth-child(2){
+            padding: 0;
+        }
         .brands{
             img{
-                width: 100px;
-                height: 100px;
+                width: 200px;
+                height: 200px;
             }
         }
     }
@@ -132,6 +149,7 @@ export const Events = styled.div`
 `
 
 export const Gallerys = styled.div`
+    // width: 100%;
     margin-top: 5em;
     .title{
         background: url(${rectangle});

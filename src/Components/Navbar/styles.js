@@ -11,7 +11,7 @@ export const Flex = styled.div`
 
 export const Wrapper = styled.div`
     img{
-        width: 50px;
+        // width: 50px;
         height: 50px;
         margin-left: 5em;
     }
@@ -19,6 +19,10 @@ export const Wrapper = styled.div`
         color: white;
         font-size: 20px;
         font-weight: 700;
+    }
+    a:hover{
+        color: #a97b50;
+        transition: 0.3s;
     }
     div:nth-child(2){
         border: none;
