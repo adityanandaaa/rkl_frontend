@@ -1,9 +1,7 @@
 import React from 'react'
-import {Wrapper, Flex, Header, Content} from './styles'
+import {Wrapper, Flex, Header, Content, Card} from './styles'
 import {TextField, Select, MenuItem, InputLabel, FormControl} from '@material-ui/core'
-import {Accordion, Card, Button} from 'react-bootstrap'
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import Navbar from '../../Components/Navbar'
+import Navbar from '../../Components/Navbar2'
 import Footer from '../../Components/Footer'
 
 const Career = () => {
@@ -14,6 +12,30 @@ const Career = () => {
     };
     const handleLocation = (event) => {
         setLocation(event.target.value);
+    }
+    const vacancies = [
+        {position: 'Marketing', location: 'Head Office'},
+        {position: 'Sales Associates', location: 'Head Office'},
+        {position: 'Pulic Relation', location: 'Head Office'},
+        {position: 'Administrator Staff', location: 'Head Office'},
+        {position: 'Outlet Manager', location: 'Outlet'},
+        {position: 'Asisten Manager Outlet', location: 'Outlet'},
+        {position: 'Captain Service', location: 'Head Office'},
+        {position: 'Server', location: 'Outlet'},
+        {position: 'Housekeeping', location: 'Outlet'},
+        {position: 'Chef De Partie', location: 'Head Office'},
+        {position: 'Cook', location: 'Outlet'},
+        {position: 'Cook Helper', location: 'Outlet'},
+        {position: 'Steward', location: 'Head Office'},
+        {position: 'Head Bar', location: 'Outlet'},
+        {position: 'Bartender', location: 'Outlet'},
+        {position: 'Bar Back', location: 'Head Office'},
+        {position: 'Host', location: 'Head Office'},
+        {position: 'Marketing - Intern', location: 'Intern'},
+
+    ]
+    const handleClick = () => {
+        window.location.href = '/career-detail'
     }
     return(
         <div>
@@ -39,9 +61,15 @@ const Career = () => {
                             value={position}
                             onChange={handlePosition}
                             >
-                            <MenuItem value={10}>Ten</MenuItem>
-                            <MenuItem value={20}>Twenty</MenuItem>
-                            <MenuItem value={30}>Thirty</MenuItem>
+                            <MenuItem value={10}>Marketing</MenuItem>
+                            <MenuItem value={20}>Sales Associates</MenuItem>
+                            <MenuItem value={30}>Public Relation</MenuItem>
+                            <MenuItem value={40}>Administrator Staff</MenuItem>
+                            <MenuItem value={50}>Outlet Manager</MenuItem>
+                            <MenuItem value={60}>Asisten Outlet Manager</MenuItem>
+                            <MenuItem value={70}>Captain Service</MenuItem>
+                            <MenuItem value={80}>Server</MenuItem>
+
                             </Select>
                         </FormControl>
                         <FormControl style={{width: '250px'}}>
@@ -52,140 +80,25 @@ const Career = () => {
                             value={location}
                             onChange={handleLocation}
                             >
-                            <MenuItem value={10}>Ten</MenuItem>
-                            <MenuItem value={20}>Twenty</MenuItem>
-                            <MenuItem value={30}>Thirty</MenuItem>
+                            <MenuItem value={10}>Head Office</MenuItem>
+                            <MenuItem value={20}>Outlet</MenuItem>
+                            <MenuItem value={30}>Intern</MenuItem>
                             </Select>
                         </FormControl>
                     </Flex>
-
-                    {/* <Flex direction="column" alignItems="center" style={{marginTop: '5em'}}>
-                        <Flex direction="row" justify="space-around" className="section">
-                            <h1>Spesification</h1>
-                            <ul>
-                                <li>Have a working experience, minimal 1 year</li>
-                                <li>Have a basic knowledge about food and beverages</li>
-                                <li>Working experience in Food and Beverages is a plus</li>
-                                <li>Working experience in the desired position is a plus</li>
-                                <li>Eager to learn</li>
-                            </ul>              
-                        </Flex>
-                        <Flex direction="row" justify="space-around" className="section" style={{marginTop: '3em'}}>
-                            <h1>Head Office</h1>
-                            <Accordion className="accor">
-                                <Accordion.Toggle as={Card.Header} variant="link" eventKey="0" className="card">
-                                    <Flex direction="row" justify="space-between">
-                                        <Flex direction="column" >
-                                            <p>Marketing</p>
-                                            <span className="line" />
-                                        </Flex>
-                                        <ExpandMoreIcon />
-                                    </Flex>
-                                </Accordion.Toggle>
-                                <Accordion.Collapse eventKey="0" className="description">
-                                    <p>test</p>
-                                </Accordion.Collapse>
-
-                                <Accordion.Toggle as={Card.Header} variant="link" eventKey="1" className="card">
-                                    <Flex direction="row" justify="space-between">
-                                        <Flex direction="column" >
-                                            <p>Sales Associates</p>
-                                            <span className="line" />
-                                        </Flex>
-                                        <ExpandMoreIcon />
-                                    </Flex>
-                                </Accordion.Toggle>
-                                <Accordion.Collapse eventKey="1" className="description">
-                                    <p>test</p>
-                                </Accordion.Collapse>
-
-                                <Accordion.Toggle as={Card.Header} variant="link" eventKey="2" className="card">
-                                    <Flex direction="row" justify="space-between">
-                                        <Flex direction="column" >
-                                            <p>Public Relation</p>
-                                            <span className="line" />
-                                        </Flex>
-                                        <ExpandMoreIcon />
-                                    </Flex>
-                                </Accordion.Toggle>
-                                <Accordion.Collapse eventKey="2" className="description">
-                                    <p>test</p>
-                                </Accordion.Collapse>
-
-                                <Accordion.Toggle as={Card.Header} variant="link" eventKey="3" className="card">
-                                    <Flex direction="row" justify="space-between">
-                                        <Flex direction="column" >
-                                            <p>Administrator Staff</p>
-                                            <span className="line" />
-                                        </Flex>
-                                        <ExpandMoreIcon />
-                                    </Flex>
-                                </Accordion.Toggle>
-                                <Accordion.Collapse eventKey="3" className="description">
-                                    <p>test</p>
-                                </Accordion.Collapse>
-                            </Accordion>   
-                        </Flex>
-
-                        <Flex direction="row" justify="space-around" className="section" style={{marginTop: '3em'}}>
-                            <h1>Outlet</h1>
-                            <Accordion className="accor">
-                                <Accordion.Toggle as={Card.Header} variant="link" eventKey="0" className="card">
-                                    <Flex direction="row" justify="space-between">
-                                        <Flex direction="column" >
-                                            <p>Outlet Manager</p>
-                                            <span className="line" />
-                                        </Flex>
-                                        <ExpandMoreIcon />
-                                    </Flex>
-                                </Accordion.Toggle>
-                                <Accordion.Collapse eventKey="0" className="description">
-                                    <p>test</p>
-                                </Accordion.Collapse>
-
-                                <Accordion.Toggle as={Card.Header} variant="link" eventKey="1" className="card">
-                                    <Flex direction="row" justify="space-between">
-                                        <Flex direction="column" >
-                                            <p>Assisten Outlet Manager</p>
-                                            <span className="line" />
-                                        </Flex>
-                                        <ExpandMoreIcon />
-                                    </Flex>
-                                </Accordion.Toggle>
-                                <Accordion.Collapse eventKey="1" className="description">
-                                    <p>test</p>
-                                </Accordion.Collapse>
-
-                                <Accordion.Toggle as={Card.Header} variant="link" eventKey="2" className="card">
-                                    <Flex direction="row" justify="space-between">
-                                        <Flex direction="column" >
-                                            <p>Captain Service</p>
-                                            <span className="line" />
-                                        </Flex>
-                                        <ExpandMoreIcon />
-                                    </Flex>
-                                </Accordion.Toggle>
-                                <Accordion.Collapse eventKey="2" className="description">
-                                    <p>test</p>
-                                </Accordion.Collapse>
-
-                                <Accordion.Toggle as={Card.Header} variant="link" eventKey="3" className="card">
-                                    <Flex direction="row" justify="space-between">
-                                        <Flex direction="column" >
-                                            <p>Server</p>
-                                            <span className="line" />
-                                        </Flex>
-                                        <ExpandMoreIcon />
-                                    </Flex>
-                                </Accordion.Toggle>
-                                <Accordion.Collapse eventKey="3" className="description">
-                                    <p>test</p>
-                                </Accordion.Collapse>
-                            </Accordion>   
-                        </Flex>
-                    </Flex> */}
-                    
+                    <br />
+                                      
                 </Content>
+                <Flex direction="row" justify="space-around" wrap="wrap" className="vacancies">
+                        {vacancies.map((items) => (
+                            <Card onClick={handleClick}>
+                                <Flex direction="column" justify="center" style={{marginLeft: '1.5em'}}>
+                                    <p className="position">{items.position}</p>
+                                    <p className="location">{items.location}</p>
+                                </Flex>
+                            </Card>
+                        ))}
+                    </Flex>  
             </Wrapper>
             <Footer />
         </div>

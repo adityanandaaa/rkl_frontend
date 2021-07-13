@@ -8,7 +8,7 @@ export const Flex = styled.div`
     align-items: ${({alignItems}) => alignItems};
     flex-wrap: ${({wrap}) => wrap};
     width: 100%;
-
+    height: 100%;
     @media (max-width: 414px){
         flex-direction: column;
     }
@@ -17,6 +17,17 @@ export const Flex = styled.div`
 export const Wrapper = styled.div`
     // margin-top: 1em;
     width: 100%;
+    .vacancies{
+        padding-left: 9em;
+        padding-right: 9em;
+        margin-bottom: 2em;
+        margin-top: -5em;
+    }
+
+    @media (max-width: 414px){
+        padding: 0;
+        margin: 0;
+    }
 `
 
 export const Header = styled.div`
@@ -31,7 +42,7 @@ export const Header = styled.div`
     height: 600px;
 
     .join{
-        margin-top: 8em;
+        // margin-top: 8em;
         h1{
             font-style: normal;
             font-weight: 800;
@@ -51,6 +62,8 @@ export const Header = styled.div`
             letter-spacing: 0.02em;
             color: #FFFFFF;
             width: 700px;
+            margin-bottom: 5em;
+
         }
 
     }
@@ -134,5 +147,40 @@ export const Content = styled.div`
         .title{
             font-size: 25px;
         }
+    }
+`
+
+export const Card = styled.div`
+    width: 302px;
+    height: 150px;
+    margin-top: 2em;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    p{
+        margin: 0;
+        width: 260px;
+    }
+    .position{
+        font-family: Inter;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 150%;
+        letter-spacing: 0.02em;
+        color: #000000;
+    }
+    .location{
+        font-family: Inter;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 150%;
+        color: #6A6A6A;
+        
+    }
+    :hover{
+        cursor: pointer;
+        box-shadow: 0px 12px 15px rgba(0, 0, 0, 0.1);
+        transition: 0.3s;
     }
 `

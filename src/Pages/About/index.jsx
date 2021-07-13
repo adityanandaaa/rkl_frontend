@@ -1,7 +1,7 @@
 import React from 'react'
 import {Flex, Wrapper, Header, Contact} from './styles'
 import {Button} from 'react-bootstrap'
-import Navbar from '../../Components/Navbar'
+import Navbar from '../../Components/Navbar2'
 import Footer from '../../Components/Footer'
 import emailIcon from './Media/Email-Black.png'
 import phoneIcon from './Media/Phone-Black.png'

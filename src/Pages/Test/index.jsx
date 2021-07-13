@@ -1,6 +1,7 @@
 import React from 'react'
 import {Flex} from './styles'
 import Carousels from '../../Components/Carousel'
+import Navbar2 from '../../Components/Navbar2'
 
 const Test = () => {
     const responsive = {
@@ -23,6 +24,7 @@ const Test = () => {
 
     return(
         <div>
+            <Navbar2 />
             <h1>Test</h1>
             {/* <Flex direction="row" justify="center"> */}
             <Carousels text={"item 1"} />

@@ -71,6 +71,9 @@ export const Header = styled.div`
         .brands div:nth-child(2){
             padding: 0;
         }
+        .brands :nth-child(2) img:last-child {
+            margin-top: 3em;
+        }
         .brands{
             img{
                 width: 200px;

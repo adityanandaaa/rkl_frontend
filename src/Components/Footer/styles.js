@@ -129,15 +129,15 @@ export const Wrapper = styled.div`
     }
 
     @media (max-width: 375px){
-        .email{
-            margin-left: -1.5em;
+        .description{
+            font-size: 14px;
+            width: 22em;
         }
         .footer-line{
-            width: 20em;
-            margin-left: -1.5em;
+            width: 18em;
         }
         .copy-icon{
-            margin-left: -1.5em;
+            // margin-left: -1.5em;
             p{
                 font-size: 14px;
             }

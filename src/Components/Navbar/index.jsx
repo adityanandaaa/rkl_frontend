@@ -31,9 +31,9 @@ const Navbars = () => {
                         <Nav.Link href="/">HOME</Nav.Link>
                         <Nav.Link href="/about">ABOUT</Nav.Link>
                         <NavDropdown title="BRANDS" id="basic-nav-dropdown" className="dropdown">
-                            <NavDropdown.Item href="#action/3.1">CAFÉ RUCI</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.2">123</NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">WARGET</NavDropdown.Item>
+                            <NavDropdown.Item href="/brands/1">CAFÉ RUCI</NavDropdown.Item>
+                            <NavDropdown.Item href="/brands/2">123</NavDropdown.Item>
+                            <NavDropdown.Item href="brands/3">WARGET</NavDropdown.Item>
                             <NavDropdown.Divider />
                         </NavDropdown>
                         <Nav.Link href="/career">CAREER</Nav.Link>
