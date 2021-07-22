@@ -1,36 +1,20 @@
-import React, { Fragment } from "react";
-import axios from "axios";
+import React, { Fragment, useState } from "react";
 import Logo from "./Media/Logo2.png";
+import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import FacebookIcon from './Media/facebook-icon.png'
-import { Wrapper, Header, Flex } from "./styles";
+import { Wrapper, Flex } from "./styles";
 import { useHistory, Link } from "react-router-dom"
-// import { headers, baseUrl } from "../../config";
 
 const Navbar2 = () => {
-  const token = localStorage.getItem("token");
-  const history = useHistory()
+    const token = localStorage.getItem("token");
+    const history = useHistory()
+    const [open, setOpen] = useState(false)
 
-  const handleLogout = () => {
-    // axios.get(`${baseUrl}/logout`, headers()).then((res) => {
-
-    //   localStorage.removeItem("token");
-    //   history.push("/")
-    // });
-    alert('logout button pressed')
-  };
-
-  const checkAuth = () => {
-    if (token === null) {
-      return true;
-    } else {
-      return false;
-    }
-  };
-
-  return (
+    
+    return (
     <Fragment>
             <Wrapper>
                 <nav>
@@ -54,21 +38,39 @@ const Navbar2 = () => {
                         <li><a href="/">HOME</a></li>
                         <li><a href="/about">ABOUT</a></li>
                         <li><a href="/brands/1">BRANDS</a></li>
+                        {/* <li className="dropdown">
+                            <a className="dropbtn">BRANDS</a>
+                            <div class="dropdown-content">
+                                <a href="/brands/1">Café Ruci</a>
+                                <a href="/brands/1">Ruci's Joint</a>
+                                <a href="/brands/1">Warget</a>
+                                <a href="/brands/1">123</a>
+                                <a href="/brands/1">Rara</a>
+                            </div>
+                        </li> */}
+                        {/* <NavDropdown title="BRANDS" id="basic-nav-dropdown" className="dropdown">
+                            <NavDropdown.Item href="/brands/1">CAFÉ RUCI</NavDropdown.Item>
+                            <NavDropdown.Item href="/brands/2">123</NavDropdown.Item>
+                            <NavDropdown.Item href="brands/3">WARGET</NavDropdown.Item>
+                            <NavDropdown.Divider />
+                        </NavDropdown> */}
+                        {/* <div class="dropdown">
+                            <button class="dropbtn">Dropdown 
+                            <i class="fa fa-caret-down"></i>
+                            </button>
+                            <div class="dropdown-content">
+                            <a href="#">Link 1</a>
+                            <a href="#">Link 2</a>
+                            <a href="#">Link 3</a>
+                            </div>
+                        </div>  */}
                         <li><a href="/career">CAREER</a></li>
-                        <Flex direction="row" justify="center" className="socmed">
+                        <Flex direction="row" justify="flex-start" className="socmed">
                             <InstagramIcon fontSize="large" style={{color: 'white'}} />
                             <img src={FacebookIcon} alt="facebook-icon" />
                         </Flex>
                     </ul>
                 </nav>
-            {/* <div class="content">
-                <div>
-                    Responsive Navigation Menu Bar Design
-                </div>
-                <div>
-                    using only HTML & CSS
-                </div>
-            </div> */}
             </Wrapper>
       
     </Fragment>

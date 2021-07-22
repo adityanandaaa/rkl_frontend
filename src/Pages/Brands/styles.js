@@ -36,9 +36,10 @@ export const Header = styled.div`
     .brand{
         margin-bottom: 9em;
     }
+
     @media (max-width: 414px){
         .brand{
-            width: 300px;
+            width: 250px;
         }
     }
     
@@ -112,11 +113,15 @@ export const Menu = styled.div`
     width: 530px;
     height: 180px;
 
+    @media (max-width: 768px){
+        width: 350px;   
+    }
     @media (max-width: 414px){
         width: 380px; 
     }
     @media (max-width: 375px){
-        width: 100%;
+        width: 90%;
+        height: 153px;
     }
 `
 
@@ -140,6 +145,7 @@ export const Event = styled.div`
         line-height: 150%;
         text-align: center;
         letter-spacing: 0.02em;
+        margin-top: 30px;
     }
     .line{
         border: 1px solid #FFFFFF;
@@ -194,7 +200,7 @@ export const Event = styled.div`
         h1{
             font-size: 25px;
         }
-        line{
+        .line{
             width: 15em;
         }
         .promo{
@@ -229,8 +235,21 @@ export const Gallery = styled.div`
         height: 530px;
     }
 
+    @media (max-width: 768px){
+        h1{
+            font-size: 34px;
+        }
+        .line{
+            width: 10em;
+        }
+        img{
+            width: 640px;
+            height: 425px;
+        }
+    }
+
     @media (max-width: 414px){
-        margin-top: 15em;
+        margin-top: 17em;
         h1{
             font-size: 30px;
         }
@@ -241,6 +260,11 @@ export const Gallery = styled.div`
             width: 370px;
             height: 270px;
         }
+    }
+    @media (max-width: 375px){
+       img{
+           width: 350px;
+       }
     }
 `
 
@@ -256,8 +280,8 @@ export const Location = styled.div`
     width: 100%;
     height: 350px;
     margin-top: 5em;
-    padding-left: 15em;
-    padding-right: 13em;
+    padding-left: 20em;
+    padding-right: 23em;
 
     p{
         font-style: normal;
@@ -266,32 +290,67 @@ export const Location = styled.div`
         line-height: 150%;
         letter-spacing: 0.02em;
         color: #FFFFFF;
+        width: 25em;
+    }
+    .location-wrap{
+        // margin-right: 15em;
     }
     .insta{
-        position: absolute;
-        margin-top: 3em;
+        // position: absolute;
+        // margin-top: 3em;
     }
     img{
         height: 200px;
-        margin-bottom: 2em;
+        margin-bottom: 1em;
+    }
+
+    @media(max-width: 1280px){
+        padding-left: 31em;
+        .location-wrap{
+            padding-left: 2em;
+        }
+    }
+
+    @media (max-width: 768px){
+        width: 100%;
+        height: 190px;
+        padding-left: 4em;
+        padding-right: 6em;
+        p{
+            font-size: 14px;
+        }
+        img{
+            height: 160px;
+        }
     }
 
     @media (max-width: 414px){
         padding: 0;
+        height: 375px;
         .logo{
             flex-direction: column;
         }
+        img{
+            height: 200px;
+            // width: 250px;
+        }
         .location-wrap{
-            flex-direction: column;
-            // justify-content: flex-start;
-            padding-bottom: 2em;
+            // flex-direction: column;
+            // padding-bottom: 2em;
             p{
                 font-size: 14px;
-                // text-align: center;
-                padding-left: 3.5em;
+                padding-left: 2.5em;
             }
         }
     }
+
+    @media (max-width: 375px){
+        p{
+            width: 23em;
+        }
+    }
+
+    
     
 `
 

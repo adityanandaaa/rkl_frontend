@@ -21,9 +21,9 @@ export const Wrapper = styled.div`
     width: 100%;
     height: 350px;
     color: white;
-    // margin-top: 120px;
     padding-top: 2em;
-    padding-left: 140px;
+    padding-left: 10em;
+    padding-right: 10em;
     
     .logo{
         width: 120px;
@@ -45,16 +45,23 @@ export const Wrapper = styled.div`
         letter-spacing: 0.02em;
         padding-top: 20px;
     }
-    // .menu-wrap{
-    //     margin-top: 5em;
-    // }
+    .menu-wrap{
+        margin-left: 100px;
+    }
     .menu{
         width: 15em;
     }
+    .menu a:nth-child(2){
+        margin-left: 82px;
+        :nth-last-child(2){
+            margin-left: 73px;
+        }
+    }
+    
     .footer-line{
         border: 1px solid white;
         width: 65em;
-        margin-top: 30px;
+        // margin-top: 30px;
     }
     a{
         color: white;
@@ -62,7 +69,7 @@ export const Wrapper = styled.div`
         font-style: normal;
         font-weight: 600;
         font-size: 26px;
-        // margin-top: 15px;
+        margin-top: 10px;
         line-height: 150%;
         letter-spacing: 0.02em;
     }
@@ -73,6 +80,46 @@ export const Wrapper = styled.div`
     //         width: 17px;
     //         height: 17px;
     //     }
+
+    @media (max-width: 768px){
+        max-width: 100%;
+        height: 30em;
+        padding-left: 70px;
+        .logo{
+            width: 100px;
+            height: 45px;
+        }
+        .description{
+            font-style: normal;
+            font-weight: 300;
+            font-size: 16px;
+            width: 22em;
+        }
+        .email{
+            font-size: 16px;
+        }
+        .menu-wrap{
+            margin-left: 70px;
+        }
+        .footer-line{
+            border: 1px solid white;
+            width: 40em;
+        }
+        a{
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        .menu a:nth-child(2){
+            margin-left: 82px;
+            img{
+                width: 20px;
+                height: 20px;
+            }
+            :nth-last-child(2){
+                margin-left: 73px;   
+            }
+        }
+    }
         
 
     @media (max-width: 414px){
@@ -124,7 +171,8 @@ export const Wrapper = styled.div`
             }
         }
         .menu-wrap{
-            margin-right: 5em;
+            // margin-right: 5em;
+            margin: 0;
         }
     }
 

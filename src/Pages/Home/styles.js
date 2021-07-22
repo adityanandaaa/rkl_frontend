@@ -27,7 +27,7 @@ export const Header = styled.div`
     background-image: url(${banner});
     background-size: cover;
     width: 100%;
-    height: 100vh;
+    height: 100%;
 
     .description{
         color: white;

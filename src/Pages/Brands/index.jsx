@@ -1,21 +1,23 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import {Wrapper, Flex, Header, Content, Menu, Event, Gallery, Location} from './styles'
-// import Carousel from "react-multi-carousel";
-// import 'react-multi-carousel/lib/styles.css';
-import {Paper} from '@material-ui/core'
+import axios from 'axios'
 import {Ruci} from './CafeRuci'
 import Navbar from '../../Components/Navbar'
 import Footer from '../../Components/Footer'
 import Modal from '../../Components/Modal'
 import {Carousel} from 'react-bootstrap'
 import Carousels from '../../Components/Carousel'
-import {api} from './api'
+import {api, baseUrl} from './api'
+
+import Event1 from './Media/event-1.jpeg'
+import Event2 from './Media/event-2.jpeg'
+import Event3 from './Media/event-3.jpeg'
+import Event4 from './Media/event-4.jpeg'
 
 
 
 const Brands = ({match}) => {
     const {params: {id} } = match
-    const [data, setData] = React.useState(api)
     const [indexMen, setIndexMen] = React.useState(0);
     const [indexGal, setIndexGal] = React.useState(0);
     const responsive = {
@@ -50,67 +52,38 @@ const Brands = ({match}) => {
     };
     // console.log(api)
     // console.log(data)
-    
+    const Events_Promo = [
+        {title: 'Opening Promo at Cafe Ruci', date: '15 May 2021', name: 'Cafe Ruci', img: Ruci.event.eventPic[0]},
+        {title: 'Opening Promo at Cafe Ruci', date: '15 May 2021', name: 'Cafe Ruci', img: Ruci.event.eventPic[1]},
+        {title: 'Kawa Kawa Special Price', date: '15 May - 30 May 2021', name: 'Cafe Ruci', img: Ruci.event.eventPic[0]},
+        {title: 'Family Meals Packet Only 130K', date: '15 May 2021', name: 'Cafe Ruci', img: Event4}
+    ]
 
-    for(let i=1; i < data.length; i++){
-        console.log(data[i-1].id == id)
-        if(data[i-1].id == id){
-            setData(data[i-1])
-            console.log(data)
-        }
-        setData(data[1])
-    }
-    console.log(data)
-    // if(data.id == 1){
-    //     setData(data[0])
-    // }
-    // else{
-    //     setData(data[1])
-    // }
 
-    const services = [{
-        title: 'title0',
-        caption: 'caption0'
-      }, {
-        title: 'title1',
-        caption: 'caption1'
-      }, {
-        title: 'title2',
-        caption: 'caption2'
-      }, {
-        title: 'title3',
-        caption: 'caption3'
-      }];
-    //   var html = '<div>'
-    //   services.forEach(function (item, index) {
-    //     html += '<div>' + item.title + '</div>'
-    //     html += '<div>' + item.caption + '</div>'
-    //     if (index % 2) {
-    //         html += '</div><div class="row">'
-    //     }
-    // })
-    
-    // html += '</div>'
-    
-      useEffect(() => {
-        // document.getElementById('result').insertAdjacentHTML('beforeend', html)
-
-        // services.reduce(
-        //     function(accumulator, currentValue, currentIndex, array) {
-        //       if (currentIndex % 2 === 0)
-        //         accumulator.push(array.slice(currentIndex, currentIndex + 2));
-        //       return accumulator;
-        //     }, []).map(p => (console.log(p[0], p[1])))
-      }, [])
+    const [data, setData] = useState([])
+    const [gallery, setGallery] = useState([])
+    useEffect(() => {
+        axios.get(`${baseUrl}/brand?id=${id}&with_gallery_event=true`)
+        .then((res) => {
+            const items = res.data
+            console.log(items)
+            setData(items)
+            setGallery(items.gallery)
+        })
+    }, [])
     return(
         <Wrapper>
-            <div>
-                <Header background={Ruci.headerBackground}>
-                    <Navbar />
-                    <Flex direction="row" justify="center" alignItems="center">
-                        <img src={Ruci.title} alt="cafe-ruci-logo" className="brand" /> 
-                    </Flex>
-                </Header>
+            {[data].map((data) => (
+                <div>
+                
+                    <Header background={Ruci.headerBackground}>
+                        <Navbar />
+                        <Flex direction="row" justify="center" alignItems="center">
+                            <img src={data.brand_image_link} alt="cafe-ruci-logo" className="brand" /> 
+                        </Flex>
+                    </Header>
+                
+                
                 <Modal />
                 <div id='result'></div>
                 <Content>
@@ -123,114 +96,32 @@ const Brands = ({match}) => {
                         <Flex direction="row" justify="center" className="menu">
                             <Menu background={Ruci.menu[0]}>
                                 <Flex direction="row" justify="center" alignItems="center">
-                                    <h1>Food</h1>
+                                    <h1>FOOD</h1>
                                 </Flex>
                             </Menu>
                             <Menu background={Ruci.menu[1]}>
                                 <Flex direction="row" justify="center" alignItems="center">
-                                    <h1>Drink</h1>
+                                    <h1>DRINK</h1>
                                 </Flex>
                             </Menu>
 
                         </Flex>
                     </Flex>
                 </Content>
+                
                 <Event background={Ruci.event.eventBackground}>
-                    <Flex direction="column" alignItems="center">
-                        <h1>EVENT & PROMO</h1>
-                        <span className="line" />
-                        
-                        <Carousel activeIndex={indexMen} onSelect={handleSelectMen}>
-                            <Carousel.Item>
-                                <Flex direction="row" justify="center" className="promo">
-                                    <div>
-                                        <a onClick={handleOpen} style={{textDecoration: 'none'}}>
-                                            <img src={Ruci.event.eventPic[0]} />
-                                        </a>
-                                        <p className="title">Buy 1 Get 1 Free</p>
-                                        <p className="date">1 May 2021 - 20 May 2021</p>
-                                    </div>
-                                    <div style={{margin: 0}}>
-                                        <img src={Ruci.event.eventPic[1]} />
-                                        <p className="title">Holiday with Beer and Live Music</p>
-                                        <p className="date">1 May 2021 - 20 May 2021</p>
-                                    </div>
-                                    <div style={{margin: 0}}>
-                                        <img src={Ruci.event.eventPic[1]} />
-                                        <p className="title">Holiday with Beer and Live Music</p>
-                                        <p className="date">1 May 2021 - 20 May 2021</p>
-                                    </div>
-                                </Flex>
-                            </Carousel.Item>
-                            <Carousel.Item>
-                                <Flex direction="row" justify="center" className="promo">
-                                    
-                                    <div style={{margin: 0}}>
-                                        <img src={Ruci.event.eventPic[1]} />
-                                        <p className="title">Holiday with Beer and Live Music</p>
-                                        <p className="date">1 May 2021 - 20 May 2021</p>
-                                    </div>
-                                    <div>
-                                        <a onClick={handleOpen} style={{textDecoration: 'none'}}>
-                                            <img src={Ruci.event.eventPic[0]} />
-                                        </a>
-                                        <p className="title">Buy 1 Get 1 Free</p>
-                                        <p className="date">1 May 2021 - 20 May 2021</p>
-                                    </div>
-                                </Flex>
-                            </Carousel.Item>
-                        </Carousel>
-                        {/* <Carousels 
-                        src={Ruci.event.eventPic[0]}
-                        title="Buy 1 Get 1 Free"
-                        date="1 May 2021 - 20 May 2021" 
-                        handleOpen={handleOpen}
-                        style={{marginTop: '5em'}}
-                    /> */}
-                    </Flex>
-                    
-
-                    {/* <Carousel
-                            swipeable={true}
-                            draggable={false}
-                            showDots={false}
-                            responsive={responsive}
-                            ssr={true} // means to render carousel on server-side.
-                            infinite={false}
-                            // autoPlay={
-                            //     this.props.deviceType !== "mobile" ? true : false
-                            // }
-                            autoPlay={false}
-                            autoPlaySpeed={1000}
-                            keyBoardControl={true}
-                            // customTransition="ease .5"
-                            transitionDuration={500}
-                            containerClass="carousel-container"
-                            // removeArrowOnDeviceType={["tablet", "mobile"]}
-                            // deviceType={this.props.deviceType}
-                            dotListClass="custom-dot-list-style"
-                            itemClass="carousel-item-padding-40-px"
-                            style={{marginLeft: "2em"}}
-                            >
-                                <Paper style={{width: '20em', height: '20em', background: 'black', color: 'white'}}>
-                                    <h1>Test 1</h1>
-                                </Paper>
-                                <Paper style={{width: '20em', height: '20em', background: 'black', color: 'white'}}>
-                                    <h1>Test 1</h1>
-                                </Paper>
-                                <Paper style={{width: '20em', height: '20em', background: 'black', color: 'white'}}>
-                                    <h1>Test 1</h1>
-                                </Paper>
-                                <Paper style={{width: '20em', height: '20em', background: 'black', color: 'white'}}>
-                                    <h1>Test 1</h1>
-                                </Paper>
-                                <Paper style={{width: '20em', height: '20em', background: 'black', color: 'white'}}>
-                                    <h1>Test 1</h1>
-                                </Paper>
-                                <Paper style={{width: '20em', height: '20em', background: 'black', color: 'white'}}>
-                                    <h1>Test 1</h1>
-                                </Paper>
-                            </Carousel> */}
+                    <div>
+                        <Flex direction="column" alignItems="center">
+                            <h1>EVENT & PROMO</h1>
+                            <span className="line" />
+                        </Flex>
+                        <div className="promo">
+                        <Carousels 
+                            data={Events_Promo}
+                            handleOpen={handleOpen}
+                        />
+                        </div>
+                    </div>
                 </Event>
                 <Modal 
                     src={Ruci.event.eventPic[0]}
@@ -239,6 +130,7 @@ const Brands = ({match}) => {
                     title="Buy 1 Get 1 Free" 
                     date="May 2021 - 20 May 2021"
                 />
+
                 <Gallery>
                     <Flex direction="column" alignItems="center">
                         <h1>GALLERY</h1>
@@ -246,37 +138,33 @@ const Brands = ({match}) => {
                     </Flex>
                     <Flex direction="row" justify="center" alignItems="center" className="pic">
                         <Carousel activeIndex={indexGal} onSelect={handleSelectGal}>
-                            <Carousel.Item>
-                                <img
-                                // className="d-block w-95"
-                                src={Ruci.gallery[0]}
-                                alt="First slide"
-                                />
-                            </Carousel.Item>
-                            <Carousel.Item>
-                                <img
-                                // className="d-block w-95"
-                                src={Ruci.gallery[1]}
-                                alt="Second slide"
-                                />
-                            </Carousel.Item>
+                            {gallery.map((items, i) => (
+                                <Carousel.Item key={i}>
+                                    <img
+                                    // className="d-block w-95"
+                                    src={items.name_image_link}
+                                    alt="First slide"
+                                    />
+                                </Carousel.Item>
+                            ))}
                         </Carousel>
                     </Flex>
                 </Gallery>
                 <Location background={Ruci.locationBackground}>
-                    <Flex direction="row" justify="center" alignItems="center" className="logo">
+                    <Flex direction="row" justify="flex-end" alignItems="center" className="logo">
                         <Flex direction="column" alignItems="center" justify="center">
-                            <img src={Ruci.title} />
-                            <p className="insta">{Ruci.insta}</p>
+                            <img src={data.brand_image_link} />
                         </Flex>
                         <Flex direction="column" alignItems="flex-start" justify="center" className="location-wrap">
                             <p>Jl. Suryo Blk. S No.49, Kby. Baru, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12180</p>
                             <p>Mon - Sun : 12 PM - 11 PM</p>
                             <p>+62 819 1800 6649</p>
+                            <p className="insta">{Ruci.insta}</p>
                         </Flex>
                     </Flex>
                 </Location>
              </div>
+            ))}
             <Footer />
         </Wrapper>
     )

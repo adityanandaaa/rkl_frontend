@@ -34,9 +34,6 @@ const Modals = ({src, open, handleClose, title, date}) => {
 
     return(
         <Wrapper>
-            {/* <button type="button" onClick={handleOpen}>
-                Modal
-            </button> */}
             <Modal
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"
@@ -53,7 +50,7 @@ const Modals = ({src, open, handleClose, title, date}) => {
                     <div>
                         <Paper className="paper">
                             <CloseIcon className="close-icon" onClick={handleClose} />
-                            <Flex direction="row" justify="space-around" alignItems="center">
+                            <Flex direction="row" justify="space-around" alignItems="center" className="content-wrap">
                                 <img src={src} alt="event_pic" />
                                 <Flex direction="column" alignItems="space-around" justify="flex-start" className="detail-wrap">
                                     <div className="title">

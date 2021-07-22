@@ -114,4 +114,146 @@ export const Paper = styled.div`
         }
 
     }
+
+    @media (max-width: 1500px){
+        .close-icon{
+            top: 3em;
+            right: 11em;
+        }
+    }
+    @media (max-width: 1400px){
+        .close-icon{
+            top: 7em;
+            right: 9.5em;
+        }
+    }
+    @media (max-width: 1280px){
+        .close-icon{
+            top: 5em;
+            right: 7em;
+        }
+    }
+
+    @media (max-width: 768px){
+        width: 710px;
+        height: 376px;
+
+        img{
+            width: 318px;
+            height: 336px;
+        }
+        .detail-wrap{
+            margin-top: 1em;
+        }
+        .title p{
+            font-weight: 600;
+            font-size: 20px;
+        }
+        .title h1{
+            font-size: 26px;
+        }
+        .date{
+            margin-top: 0.5em;
+            h2{
+                font-size: 20px;
+            }
+            p{
+                font-size: 16px;
+            }
+        }
+        .description{
+            h2{
+                font-size: 20px;
+            }
+            p{
+                font-size: 16px;
+            }
+        }
+        .location{
+            h2{
+                font-size: 20px;
+            }
+            p{
+                font-size: 16px;
+            }
+        }
+        .close-icon{
+            top: 12em;
+            right: 1.5em;
+        }
+    }
+
+    @media (max-width: 414px){
+        width: 414px;
+        height: 100vh;
+        .content-wrap{
+            display: flex;
+            flex-direction: column;
+        }
+        img{
+            width: 100%;
+            height: 320px;
+            margin-top: 1em;
+            padding: 0;
+        }
+        .detail-wrap{
+            margin-top: 1em;
+        }
+        .title p{
+            font-weight: 600;
+            font-size: 14px;
+            margin-top: -1em;
+        }
+        .title h1{
+            font-size: 22px;
+        }
+        .date{
+            margin-top: 0.5em;
+            h2{
+                font-size: 16px;
+            }
+            p{
+                font-size: 14px;
+            }
+        }
+        .description{
+            h2{
+                font-size: 16px;
+            }
+            p{
+                font-size: 14px;
+            }
+        }
+        .location{
+            h2{
+                font-size: 16px;
+            }
+            p{
+                font-size: 14px;
+            }
+        }
+        .close-icon{
+            fill: black;
+            top: 0.5em;
+            right: 1em;
+        }
+    }
+    @media (max-width: 375px){
+        width: 375px;
+        height: 100vh;
+        img{
+            width: 100%;
+            height: 375px;
+        }
+        .detail-wrap{
+            margin-top: 1em;
+        }
+        .description{
+            p{
+                font-size: 14px;
+                width: 20em;
+            }
+        }
+
+    }
 `

@@ -11,7 +11,7 @@ const CareerDetail = () => {
             <Header>
                 <Navbar />
                 <Flex direction="row" justify="center" alignItems="center">
-                    <h1>Outlet Manager</h1>
+                    <h1>OUTLET MANAGER</h1>
                 </Flex>
             </Header>
             <Content>

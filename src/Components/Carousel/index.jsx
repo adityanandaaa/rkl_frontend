@@ -3,7 +3,7 @@ import {Wrapper, Flex} from './styles'
 import Carousel from "react-multi-carousel";
 import 'react-multi-carousel/lib/styles.css';
 
-const Carousels = ({src, title, date, handleOpen}) => {
+const Carousels = ({data, src, title, date, handleOpen}) => {
 
     const responsive = {
         desktop: {
@@ -47,7 +47,17 @@ const Carousels = ({src, title, date, handleOpen}) => {
                 dotListClass="custom-dot-list-style"
                 itemClass="carousel-item-padding-40-px"
             >
-                <Flex direction="row" justify="center" className="promo">
+                {data.map((events) => (
+                    <div className="event" onClick={handleOpen}>
+                        <Flex direction="column" justify="center" alignItems="flex-start">
+                            <img src={events.img} alt="events_pic" />
+                            <p className="event_title">{events.title}</p>
+                            <p className="cafe_name">{events.name}</p>
+                            <p className="event_date">{events.date}</p>
+                        </Flex>
+                    </div>
+                ))}
+                {/* <Flex direction="row" justify="center" className="promo">
                     <div>
                         <a onClick={handleOpen} style={{textDecoration: 'none'}}>
                             <img src={src} />
@@ -69,17 +79,7 @@ const Carousels = ({src, title, date, handleOpen}) => {
                         <p className="title">{title}</p>
                         <p className="date">{date}</p>
                     </div>
-                    {/* <div style={{margin: 0}}>
-                        <img src={Ruci.event.eventPic[1]} />
-                        <p className="title">Holiday with Beer and Live Music</p>
-                        <p className="date">1 May 2021 - 20 May 2021</p>
-                    </div>
-                    <div style={{margin: 0}}>
-                        <img src={Ruci.event.eventPic[1]} />
-                        <p className="title">Holiday with Beer and Live Music</p>
-                        <p className="date">1 May 2021 - 20 May 2021</p>
-                    </div> */}
-                </Flex>
+                </Flex> */}
             </Carousel>
         </Wrapper>
     )

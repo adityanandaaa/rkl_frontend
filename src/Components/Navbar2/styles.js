@@ -67,6 +67,16 @@ export const Wrapper = styled.div`
         cursor: pointer;
         display: none;
     }
+    .dropdown a{
+        font-size: 20px;
+        font-style: normal;
+        font-weight: bold;
+        line-height: 150%;
+        letter-spacing: 0.02em;
+        color: #FFFFFF;
+        padding: 0 15px;
+    }
+
     .socmed{
         display: none;
     }
@@ -79,6 +89,9 @@ export const Wrapper = styled.div`
         }
     }
     @media (max-width: 920px) {
+        nav{
+            // height 100vw;
+        }
         nav .menu-btn i{
             display: block;
         }
@@ -90,7 +103,7 @@ export const Wrapper = styled.div`
             top: 0px;
             left: -100%;
             background: #000000;
-            height: 100vh;
+            height: 100%;
             width: 100%;
             text-align: left;
             display: block;
@@ -117,6 +130,22 @@ export const Wrapper = styled.div`
             color: #FFFFFF;
             // transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
+
+        // .dropdown .dropbtn{
+        //     font-size: 26px;
+        //     margin-top: -1em;
+        // }
+        
+        // .dropdown-content{
+        //     // font-size: 12px;
+        //     // margin-left: 12em;
+        //     position: static;
+        //     min-width: 100px;
+        //     a{
+        //         font-size: 15px;
+        //     }
+        // }
+        
         #click:checked ~ ul li a{
             margin-left: 40px;
         }
@@ -128,6 +157,7 @@ export const Wrapper = styled.div`
         .socmed{
             display: flex;
             margin-top: 2em;
+            margin-left: 3.5em;
             img{
                 height: 32px;
                 margin-left: 2em;

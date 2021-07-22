@@ -1,42 +1,38 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 import {Wrapper, Flex, Header, Content, Card} from './styles'
-import {TextField, Select, MenuItem, InputLabel, FormControl} from '@material-ui/core'
+import {TextField, Select, MenuItem, InputLabel, FormControl, Button} from '@material-ui/core'
 import Navbar from '../../Components/Navbar2'
 import Footer from '../../Components/Footer'
 
+
 const Career = () => {
-    const [position, setPosition] = React.useState('');
-    const [location, setLocation] = React.useState('')
+    const [position, setPosition] = useState('')
+    const [location, setLocation] = useState('')
+    const [data, setData] = useState([])
     const handlePosition = (event) => {
         setPosition(event.target.value);
     };
     const handleLocation = (event) => {
         setLocation(event.target.value);
     }
-    const vacancies = [
-        {position: 'Marketing', location: 'Head Office'},
-        {position: 'Sales Associates', location: 'Head Office'},
-        {position: 'Pulic Relation', location: 'Head Office'},
-        {position: 'Administrator Staff', location: 'Head Office'},
-        {position: 'Outlet Manager', location: 'Outlet'},
-        {position: 'Asisten Manager Outlet', location: 'Outlet'},
-        {position: 'Captain Service', location: 'Head Office'},
-        {position: 'Server', location: 'Outlet'},
-        {position: 'Housekeeping', location: 'Outlet'},
-        {position: 'Chef De Partie', location: 'Head Office'},
-        {position: 'Cook', location: 'Outlet'},
-        {position: 'Cook Helper', location: 'Outlet'},
-        {position: 'Steward', location: 'Head Office'},
-        {position: 'Head Bar', location: 'Outlet'},
-        {position: 'Bartender', location: 'Outlet'},
-        {position: 'Bar Back', location: 'Head Office'},
-        {position: 'Host', location: 'Head Office'},
-        {position: 'Marketing - Intern', location: 'Intern'},
-
-    ]
-    const handleClick = () => {
-        window.location.href = '/career-detail'
+   
+    const handleClick = (id) => {
+        // window.location.href = '/career-detail'
+        console.log(id)
     }
+
+    const fetchData = async() => {
+        const res = await axios.get("http://admin.rklokal.com/api/career")
+        const items = res.data
+        console.log(items)
+        setData(items)
+    }
+
+    useEffect(() => {
+        fetchData()
+    }, [])
+
     return(
         <div>
             <Wrapper>
@@ -52,8 +48,8 @@ const Career = () => {
                         <h1 className="title">OPEN POSITIONS</h1>
                     </Flex>
                     <Flex direction="row" justify="space-around" alignItems="center">
-                        <TextField id="standard-basic" label="Keyword" style={{width: '250px'}} />
-                        <FormControl style={{width: '250px'}}>
+                        <TextField id="standard-basic" label="Keyword" className="field" />
+                        <FormControl className="field">
                             <InputLabel id="demo-simple-select-label">Position</InputLabel>
                             <Select
                             labelId="demo-simple-select-label"
@@ -72,7 +68,7 @@ const Career = () => {
 
                             </Select>
                         </FormControl>
-                        <FormControl style={{width: '250px'}}>
+                        <FormControl className="field">
                             <InputLabel id="demo-simple-select-label">Location</InputLabel>
                             <Select
                             labelId="demo-simple-select-label"
@@ -90,15 +86,15 @@ const Career = () => {
                                       
                 </Content>
                 <Flex direction="row" justify="space-around" wrap="wrap" className="vacancies">
-                        {vacancies.map((items) => (
-                            <Card onClick={handleClick}>
-                                <Flex direction="column" justify="center" style={{marginLeft: '1.5em'}}>
-                                    <p className="position">{items.position}</p>
-                                    <p className="location">{items.location}</p>
-                                </Flex>
-                            </Card>
-                        ))}
-                    </Flex>  
+                    {data.map((items) => (
+                        <Card onClick={() => handleClick(items.id)}>
+                            <Flex direction="column" justify="center" style={{marginLeft: '1.5em'}}>
+                                <p className="position">{items.position_name}</p>
+                                <p className="location">{items.location_name}</p>
+                            </Flex>
+                        </Card>
+                    ))}
+                </Flex>  
             </Wrapper>
             <Footer />
         </div>

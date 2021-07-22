@@ -24,9 +24,23 @@ export const Wrapper = styled.div`
         margin-top: -5em;
     }
 
+    @media (max-width: 768px){
+        .vacancies{
+            padding-left: 3em;
+            padding-right: 3em;
+        }
+    }
+
     @media (max-width: 414px){
-        padding: 0;
-        margin: 0;
+        .vacancies{
+            padding-left: 3.5em;
+        }
+    }
+
+    @media (max-width: 375px){
+        .vacancies{
+            padding-left: 2.5em;
+        }
     }
 `
 
@@ -42,7 +56,6 @@ export const Header = styled.div`
     height: 600px;
 
     .join{
-        // margin-top: 8em;
         h1{
             font-style: normal;
             font-weight: 800;
@@ -68,6 +81,19 @@ export const Header = styled.div`
 
     }
 
+    @media (max-width: 768px){
+        height: 550px;
+        .join{
+            h1{
+                font-size: 46px;
+            }
+            h2{
+                font-size: 25px;
+                width: 23em;
+            }
+        }
+    }
+
     @media (max-width: 414px){
         .join{
             h1{
@@ -75,7 +101,7 @@ export const Header = styled.div`
             }
             h2{
                 font-size: 18px;
-                width: 20em;
+                width: 18em;
                 padding-bottom: 5em;
             }
         }
@@ -99,53 +125,26 @@ export const Content = styled.div`
         letter-spacing: 0.02em;
         color: #000000;
         text-shadow: 0px 4px 20px rgba(255, 255, 255, 0.3);
-        text-align: center;
     }
-    .section{
-        // padding-right: 12em;
-        h1{
-            font-weight: bold;
-            font-size: 28px;
-            line-height: 150%;
-            letter-spacing: 0.02em;
-            // width: 10em;
-            // padding-right: 5em;
-            // padding-left: 2em;
+    .field{
+        width: 250px;
+    }
+    
+    @media (max-width: 768px){
+        padding-left: 2em;
+        padding-right: 2em;
+        .field{
+            width: 200px;
         }
-        // ul{
-        //     margin-left: 10em; 
-        //     width: 90em; 
-        // }
-        li{
-            font-weight: normal;
-            font-size: 20px;
-            line-height: 150%;
-            letter-spacing: 0.02em;
-        }
-        .accor{
-            // margin-left: 15em;
-            width: 32em;
-        }
-        .card{
-            font-size: 23px;
-            color: black;
-            border: none;
-            background: white;
-            
-        }
-        .line{
-            border: 1px solid #000000;
-            width: 100vw;
-        }
-        .description{
-            padding-left: 1.5em;
-        }
-        
     }
 
     @media (max-width: 414px){
         .title{
             font-size: 25px;
+        }
+        .field{
+            width: 20em;
+            margin-top: 1em;
         }
     }
 `
@@ -183,4 +182,16 @@ export const Card = styled.div`
         box-shadow: 0px 12px 15px rgba(0, 0, 0, 0.1);
         transition: 0.3s;
     }
+
+    @media (max-width: 414px){
+        height: 110px;
+        .position{
+            font-size: 18px;
+        }
+        .location{
+            font-size: 16px;
+        }
+    }
+
+    
 `

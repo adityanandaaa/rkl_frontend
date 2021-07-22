@@ -3,7 +3,8 @@ import {Flex, Wrapper} from './styles'
 import Logo from './Media/Logo2.png'
 import CopyrightIcon from './Media/Copyright-White.png'
 import FacebookIcon from './Media/Facebook-White.png'
-import InstagramIcon from './Media/Instagram-White.png'
+// import InstagramIcon from './Media/Instagram-White.png'
+import InstagramIcon from '@material-ui/icons/Instagram';
 
 const Footer = () => {
     return(
@@ -18,30 +19,28 @@ const Footer = () => {
                     
                 </Flex>
                 <Flex direction="column" justify="flex-start" alignItems="flex-start" className="menu-wrap">
-                    <Flex direction="row" justify="space-between" className="menu">
+                    <Flex direction="row" justify="flex-start" className="menu">
                         <a href="/">Home</a>
                         <a href="/">About</a>
                     </Flex>
-                    <Flex direction="row" justify="space-between" className="menu">
+                    <Flex direction="row" justify="flex-start" className="menu">
                         <a href="/">Brand</a>
                         <a href="/">Gallery</a>
                     </Flex>
-                     <Flex direction="row" justify="space-between" className="menu">
+                     <Flex direction="row" justify="flex-start" className="menu">
                         <a href="/">Career</a>
-                        <Flex direction="row" justify="flex-end" className="menu">
-                            <a href="/">
-                                <img src={InstagramIcon} />
-                            </a>
-                            <a href="/">
-                                <img src={FacebookIcon} style={{marginLeft: '1em'}} />
-                            </a>
-                        </Flex>
+                        <a href="/">
+                            <InstagramIcon fontSize="large" />
+                        </a>
+                        <a href="/">
+                            <img src={FacebookIcon} style={{marginLeft: '1em'}} />
+                        </a>
                     </Flex>
                    
                 </Flex>
             </Flex>
             <div className="footer-line"></div>
-            <Flex direction="row" justify="flex-start" className="copy-icon">
+            <Flex direction="row" justify="flex-start" className="copy-icon" style={{marginTop: '30px'}}>
                 <img src={CopyrightIcon} style={{width: '17px', height: '17px', marginTop: '4px'}} />
                 <p>2021 RKL Group</p>
             </Flex>

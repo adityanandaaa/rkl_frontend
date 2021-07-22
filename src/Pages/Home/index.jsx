@@ -4,8 +4,7 @@ import axios from 'axios'
 import Carousel from "react-multi-carousel";
 import 'react-multi-carousel/lib/styles.css';
 import Gallery from 'react-grid-gallery'
-import {TextField} from '@material-ui/core'
-import {Container, InputGroup, FormControl, Button} from 'react-bootstrap'
+import {FormControl, Button} from 'react-bootstrap'
 import Navbar from '../../Components/Navbar'
 import Footer from '../../Components/Footer'
 import Brand1 from './Media/brands-1.png'
@@ -45,6 +44,13 @@ const Home = () => {
         pic5: false
     })
 
+    const Events_Promo = [
+        {title: 'Opening Promo at Cafe Ruci', date: '15 May 2021', img: Event1},
+        {title: 'Opening Promo at Cafe Ruci', date: '15 May 2021', img: Event2},
+        {title: 'Kawa Kawa Special Price', date: '15 May - 30 May 2021', img: Event3},
+        {title: 'Family Meals Packet Only 130K', date: '15 May 2021', img: Event4}
+    ]
+
     const responsive = {
         desktop: {
             breakpoint: { max: 3000, min: 1024 },
@@ -68,62 +74,62 @@ const Home = () => {
         {
             src: Gallery1,
             thumbnail: Gallery1,
-            thumbnailWidth: 300,
-            thumbnailHeight: 200,
+            thumbnailWidth: 350,
+            thumbnailHeight: 220,
         },
         {
             src: Gallery2,
             thumbnail: Gallery2,
-            thumbnailWidth: 300,
-            thumbnailHeight: 200,
+            thumbnailWidth: 350,
+            thumbnailHeight: 220,
         },
         {
             src: Gallery3,
             thumbnail: Gallery3,
-            thumbnailWidth: 300,
-            thumbnailHeight: 200,
+            thumbnailWidth: 350,
+            thumbnailHeight: 220,
         },
         {
             src: Gallery4,
             thumbnail: Gallery4,
-            thumbnailWidth: 300,
-            thumbnailHeight: 200,
+            thumbnailWidth: 350,
+            thumbnailHeight: 220,
         },
         {
             src: Gallery5,
             thumbnail: Gallery5,
-            thumbnailWidth: 300,
-            thumbnailHeight: 200,
+            thumbnailWidth: 350,
+            thumbnailHeight: 220,
         },
         {
             src: Gallery6,
             thumbnail: Gallery6,
-            thumbnailWidth: 300,
-            thumbnailHeight: 200,
+            thumbnailWidth: 350,
+            thumbnailHeight: 220,
         },
         {
             src: Gallery7,
             thumbnail: Gallery7,
-            thumbnailWidth: 300,
-            thumbnailHeight: 200,
+            thumbnailWidth: 350,
+            thumbnailHeight: 220,
         },
         {
             src: Gallery8,
             thumbnail: Gallery8,
-            thumbnailWidth: 300,
-            thumbnailHeight: 200,
+            thumbnailWidth: 350,
+            thumbnailHeight: 220,
         },
         {
             src: Gallery9,
             thumbnail: Gallery9,
-            thumbnailWidth: 300,
-            thumbnailHeight: 200,
+            thumbnailWidth: 350,
+            thumbnailHeight: 220,
         },
         {
             src: Gallery10,
             thumbnail: Gallery10,
-            thumbnailWidth: 300,
-            thumbnailHeight: 200,
+            thumbnailWidth: 350,
+            thumbnailHeight: 220,
         },
     ];
 
@@ -138,7 +144,7 @@ const Home = () => {
           })
       }
     const handlePost = () => {
-        if(value.email == ''){
+        if(value.email === ''){
             alert('You must insert the text first')
         }
         else{
@@ -171,13 +177,48 @@ const Home = () => {
                 </Flex>
                 <Flex direction="column" justify="center" className="brands">
                     <Flex direction="row" justify="space-around">
-                        <img src={!hover.pic1 ? Brand1 : Brand6} onMouseOver={() => setHover({pic1: true})} onMouseOut={() => setHover({pic1: false})} />
-                        <img src={!hover.pic2 ? Brand2 : Brand7} onMouseOver={() => setHover({pic2: true})} onMouseOut={() => setHover({pic2: false})} />
-                        <img src={!hover.pic3 ? Brand3 : Brand8} onMouseOver={() => setHover({pic3: true})} onMouseOut={() => setHover({pic3: false})} />
+                        <a href="/brands/1">
+                            <img 
+                                src={!hover.pic1 ? Brand1 : Brand6} 
+                                onMouseOver={() => setHover({pic1: true})} 
+                                onMouseOut={() => setHover({pic1: false})} 
+                                alt="cafe_ruci_logo"
+                            />
+                        </a>
+                        <a href="/brands/2">
+                            <img 
+                                src={!hover.pic2 ? Brand2 : Brand7} 
+                                onMouseOver={() => setHover({pic2: true})} 
+                                onMouseOut={() => setHover({pic2: false})} 
+                                alt="ruci's_joint_logo"
+                            />
+                        </a>
+                        <a href="/brands/3">
+                            <img 
+                                src={!hover.pic3 ? Brand3 : Brand8} 
+                                onMouseOver={() => setHover({pic3: true})} 
+                                onMouseOut={() => setHover({pic3: false})} 
+                                alt="warget_logo"
+                            />
+                        </a>
                     </Flex>
                     <Flex direction="row" justify="space-around">
-                        <img src={!hover.pic4 ? Brand4 : Brand9} onMouseOver={() => setHover({pic4: true})} onMouseOut={() => setHover({pic4: false})} />
-                        <img src={!hover.pic5 ? Brand5 : Brand10} onMouseOver={() => setHover({pic5: true})} onMouseOut={() => setHover({pic5: false})} />
+                        <a href="/brands/4">
+                            <img 
+                                src={!hover.pic4 ? Brand4 : Brand9} 
+                                onMouseOver={() => setHover({pic4: true})} 
+                                onMouseOut={() => setHover({pic4: false})} 
+                                alt="123_logo"
+                            />
+                        </a>
+                        <a href="/brands/4">
+                            <img 
+                                src={!hover.pic5 ? Brand5 : Brand10} 
+                                onMouseOver={() => setHover({pic5: true})} 
+                                onMouseOut={() => setHover({pic5: false})} 
+                                alt="rara_logo"
+                            />
+                        </a>
                     </Flex>
                 </Flex>
             </Header>
@@ -209,36 +250,16 @@ const Home = () => {
                     dotListClass="custom-dot-list-style"
                     itemClass="carousel-item-padding-40-px"
                 >
-                    <div className="event">
-                        <Flex direction="column" justify="center">
-                            <img src={Event1} />
-                            <p className="event_title">Opening Promo at Cafe Ruci</p>
-                            <p className="event_date">15 May 2021</p>
-                        </Flex>
-                        
-                    </div>
-                    <div className="event">
-                        <Flex direction="column" justify="center">
-                            <img src={Event2} />
-                            <p className="event_title">Opening Promo at Cafe Ruci</p>
-                            <p className="event_date">15 May 2021</p>
-                        </Flex>
-                        
-                    </div>
-                    <div className="event">
-                        <Flex direction="column" justify="center">
-                            <img src={Event3} />
-                            <p className="event_title">Kawa Kawa Special Price</p>
-                            <p className="event_date">15 May - 30 May 2021</p>
-                        </Flex>
-                    </div>
-                    <div className="event">
-                        <Flex direction="column" justify="center">
-                            <img src={Event4} />
-                            <p className="event_title">Family Meals Packet Only 130K</p>
-                            <p className="event_date">15 May 2021</p>
-                        </Flex>
-                    </div>
+                    {Events_Promo.map((events) => (
+                        <div className="event">
+                            <Flex direction="column" justify="center">
+                                <img src={events.img} alt="events_pic" />
+                                <p className="event_title">{events.title}</p>
+                                <p className="event_date">{events.date}</p>
+                            </Flex>
+                            
+                        </div>
+                    ))}
                 </Carousel>
             </Events>
             

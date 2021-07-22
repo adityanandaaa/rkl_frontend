@@ -42,10 +42,17 @@ export const Header = styled.div`
         text-shadow: 0px 4px 20px rgba(255, 255, 255, 0.3);
     }
 
+    @media (max-width: 768px){
+        width: 100%;
+        height: 550px;
+        h1{
+            font-size: 50px;
+        }
+    }
+
     @media (max-width: 414px){
         h1{
-            // font-size: 50px;
-            // width: 20em;
+            font-size: 28px;
         }
         h2{
             font-size: 18px;
@@ -101,25 +108,51 @@ export const Content = styled.div`
         margin-bottom: 300px;
     }
 
-    @media (max-width: 414px){
-        padding-left: 1em;
+    @media (max-width: 768px){
+        padding-left: 70px;
         h1{
-            font-size: 22px;
+            font-size: 26px;
         }
-        p{
+        p, ul{
             font-size: 18px;
-            width: 20em;
+            width: 33em;
         }
-        ul{
-            font-size: 18px;
-            width: 20em;
-            margin-top: 2em;
+        button{
+            width: 230px;
+            height: 54px;
         }
     }
 
-    @media (max-width: 375px){
+    @media (max-width: 414px){
+        padding-left: 30px;
+        h1{
+            font-size: 22px;
+            width: 12em;
+        }
         p{
+            font-size: 18px;
             width: 19em;
+        }
+        ul{
+            font-size: 18px;
+            width: 18em;
+            margin-top: 2em;
+        }
+        button{
+            width: 350px;
+            margin-bottom: 150px;
+        }
+        
+    }
+
+    @media (max-width: 375px){
+        p, ul{
+            font-size: 16px;
+            width: 18em;
+        }
+        button{
+            width: 305px;
+            height: 41px;
         }
     }
 `

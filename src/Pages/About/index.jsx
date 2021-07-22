@@ -44,7 +44,7 @@ const About = () => {
                 <h1>Mission</h1>
             </Flex>
             <Contact>
-                <Flex direction="row" justify="flex-start" className="lala">
+                <Flex direction="row" justify="center" className="lala">
                     <Flex direction="column" alignItems="flex-start" className="yeye">
                         <h1>Our Contact <span>Details</span></h1>
                     </Flex>
