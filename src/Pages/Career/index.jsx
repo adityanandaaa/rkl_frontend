@@ -100,14 +100,44 @@ const Career = () => {
                                       
                 </Content>
                 <Flex direction="row" justify="space-around" wrap="wrap" className="vacancies">
-                    {data.map((items) => (
+                    {position === '' ? 
+                        data.map((items) => (
+                            <Card onClick={() => handleClick(items.id)}>
+                                <Flex direction="column" justify="center" style={{marginLeft: '1.5em'}}>
+                                    <p className="position">{items.position_name}</p>
+                                    <p className="location">{items.location_name}</p>
+                                </Flex>
+                            </Card>
+                        ))
+                        :
+                        location === '' ?
+
+                        data.filter(x => position === x.position_name).map((items) => (
+                            <Card onClick={() => handleClick(items.id)}>
+                                <Flex direction="column" justify="center" style={{marginLeft: '1.5em'}}>
+                                    <p className="position">{items.position_name}</p>
+                                    <p className="location">{items.location_name}</p>
+                                </Flex>
+                            </Card>
+                        ))
+                        :
+                        data.filter(x => position === x.position_name && location === x.location_name).map((items) => (
+                            <Card onClick={() => handleClick(items.id)}>
+                                <Flex direction="column" justify="center" style={{marginLeft: '1.5em'}}>
+                                    <p className="position">{items.position_name}</p>
+                                    <p className="location">{items.location_name}</p>
+                                </Flex>
+                            </Card>
+                        ))
+                    }
+                    {/* {data && data.filter(x => position === x.position_name).map((items) => (
                         <Card onClick={() => handleClick(items.id)}>
                             <Flex direction="column" justify="center" style={{marginLeft: '1.5em'}}>
                                 <p className="position">{items.position_name}</p>
                                 <p className="location">{items.location_name}</p>
                             </Flex>
                         </Card>
-                    ))}
+                    ))} */}
                 </Flex>  
             </Wrapper>
             <Footer />
