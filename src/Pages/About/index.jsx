@@ -50,11 +50,11 @@ const About = () => {
                     </Flex>
                     <Flex direction="column" justify="center" alignItems="center" className="contact-wrap">
                         <Flex direction="row">
-                            <img src={emailIcon} />
+                            <img src={emailIcon} alt="email_icon" />
                             <p>info@rklokal.com</p>
                         </Flex>
                         <Flex direction="row">
-                            <img src={phoneIcon} />
+                            <img src={phoneIcon} alt="phone_icon" />
                             <p>+62 821 6652 6245</p>
                         </Flex>
                         <Flex direction="row">

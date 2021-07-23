@@ -1,24 +1,32 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import {Wrapper, Flex, Header, Content, Card} from './styles'
-import {TextField, Select, MenuItem, InputLabel, FormControl, Button} from '@material-ui/core'
+import {TextField, Select, MenuItem, InputLabel, FormControl} from '@material-ui/core'
 import Navbar from '../../Components/Navbar2'
 import Footer from '../../Components/Footer'
 
 
 const Career = () => {
+    const [keyword, setKeyword] = useState('')
     const [position, setPosition] = useState('')
     const [location, setLocation] = useState('')
     const [data, setData] = useState([])
+
+    const handleKeyword = (event) => {
+        console.log(event.target.value)
+        setKeyword(event.target.value)
+    }
     const handlePosition = (event) => {
+        console.log(event.target.value)
         setPosition(event.target.value);
     };
     const handleLocation = (event) => {
+        console.log(event.target.value)
         setLocation(event.target.value);
     }
    
     const handleClick = (id) => {
-        // window.location.href = '/career-detail'
+        window.location.href = `/career-detail/${id}`
         console.log(id)
     }
 
@@ -48,7 +56,13 @@ const Career = () => {
                         <h1 className="title">OPEN POSITIONS</h1>
                     </Flex>
                     <Flex direction="row" justify="space-around" alignItems="center">
-                        <TextField id="standard-basic" label="Keyword" className="field" />
+                        <TextField 
+                            id="standard-basic"
+                            label="Keyword" 
+                            className="field"
+                            value={keyword}
+                            onChange={handleKeyword} 
+                        />
                         <FormControl className="field">
                             <InputLabel id="demo-simple-select-label">Position</InputLabel>
                             <Select
@@ -57,14 +71,14 @@ const Career = () => {
                             value={position}
                             onChange={handlePosition}
                             >
-                            <MenuItem value={10}>Marketing</MenuItem>
-                            <MenuItem value={20}>Sales Associates</MenuItem>
-                            <MenuItem value={30}>Public Relation</MenuItem>
-                            <MenuItem value={40}>Administrator Staff</MenuItem>
-                            <MenuItem value={50}>Outlet Manager</MenuItem>
-                            <MenuItem value={60}>Asisten Outlet Manager</MenuItem>
-                            <MenuItem value={70}>Captain Service</MenuItem>
-                            <MenuItem value={80}>Server</MenuItem>
+                            <MenuItem value="Marketing">Marketing</MenuItem>
+                            <MenuItem value="Sales Associates">Sales Associates</MenuItem>
+                            <MenuItem value="Public Relation">Public Relation</MenuItem>
+                            <MenuItem value="Administrator Staff">Administrator Staff</MenuItem>
+                            <MenuItem value="Outlet Manager">Outlet Manager</MenuItem>
+                            <MenuItem value="Asisten Outlet Manager">Asisten Outlet Manager</MenuItem>
+                            <MenuItem value="Captain Service">Captain Service</MenuItem>
+                            <MenuItem value="Server">Server</MenuItem>
 
                             </Select>
                         </FormControl>
@@ -76,9 +90,9 @@ const Career = () => {
                             value={location}
                             onChange={handleLocation}
                             >
-                            <MenuItem value={10}>Head Office</MenuItem>
-                            <MenuItem value={20}>Outlet</MenuItem>
-                            <MenuItem value={30}>Intern</MenuItem>
+                            <MenuItem value="Head Office">Head Office</MenuItem>
+                            <MenuItem value="Outlet">Outlet</MenuItem>
+                            <MenuItem value="Intern">Intern</MenuItem>
                             </Select>
                         </FormControl>
                     </Flex>

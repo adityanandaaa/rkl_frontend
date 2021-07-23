@@ -1,5 +1,5 @@
 import React from 'react'
-import {Flex} from './styles'
+// import {Flex} from './styles'
 import Carousels from '../../Components/Carousel'
 // import Carousel from "react-multi-carousel";
 // import 'react-multi-carousel/lib/styles.css';
@@ -10,23 +10,23 @@ import Event3 from './Media/event-3.jpeg'
 import Event4 from './Media/event-4.jpeg'
 
 const Test = () => {
-    const responsive = {
-        desktop: {
-            breakpoint: { max: 3000, min: 1024 },
-            items: 3,
-            slidesToSlide: 3 // optional, default to 1.
-        },
-        tablet: {
-            breakpoint: { max: 1024, min: 464 },
-            items: 2,
-            slidesToSlide: 2 // optional, default to 1.
-        },
-        mobile: {
-            breakpoint: { max: 464, min: 0 },
-            items: 1,
-            slidesToSlide: 1 // optional, default to 1.
-        }
-    };
+    // const responsive = {
+    //     desktop: {
+    //         breakpoint: { max: 3000, min: 1024 },
+    //         items: 3,
+    //         slidesToSlide: 3 // optional, default to 1.
+    //     },
+    //     tablet: {
+    //         breakpoint: { max: 1024, min: 464 },
+    //         items: 2,
+    //         slidesToSlide: 2 // optional, default to 1.
+    //     },
+    //     mobile: {
+    //         breakpoint: { max: 464, min: 0 },
+    //         items: 1,
+    //         slidesToSlide: 1 // optional, default to 1.
+    //     }
+    // };
     const Events_Promo = [
         {title: 'Opening Promo at Cafe Ruci', date: '15 May 2021', img: Event1},
         {title: 'Opening Promo at Cafe Ruci', date: '15 May 2021', img: Event2},

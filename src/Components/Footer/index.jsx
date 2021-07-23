@@ -10,7 +10,7 @@ const Footer = () => {
     return(
         <Wrapper>
             <Flex direction="row">
-                <img src={Logo} className="logo" />
+                <img src={Logo} className="logo" alt="RKL_logo" />
             </Flex>
             <Flex direction="row" justify="flex-start" alignItems="flex-start" className="wrap">
                 <Flex direction="column" justify="center">
@@ -33,7 +33,7 @@ const Footer = () => {
                             <InstagramIcon fontSize="large" />
                         </a>
                         <a href="/">
-                            <img src={FacebookIcon} style={{marginLeft: '1em'}} />
+                            <img src={FacebookIcon} alt="facebook_icon" style={{marginLeft: '1em'}} />
                         </a>
                     </Flex>
                    
@@ -41,7 +41,7 @@ const Footer = () => {
             </Flex>
             <div className="footer-line"></div>
             <Flex direction="row" justify="flex-start" className="copy-icon" style={{marginTop: '30px'}}>
-                <img src={CopyrightIcon} style={{width: '17px', height: '17px', marginTop: '4px'}} />
+                <img src={CopyrightIcon} alt="copyright_icon" style={{width: '17px', height: '17px', marginTop: '4px'}} />
                 <p>2021 RKL Group</p>
             </Flex>
         </Wrapper>

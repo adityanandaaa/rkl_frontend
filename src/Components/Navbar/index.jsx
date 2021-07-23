@@ -15,7 +15,7 @@ const Navbars = () => {
         <Wrapper>
             <Navbar expand="lg" variant="light" bg="transparent" style={{paddingTop: '1em'}}>
                 <Navbar.Brand href="/">
-                    <img src={Logo} />
+                    <img src={Logo} alt="RKL_logo" />
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={handleOpen} style={{border: 'none'}}>
                     {open ?

@@ -1,6 +1,6 @@
 import React from 'react'
 import {Wrapper, Flex, Paper} from './styles'
-import {Ruci} from '../../Pages/Brands/CafeRuci'
+// import {Ruci} from '../../Pages/Brands/CafeRuci'
 import { makeStyles } from '@material-ui/core/styles';
 import {Modal, Backdrop, Fade} from '@material-ui/core'
 import CloseIcon from '@material-ui/icons/Close';

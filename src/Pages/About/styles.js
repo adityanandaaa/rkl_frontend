@@ -80,6 +80,39 @@ export const Wrapper = styled.div`
             color: #000000;
         }
     }
+
+    @media (width: 768px){
+        .description{
+            font-size: 18px;
+        }
+        .download{
+            width: 285px;
+            font-size: 16px;
+        }
+        .vision{
+            h1{
+                font-size: 30px;
+                padding-left: 2em;
+                padding-top: 0.5em;
+            }
+            p{
+                width: 30em;
+                font-size: 18px;
+            }
+        }
+        .mission{
+            // width: 45em;
+            h1{
+                font-size: 30px;
+                padding-right: 4em;
+                padding-top: 2em;
+            }
+            ul{
+                padding-left: 5em;
+                width: 40em;
+            }
+        }
+    }
     @media (max-width: 414px){
         .description{
             font-size: 16px;
@@ -162,6 +195,17 @@ export const Header = styled.div`
         font-weight: 800;
         margin-top: 3em;
     }
+
+    @media (max-width: 768px){
+        h1{
+            font-size: 50px;
+            margin-top: 3.8em;
+        }
+    }
+
+    @media (max-width: 414px){
+        font-size: 35px;
+    }
     
 `
 
@@ -192,6 +236,15 @@ export const Contact = styled.div`
     }
     p{
         margin-left: 1em;
+    }
+
+    @media (max-width: 768px){
+        .yeye{
+            margin-left: -3em;
+        }
+        h1{
+            font-size: 25px;
+        }
     }
 
     @media (max-width: 414px){

@@ -1,25 +1,23 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import Logo from "./Media/Logo2.png";
-import { Navbar, Nav, NavDropdown } from "react-bootstrap";
+// import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import FacebookIcon from './Media/facebook-icon.png'
 import { Wrapper, Flex } from "./styles";
-import { useHistory, Link } from "react-router-dom"
+// import { useHistory, Link } from "react-router-dom"
 
 const Navbar2 = () => {
-    const token = localStorage.getItem("token");
-    const history = useHistory()
-    const [open, setOpen] = useState(false)
+    // const history = useHistory()
+    // const [open, setOpen] = useState(false)
 
-    
     return (
     <Fragment>
             <Wrapper>
                 <nav>
                     <a href="/">
-                        <img src={Logo} class="logo" />
+                        <img src={Logo} alt="RKL_logo" class="logo" />
                     </a>
                     <input type="checkbox" id="click" />
                     <label for="click" class="menu-btn">
@@ -35,11 +33,11 @@ const Navbar2 = () => {
                                 </i>
                             </label>
                         </Flex>
-                        <li><a href="/">HOME</a></li>
+                        <li><a href="/" className="home">HOME</a></li>
                         <li><a href="/about">ABOUT</a></li>
-                        <li><a href="/brands/1">BRANDS</a></li>
-                        {/* <li className="dropdown">
-                            <a className="dropbtn">BRANDS</a>
+                        {/* <li><a href="/brands/1">BRANDS</a></li> */}
+                        <li className="dropdown">
+                            <a className="dropbtn" href="#/">BRANDS</a>
                             <div class="dropdown-content">
                                 <a href="/brands/1">Café Ruci</a>
                                 <a href="/brands/1">Ruci's Joint</a>
@@ -47,7 +45,7 @@ const Navbar2 = () => {
                                 <a href="/brands/1">123</a>
                                 <a href="/brands/1">Rara</a>
                             </div>
-                        </li> */}
+                        </li>
                         {/* <NavDropdown title="BRANDS" id="basic-nav-dropdown" className="dropdown">
                             <NavDropdown.Item href="/brands/1">CAFÉ RUCI</NavDropdown.Item>
                             <NavDropdown.Item href="/brands/2">123</NavDropdown.Item>

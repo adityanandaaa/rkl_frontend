@@ -67,6 +67,9 @@ export const Wrapper = styled.div`
         cursor: pointer;
         display: none;
     }
+    .home{
+        display: none;
+    }
     .dropdown a{
         font-size: 20px;
         font-style: normal;
@@ -76,7 +79,53 @@ export const Wrapper = styled.div`
         color: #FFFFFF;
         padding: 0 15px;
     }
+    // .dropdown {
+    //     float: left;
+    //     // overflow: hidden;
+    // }
+    
+    .dropdown .dropbtn {
+        font-size: 20px;  
+        border: none;
+        outline: none;
+        color: white;
+        padding: 14px 16px;
+        background-color: inherit;
+        font-family: inherit;
+        margin: 0;
 
+        :hover{
+            color: #a97b50;
+        }
+    }
+    
+    
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: transparent;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        border-bottom: 0.5px solid white;
+        z-index: 1;
+    }
+    
+    .dropdown-content a {
+        float: none;
+        color: white;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+    }
+    
+    .dropdown-content a:hover {
+        background-color: #ddd;
+    }
+    
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
     .socmed{
         display: none;
     }
@@ -87,8 +136,21 @@ export const Wrapper = styled.div`
         nav{
             padding: 0 40px 0 50px;
         }
+        nav .logo{
+            width: 100px;
+            height: 45px;
+        }
+        nav ul li a{
+            font-size: 16px;
+        }
+        .dropdown .dropbtn{
+            font-size: 16px;
+        }
+        .dropdown-content a{
+            font-size: 16px;
+        }
     }
-    @media (max-width: 920px) {
+    @media (max-width: 700px) {
         nav{
             // height 100vw;
         }
@@ -130,21 +192,29 @@ export const Wrapper = styled.div`
             color: #FFFFFF;
             // transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
-
-        // .dropdown .dropbtn{
-        //     font-size: 26px;
-        //     margin-top: -1em;
-        // }
+        .home{
+            display: block;
+        }
+        .dropdown .dropbtn{
+            font-size: 26px;
+            // margin-top: -1em;
+        }
         
-        // .dropdown-content{
-        //     // font-size: 12px;
-        //     // margin-left: 12em;
-        //     position: static;
-        //     min-width: 100px;
-        //     a{
-        //         font-size: 15px;
-        //     }
-        // }
+        .dropdown-content{
+            margin-left: 2em;
+            position: static;
+            // min-width: 100px;
+            width: 10em;
+            border-bottom: none;
+            a{
+                font-size: 15px;
+            }
+        }
+
+        .dropdown-content a{
+            font-size: 20px;
+            font-weight: 500;
+        }
         
         #click:checked ~ ul li a{
             margin-left: 40px;
@@ -161,6 +231,25 @@ export const Wrapper = styled.div`
             img{
                 height: 32px;
                 margin-left: 2em;
+            }
+        }
+    }
+
+    @media (max-width: 414px){
+        .dropdown-content{
+            margin-left: 1em;
+            position: static;
+            width: 5em;
+            border-bottom: none;
+            // a{
+            //     font-size: 15px;
+            // }
+        }
+
+        .socmed{
+            margin-left: 3.5em;
+            img{
+                margin-left: 1.5em;
             }
         }
     }
