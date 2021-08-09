@@ -18,12 +18,17 @@ export const Wrapper = styled.div`
     position: relative;
     bottom: 0;
     left: 0;
-    width: 100%;
+    // width: 100%;
     height: 350px;
     color: white;
     padding-top: 2em;
     padding-left: 10em;
     padding-right: 10em;
+
+    @media (width: 1920px){
+        padding-left: 25em;
+        padding-right: 25em;
+    }
     
     .logo{
         width: 120px;

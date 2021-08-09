@@ -298,6 +298,13 @@ export const Location = styled.div`
     .insta{
         // position: absolute;
         // margin-top: 3em;
+        text-decoration: none;
+        text-transform: lowercase;
+        display: inline-block;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        word-spacing: -3px;
     }
     img{
         height: 200px;
@@ -337,7 +344,7 @@ export const Location = styled.div`
         .location-wrap{
             // flex-direction: column;
             // padding-bottom: 2em;
-            p{
+            p, a{
                 font-size: 14px;
                 padding-left: 2.5em;
             }

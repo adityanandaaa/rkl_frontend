@@ -5,6 +5,7 @@ import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import Logo from './Media/Logo2.png'
 import DehazeIcon from '@material-ui/icons/Dehaze';
 import CloseIcon from '@material-ui/icons/Close';
+import Navbar2 from '../Navbar2'
 
 const Navbars = () => {
     const [open, setOpen] = React.useState(false)
@@ -13,7 +14,7 @@ const Navbars = () => {
     }
     return (
         <Wrapper>
-            <Navbar expand="lg" variant="light" bg="transparent" style={{paddingTop: '1em'}}>
+            {/* <Navbar expand="lg" variant="light" bg="transparent" style={{paddingTop: '1em'}}>
                 <Navbar.Brand href="/">
                     <img src={Logo} alt="RKL_logo" />
                 </Navbar.Brand>
@@ -39,7 +40,8 @@ const Navbars = () => {
                         <Nav.Link href="/career">CAREER</Nav.Link>
                     </Flex>
                 </Navbar.Collapse>
-            </Navbar>
+            </Navbar> */}
+            <Navbar2 />
         </Wrapper>
         
     );

@@ -18,9 +18,6 @@ export const Flex = styled.div`
 export const Wrapper = styled.div`
     // margin-top: 1em;
     width: 100%;
-    // .lala{
-    //     font-size: 30px;
-    // }
 `
 
 export const Header = styled.div`
@@ -38,7 +35,7 @@ export const Header = styled.div`
         margin-top: 2.5em;
         line-height: 150%;
         letter-spacing: 0.02em;
-        text-shadow: 0px 4px 30px #a97b50;
+        text-shadow: 0px 4px 30px #fff;
     }
     .brands{
         img{
@@ -46,8 +43,14 @@ export const Header = styled.div`
             height: 200px;
         }
     }
-    .brands div:nth-child(2){
+    // .brands div:nth-child(2){
+    //     padding-left: 15em;
+    //     padding-right: 15em;
+    // }
+    .second a:nth-child(1){
         padding-left: 15em;
+    }
+    .second a:nth-child(2){
         padding-right: 15em;
     }
     
@@ -69,6 +72,12 @@ export const Header = styled.div`
 
         }
         .brands div:nth-child(2){
+            padding: 0;
+        }
+        .second a:nth-child(1){
+            padding: 0;
+        }
+        .second a:nth-child(2){
             padding: 0;
         }
         .brands :nth-child(2) img:last-child {

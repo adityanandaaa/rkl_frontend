@@ -1,10 +1,14 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Wrapper, Flex} from './styles'
+import axios from 'axios'
 import Carousel from "react-multi-carousel";
 import 'react-multi-carousel/lib/styles.css';
+import Modal from '../Modal'
+import dateFormat from 'dateformat'
 
-const Carousels = ({data, src, title, date, handleOpen}) => {
-
+const Carousels = ({data}) => {
+    const [items, setItems] = useState(false)
+    const [open, setOpen] = useState(false)
     const responsive = {
         desktop: {
             breakpoint: { max: 3000, min: 1024 },
@@ -22,10 +26,21 @@ const Carousels = ({data, src, title, date, handleOpen}) => {
             slidesToSlide: 1 // optional, default to 1.
         }
     };
+    const handleOpen = (id) => {
+        console.log(id)
+        axios.get(`http://admin.rklokal.com/api/event-promo?id=${id}`)
+        .then((res) => {
+            const items = res.data
+            console.log(items)
+            setItems(items)
+        })
+        setOpen(true)
+    }
+    const handleClose = () => {
+        setOpen(false)
+    }
     return(
         <Wrapper>
-
-        
             <Carousel
                 swipeable={true}
                 draggable={false}
@@ -47,40 +62,27 @@ const Carousels = ({data, src, title, date, handleOpen}) => {
                 dotListClass="custom-dot-list-style"
                 itemClass="carousel-item-padding-40-px"
             >
-                {data.map((events) => (
-                    <div className="event" onClick={handleOpen}>
+                {data.map((events, i) => (
+                    <div key={i} className="event" onClick={() => handleOpen(events.id)}>
                         <Flex direction="column" justify="center" alignItems="flex-start">
-                            <img src={events.img} alt="events_pic" />
-                            <p className="event_title">{events.title}</p>
-                            <p className="cafe_name">{events.name}</p>
-                            <p className="event_date">{events.date}</p>
+                            <img src={events.name_image_link} alt={events.name_image} />
+                            <p className="event_title">{events.name}</p>
+                            <p className="cafe_name">{events.brand_name}</p>
+                            <p className="event_date">{dateFormat(events.start_date, "d mmmm") + " - " + dateFormat(events.end_date, "d mmmm yyyy")}</p>
                         </Flex>
                     </div>
                 ))}
-                {/* <Flex direction="row" justify="center" className="promo">
-                    <div>
-                        <a onClick={handleOpen} style={{textDecoration: 'none'}}>
-                            <img src={src} />
-                        </a>
-                        <p className="title">{title}</p>
-                        <p className="date">{date}</p>
-                    </div>
-                    <div>
-                        <a onClick={handleOpen} style={{textDecoration: 'none'}}>
-                            <img src={src} />
-                        </a>
-                        <p className="title">{title}</p>
-                        <p className="date">{date}</p>
-                    </div>
-                    <div>
-                        <a onClick={handleOpen} style={{textDecoration: 'none'}}>
-                            <img src={src} />
-                        </a>
-                        <p className="title">{title}</p>
-                        <p className="date">{date}</p>
-                    </div>
-                </Flex> */}
             </Carousel>
+            {[items].map((items) => (
+                <Modal 
+                    src={items.name_image_link}
+                    open={open}
+                    handleClose={handleClose}
+                    title={items.name} 
+                    description={items.description}
+                    date={dateFormat(items.start_date, "d mmmm") + " - " + dateFormat(items.end_date, "d mmmm yyyy")}
+                />
+            ))}
         </Wrapper>
     )
 }

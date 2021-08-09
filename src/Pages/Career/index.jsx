@@ -30,6 +30,11 @@ const Career = () => {
         console.log(id)
     }
 
+    // function filterByValue(array, string) {
+    //     return array.filter(o =>
+    //         Object.keys(o).some(k => o[k].toLowerCase().includes(string.toLowerCase())));
+    // }
+
     const fetchData = async() => {
         const res = await axios.get("http://admin.rklokal.com/api/career")
         const items = res.data
@@ -100,18 +105,27 @@ const Career = () => {
                                       
                 </Content>
                 <Flex direction="row" justify="space-around" wrap="wrap" className="vacancies">
-                    {position === '' ? 
-                        data.map((items) => (
-                            <Card onClick={() => handleClick(items.id)}>
-                                <Flex direction="column" justify="center" style={{marginLeft: '1.5em'}}>
-                                    <p className="position">{items.position_name}</p>
-                                    <p className="location">{items.location_name}</p>
-                                </Flex>
-                            </Card>
-                        ))
-                        :
-                        location === '' ?
-
+                    {keyword !== '' ? 
+                    data.filter((items) =>  JSON.stringify(items).toLowerCase().indexOf(keyword.toLowerCase()) !== -1).map((items) => (
+                         <Card onClick={() => handleClick(items.id)}>
+                            <Flex direction="column" justify="center" style={{marginLeft: '1.5em'}}>
+                                <p className="position">{items.position_name}</p>
+                                <p className="location">{items.location_name}</p>
+                            </Flex>
+                        </Card>
+                    ))
+                    : 
+                    position === '' ? 
+                    data.map((items) => (
+                        <Card onClick={() => handleClick(items.id)}>
+                            <Flex direction="column" justify="center" style={{marginLeft: '1.5em'}}>
+                                <p className="position">{items.position_name}</p>
+                                <p className="location">{items.location_name}</p>
+                            </Flex>
+                        </Card>
+                    ))
+                    :
+                    location === '' ?
                         data.filter(x => position === x.position_name).map((items) => (
                             <Card onClick={() => handleClick(items.id)}>
                                 <Flex direction="column" justify="center" style={{marginLeft: '1.5em'}}>
@@ -130,14 +144,6 @@ const Career = () => {
                             </Card>
                         ))
                     }
-                    {/* {data && data.filter(x => position === x.position_name).map((items) => (
-                        <Card onClick={() => handleClick(items.id)}>
-                            <Flex direction="column" justify="center" style={{marginLeft: '1.5em'}}>
-                                <p className="position">{items.position_name}</p>
-                                <p className="location">{items.location_name}</p>
-                            </Flex>
-                        </Card>
-                    ))} */}
                 </Flex>  
             </Wrapper>
             <Footer />

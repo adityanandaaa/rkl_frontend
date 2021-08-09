@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const Modals = ({src, open, handleClose, title, date}) => {
+const Modals = ({src, open, handleClose, title, description, date}) => {
     const classes = useStyles();
     // const [open, setOpen] = React.useState(false);
     // const handleOpen = () => {
@@ -63,7 +63,7 @@ const Modals = ({src, open, handleClose, title, date}) => {
                                     </div>
                                     <div className="description">
                                         <h2>Description</h2>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisc elit. Interdum dignissim at. </p>
+                                        <p>{description}</p>
                                     </div>
                                     <div className="location">
                                         <h2>Location</h2>

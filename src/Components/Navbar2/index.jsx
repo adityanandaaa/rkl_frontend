@@ -40,10 +40,10 @@ const Navbar2 = () => {
                             <a className="dropbtn" href="#/">BRANDS</a>
                             <div class="dropdown-content">
                                 <a href="/brands/1">Café Ruci</a>
-                                <a href="/brands/1">Ruci's Joint</a>
-                                <a href="/brands/1">Warget</a>
-                                <a href="/brands/1">123</a>
-                                <a href="/brands/1">Rara</a>
+                                <a href="/brands/3">Ruci's Joint</a>
+                                <a href="/brands/2">Warget</a>
+                                <a href="/brands/4">123</a>
+                                <a href="/brands/5">Rara</a>
                             </div>
                         </li>
                         {/* <NavDropdown title="BRANDS" id="basic-nav-dropdown" className="dropdown">

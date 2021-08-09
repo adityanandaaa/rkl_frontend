@@ -20,6 +20,7 @@ export const Wrapper = styled.div`
             height: 290px;
             margin-top: 1em;
         }
+        cursor: pointer;
     }
     .event_title{
         width: 10em;

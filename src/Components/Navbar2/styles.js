@@ -15,7 +15,7 @@ export const Wrapper = styled.div`
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        // font-family: 'Poppins', sans-serif;
+        font-family: 'Poppins', sans-serif;
     } 
     nav{
         display: flex;
@@ -62,8 +62,8 @@ export const Wrapper = styled.div`
         // background: #fff;
     }
     nav .menu-btn i{
-    // color: #fff;
-    // font-size: 22px;
+    color: #fff;
+    font-size: 22px;
         cursor: pointer;
         display: none;
     }

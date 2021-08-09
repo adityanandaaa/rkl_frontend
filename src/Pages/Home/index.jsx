@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import {Flex, Wrapper, Header, Events, Gallerys, Parts} from './styles'
 import axios from 'axios'
-import Carousel from "react-multi-carousel";
-import 'react-multi-carousel/lib/styles.css';
+// import Carousel from "react-multi-carousel";
+// import 'react-multi-carousel/lib/styles.css';
+import Carousels from '../../Components/Carousel'
 import Gallery from 'react-grid-gallery'
 import {FormControl, Button} from 'react-bootstrap'
 import Navbar from '../../Components/Navbar'
@@ -23,19 +24,10 @@ import Event2 from './Media/event-2.jpeg'
 import Event3 from './Media/event-3.jpeg'
 import Event4 from './Media/event-4.jpeg'
 
-import Gallery1 from './Media/gallery - 1.jpg'
-import Gallery2 from './Media/gallery - 2.jpg'
-import Gallery3 from './Media/gallery - 3.jpg'
-import Gallery4 from './Media/gallery - 4.jpg'
-import Gallery5 from './Media/gallery - 5.jpg'
-import Gallery6 from './Media/gallery - 6.jpg'
-import Gallery7 from './Media/gallery - 7.jpg'
-import Gallery8 from './Media/gallery - 8.jpg'
-import Gallery9 from './Media/gallery - 9.jpg'
-import Gallery10 from './Media/gallery - 10.jpg'
-
 
 const Home = () => {
+    const [items, setItems] = useState([])
+    const [event, setEvent] = useState([])
     const [hover, setHover] = useState({
         pic1: false,
         pic2: false,
@@ -68,70 +60,16 @@ const Home = () => {
             slidesToSlide: 1 // optional, default to 1.
         }
     };
-    
 
-    const IMAGESandro = [
+    
+    const IMAGES2 = items.map((items) => (
         {
-            src: Gallery1,
-            thumbnail: Gallery1,
-            thumbnailWidth: 350,
-            thumbnailHeight: 220,
-        },
-        {
-            src: Gallery2,
-            thumbnail: Gallery2,
-            thumbnailWidth: 350,
-            thumbnailHeight: 220,
-        },
-        {
-            src: Gallery3,
-            thumbnail: Gallery3,
-            thumbnailWidth: 350,
-            thumbnailHeight: 220,
-        },
-        {
-            src: Gallery4,
-            thumbnail: Gallery4,
-            thumbnailWidth: 350,
-            thumbnailHeight: 220,
-        },
-        {
-            src: Gallery5,
-            thumbnail: Gallery5,
-            thumbnailWidth: 350,
-            thumbnailHeight: 220,
-        },
-        {
-            src: Gallery6,
-            thumbnail: Gallery6,
-            thumbnailWidth: 350,
-            thumbnailHeight: 220,
-        },
-        {
-            src: Gallery7,
-            thumbnail: Gallery7,
-            thumbnailWidth: 350,
-            thumbnailHeight: 220,
-        },
-        {
-            src: Gallery8,
-            thumbnail: Gallery8,
-            thumbnailWidth: 350,
-            thumbnailHeight: 220,
-        },
-        {
-            src: Gallery9,
-            thumbnail: Gallery9,
-            thumbnailWidth: 350,
-            thumbnailHeight: 220,
-        },
-        {
-            src: Gallery10,
-            thumbnail: Gallery10,
-            thumbnailWidth: 350,
-            thumbnailHeight: 220,
-        },
-    ];
+            src: items.name_image_link,
+            thumbnail: items.name_image_link,
+            thumbnailWidth: 500,
+            thumbnailHeight: 300,
+        }
+    ))
 
     const [value, setValue] = useState({
         email: ''
@@ -152,17 +90,30 @@ const Home = () => {
             setValue({email: ''})
         }
     }
-
-    const [items, setItems] = useState([])
-    useEffect(() => {
+    const fetchEvent = () => {
+        axios.get('http://admin.rklokal.com/api/event-promo')
+        .then((res) => {
+            const items = res.data
+            console.log(items)
+            setEvent(items)
+        })
+    }
+    const getImages = () => {
         axios.get('http://admin.rklokal.com/api/gallery')
         .then((res) => {
             const items = res.data
             console.log(items)
             setItems(items)
         })
+        
+    }
 
+    useEffect(() => {
+        fetchEvent()
+        getImages()
+        console.log(window.innerWidth)
     }, [])
+  
 
     return(
         <Wrapper>
@@ -202,7 +153,7 @@ const Home = () => {
                             />
                         </a>
                     </Flex>
-                    <Flex direction="row" justify="space-around">
+                    <Flex direction="row" justify="space-around" className="second">
                         <a href="/brands/4">
                             <img 
                                 src={!hover.pic4 ? Brand4 : Brand9} 
@@ -228,39 +179,7 @@ const Home = () => {
                     <h1>EVENT & PROMO</h1>
                     <div className="line" />
                 </Flex>
-                
-                <Carousel
-                    swipeable={true}
-                    draggable={false}
-                    showDots={false}
-                    responsive={responsive}
-                    ssr={true} // means to render carousel on server-side.
-                    infinite={false}
-                    // autoPlay={
-                    //     this.props.deviceType !== "mobile" ? true : false
-                    // }
-                    autoPlay={false}
-                    autoPlaySpeed={1000}
-                    keyBoardControl={true}
-                    // customTransition="ease .5"
-                    transitionDuration={500}
-                    containerClass="carousel-container"
-                    // removeArrowOnDeviceType={["tablet", "mobile"]}
-                    // deviceType={this.props.deviceType}
-                    dotListClass="custom-dot-list-style"
-                    itemClass="carousel-item-padding-40-px"
-                >
-                    {Events_Promo.map((events) => (
-                        <div className="event">
-                            <Flex direction="column" justify="center">
-                                <img src={events.img} alt="events_pic" />
-                                <p className="event_title">{events.title}</p>
-                                <p className="event_date">{events.date}</p>
-                            </Flex>
-                            
-                        </div>
-                    ))}
-                </Carousel>
+                <Carousels data={event} />
             </Events>
             
             <Gallerys>
@@ -269,7 +188,7 @@ const Home = () => {
                     <div className="line" />
                 </Flex>
                 <Gallery
-                    images={IMAGESandro}
+                    images={IMAGES2}
                     backdropClosesModal={true}
                     showImageCount={false}
                     enableImageSelection={false}
