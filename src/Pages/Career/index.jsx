@@ -36,7 +36,7 @@ const Career = () => {
     // }
 
     const fetchData = async() => {
-        const res = await axios.get("http://admin.rklokal.com/api/career")
+        const res = await axios.get("https://admin.rklokal.com/api/career")
         const items = res.data
         console.log(items)
         setData(items)
