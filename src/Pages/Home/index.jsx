@@ -19,10 +19,6 @@ import Brand8 from './Media/brands-8.png'
 import Brand9 from './Media/brands-9.png'
 import Brand10 from './Media/brands-10.png'
 
-import Event1 from './Media/event-1.jpeg'
-import Event2 from './Media/event-2.jpeg'
-import Event3 from './Media/event-3.jpeg'
-import Event4 from './Media/event-4.jpeg'
 
 
 const Home = () => {
@@ -36,30 +32,30 @@ const Home = () => {
         pic5: false
     })
 
-    const Events_Promo = [
-        {title: 'Opening Promo at Cafe Ruci', date: '15 May 2021', img: Event1},
-        {title: 'Opening Promo at Cafe Ruci', date: '15 May 2021', img: Event2},
-        {title: 'Kawa Kawa Special Price', date: '15 May - 30 May 2021', img: Event3},
-        {title: 'Family Meals Packet Only 130K', date: '15 May 2021', img: Event4}
-    ]
+    // const Events_Promo = [
+    //     {title: 'Opening Promo at Cafe Ruci', date: '15 May 2021', img: Event1},
+    //     {title: 'Opening Promo at Cafe Ruci', date: '15 May 2021', img: Event2},
+    //     {title: 'Kawa Kawa Special Price', date: '15 May - 30 May 2021', img: Event3},
+    //     {title: 'Family Meals Packet Only 130K', date: '15 May 2021', img: Event4}
+    // ]
 
-    const responsive = {
-        desktop: {
-            breakpoint: { max: 3000, min: 1024 },
-            items: 3,
-            slidesToSlide: 3 // optional, default to 1.
-        },
-        tablet: {
-            breakpoint: { max: 1024, min: 464 },
-            items: 2,
-            slidesToSlide: 2 // optional, default to 1.
-        },
-        mobile: {
-            breakpoint: { max: 464, min: 0 },
-            items: 1,
-            slidesToSlide: 1 // optional, default to 1.
-        }
-    };
+    // const responsive = {
+    //     desktop: {
+    //         breakpoint: { max: 3000, min: 1024 },
+    //         items: 3,
+    //         slidesToSlide: 3 // optional, default to 1.
+    //     },
+    //     tablet: {
+    //         breakpoint: { max: 1024, min: 464 },
+    //         items: 2,
+    //         slidesToSlide: 2 // optional, default to 1.
+    //     },
+    //     mobile: {
+    //         breakpoint: { max: 464, min: 0 },
+    //         items: 1,
+    //         slidesToSlide: 1 // optional, default to 1.
+    //     }
+    // };
 
     
     const IMAGES2 = items.map((items) => (
@@ -91,7 +87,7 @@ const Home = () => {
         }
     }
     const fetchEvent = () => {
-        axios.get('http://admin.rklokal.com/api/event-promo')
+        axios.get('https://admin.rklokal.com/api/event-promo')
         .then((res) => {
             const items = res.data
             console.log(items)
@@ -99,7 +95,7 @@ const Home = () => {
         })
     }
     const getImages = () => {
-        axios.get('http://admin.rklokal.com/api/gallery')
+        axios.get('https://admin.rklokal.com/api/gallery')
         .then((res) => {
             const items = res.data
             console.log(items)
