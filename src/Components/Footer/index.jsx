@@ -3,7 +3,6 @@ import {Flex, Wrapper} from './styles'
 import Logo from './Media/Logo2.png'
 import CopyrightIcon from './Media/Copyright-White.png'
 import FacebookIcon from './Media/Facebook-White.png'
-// import InstagramIcon from './Media/Instagram-White.png'
 import InstagramIcon from '@material-ui/icons/Instagram';
 
 const Footer = () => {
@@ -15,28 +14,26 @@ const Footer = () => {
             <Flex direction="row" justify="flex-start" alignItems="flex-start" className="wrap">
                 <Flex direction="column" justify="center">
                     <p className="description">RKL is a Food and Beverage company incepted in 2010 with a commitment to make great experience to denizens of Jakarta</p>
-                    <p className="email">info@rklokal.com</p>
-                    
+                    <a href="mailto:info@rklokal.com" className="email">info@rklokal.com</a>
                 </Flex>
                 <Flex direction="column" justify="flex-start" alignItems="flex-start" className="menu-wrap">
                     <Flex direction="row" justify="flex-start" className="menu">
                         <a href="/">Home</a>
-                        <a href="/">About</a>
+                        <a href="/about">About</a>
                     </Flex>
                     <Flex direction="row" justify="flex-start" className="menu">
-                        <a href="/">Brand</a>
+                        <a href="/brands/1">Brand</a>
                         <a href="/">Gallery</a>
                     </Flex>
                      <Flex direction="row" justify="flex-start" className="menu">
-                        <a href="/">Career</a>
-                        <a href="/">
+                        <a href="/career">Career</a>
+                        <a href="https://www.instagram.com/caferuci/">
                             <InstagramIcon fontSize="large" />
                         </a>
-                        <a href="/">
+                        <a href="https://www.instagram.com/caferuci/">
                             <img src={FacebookIcon} alt="facebook_icon" style={{marginLeft: '1em'}} />
                         </a>
                     </Flex>
-                   
                 </Flex>
             </Flex>
             <div className="footer-line"></div>

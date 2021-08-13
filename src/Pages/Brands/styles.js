@@ -182,7 +182,7 @@ export const Event = styled.div`
         .promo{
             // position: absolute;
             img{
-                width: 185px;
+                // width: 185px;
                 height: 240px;
             }
             
@@ -205,7 +205,7 @@ export const Event = styled.div`
         }
         .promo{
             img{
-                width: 170px;
+                // width: 170px;
             }
         }
         .title{
@@ -336,6 +336,12 @@ export const Location = styled.div`
         height: 375px;
         .logo{
             flex-direction: column;
+        }
+        .logo div:nth-child(1){
+            height: 130px;
+        }
+        .logo div:nth-child(2){
+            margin-bottom: 3em;
         }
         img{
             height: 200px;

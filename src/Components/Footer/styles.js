@@ -6,11 +6,6 @@ export const Flex = styled.div`
     justify-content: ${({justify}) => justify};
     align-items: ${({alignItems}) => alignItems};
     flex-wrap: ${({wrap}) => wrap};
-
-    // @media (max-width: 414px){
-    //     flex-direction: column;
-    // }
-    
 `
 
 export const Wrapper = styled.div`
@@ -18,12 +13,16 @@ export const Wrapper = styled.div`
     position: relative;
     bottom: 0;
     left: 0;
-    // width: 100%;
     height: 350px;
     color: white;
     padding-top: 2em;
     padding-left: 10em;
     padding-right: 10em;
+
+    @media (width: 1280px){
+        padding-left: 8em;
+        padding-right: 8em;
+    }
 
     @media (width: 1920px){
         padding-left: 25em;
@@ -46,9 +45,12 @@ export const Wrapper = styled.div`
     .email{
         font-weight: 300;
         font-size: 24px;
+        width: 9em;
         line-height: 150%;
         letter-spacing: 0.02em;
         padding-top: 20px;
+        padding-bottom: 10px;
+        cursor: pointer;
     }
     .menu-wrap{
         margin-left: 100px;
@@ -86,6 +88,43 @@ export const Wrapper = styled.div`
     //         height: 17px;
     //     }
 
+    @media (max-width: 1024px){
+        max-width: 100%;
+        height: 50em;
+        .logo{
+            width: 100px;
+            height: 45px;
+        }
+        .description{
+            font-style: normal;
+            font-weight: 300;
+            font-size: 18px;
+            width: 22em;
+        }
+        .email{
+            font-size: 18px;
+        }
+        .menu-wrap{
+            // margin-left: 70px;
+        }
+        .footer-line{
+            width: 46em;
+        }
+        a{
+            font-size: 22px;
+        }
+        .menu a:nth-child(2){
+            margin-left: 82px;
+            img{
+                width: 20px;
+                height: 20px;
+            }
+            :nth-last-child(2){
+                margin-left: 73px;   
+            }
+        }
+
+    }
     @media (max-width: 768px){
         max-width: 100%;
         height: 30em;

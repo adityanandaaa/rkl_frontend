@@ -48,30 +48,35 @@ const Modals = ({src, open, handleClose, title, description, date}) => {
             >
                 <Fade in={open}  >
                     <div>
-                        <Paper className="paper">
-                            <CloseIcon className="close-icon" onClick={handleClose} />
-                            <Flex direction="row" justify="space-around" alignItems="center" className="content-wrap">
-                                <img src={src} alt="event_pic" />
-                                <Flex direction="column" alignItems="space-around" justify="flex-start" className="detail-wrap">
-                                    <div className="title">
-                                        <p>Promo</p>
-                                        <h1>{title}</h1>
-                                    </div>
-                                    <div className="date">
-                                        <h2>Date</h2>
-                                        <p>{date}</p>
-                                    </div>
-                                    <div className="description">
-                                        <h2>Description</h2>
-                                        <p>{description}</p>
-                                    </div>
-                                    <div className="location">
-                                        <h2>Location</h2>
-                                        <p>Coffee Ruci</p>
-                                    </div>
-                                </Flex>
+                        <Flex direction="column">
+                            <Flex direction="row" justify="flex-end">
+                                <CloseIcon className="close-icon" onClick={handleClose} />
                             </Flex>
-                        </Paper>
+                            <Paper className="paper">
+                                <Flex direction="row" justify="space-around" alignItems="center" className="content-wrap">
+                                    <img src={src} alt="event_pic" />
+                                    <Flex direction="column" alignItems="space-around" justify="flex-start" className="detail-wrap">
+                                        <div className="title">
+                                            <p>Promo</p>
+                                            <h1>{title}</h1>
+                                        </div>
+                                        <div className="date">
+                                            <h2>Date</h2>
+                                            <p>{date}</p>
+                                        </div>
+                                        <div className="description">
+                                            <h2>Description</h2>
+                                            <p>{description}</p>
+                                        </div>
+                                        <div className="location">
+                                            <h2>Location</h2>
+                                            <p>Coffee Ruci</p>
+                                        </div>
+                                    </Flex>
+                                </Flex>
+                            </Paper>
+                        </Flex>
+                        
                     </div>
                 </Fade>
             </Modal>

@@ -19,6 +19,12 @@ export const Wrapper = styled.div`
         font-size: 55px;
         background: red;
     }
+    .close-icon{
+        position: absolute;
+        color: white;
+        cursor: pointer;
+        font-size: 20px;
+    }
 `
 
 export const Paper = styled.div`
@@ -27,13 +33,6 @@ export const Paper = styled.div`
     font-size: 40px;
     background: white;
 
-    .close-icon{
-        position: absolute;
-        top: 7em;
-        right: 7em;
-        color: white;
-        cursor: pointer;
-    }
     img{
         width: 430px;
         height: 430px;
@@ -115,28 +114,10 @@ export const Paper = styled.div`
 
     }
 
-    @media (max-width: 1500px){
-        .close-icon{
-            top: 3em;
-            right: 11em;
-        }
-    }
-    @media (max-width: 1400px){
-        .close-icon{
-            top: 7em;
-            right: 9.5em;
-        }
-    }
-    @media (max-width: 1280px){
-        .close-icon{
-            top: 5em;
-            right: 7em;
-        }
-    }
 
     @media (max-width: 768px){
         width: 710px;
-        height: 376px;
+        height: 400px;
 
         img{
             width: 318px;
@@ -150,7 +131,7 @@ export const Paper = styled.div`
             font-size: 20px;
         }
         .title h1{
-            font-size: 26px;
+            font-size: 24px;
         }
         .date{
             margin-top: 0.5em;
@@ -177,10 +158,7 @@ export const Paper = styled.div`
                 font-size: 16px;
             }
         }
-        .close-icon{
-            top: 12em;
-            right: 1.5em;
-        }
+
     }
 
     @media (max-width: 414px){
@@ -233,9 +211,11 @@ export const Paper = styled.div`
             }
         }
         .close-icon{
-            fill: black;
-            top: 0.5em;
+            position: absolute;
+            // fill: black;
+            top: 1.5em;
             right: 1em;
+            margin-top: 5em;
         }
     }
     @media (max-width: 375px){

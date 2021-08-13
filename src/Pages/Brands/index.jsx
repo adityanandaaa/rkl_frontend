@@ -119,7 +119,6 @@ const Brands = ({match}) => {
             <Footer />
         </Wrapper>
     )
-
 }
 
 export default Brands
