@@ -183,6 +183,10 @@ export const Card = styled.div`
         transition: 0.3s;
     }
 
+    @media (min-width: 1920px){
+        width: 500px;
+    } 
+
     @media (max-width: 414px){
         height: 110px;
         .position{

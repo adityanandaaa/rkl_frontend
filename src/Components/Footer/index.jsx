@@ -1,11 +1,22 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Flex, Wrapper} from './styles'
+import axios from 'axios'
 import Logo from './Media/Logo2.png'
 import CopyrightIcon from './Media/Copyright-White.png'
 import FacebookIcon from './Media/Facebook-White.png'
 import InstagramIcon from '@material-ui/icons/Instagram';
+import { baseUrl } from '../../utils'
 
 const Footer = () => {
+    const [setting, setSetting] = useState()
+    const fetchSetting = (text) => {
+        axios.get(`${baseUrl}/setting?name=${text}`)
+        .then((res) => {
+            const setting = res.data
+            setSetting(setting)
+        }, [])
+        return setting
+    }
     return(
         <Wrapper>
             <Flex direction="row">
@@ -13,7 +24,7 @@ const Footer = () => {
             </Flex>
             <Flex direction="row" justify="flex-start" alignItems="flex-start" className="wrap">
                 <Flex direction="column" justify="center">
-                    <p className="description">RKL is a Food and Beverage company incepted in 2010 with a commitment to make great experience to denizens of Jakarta</p>
+                    <p className="description">{fetchSetting('footer_text')}</p>
                     <a href="mailto:info@rklokal.com" className="email">info@rklokal.com</a>
                 </Flex>
                 <Flex direction="column" justify="flex-start" alignItems="flex-start" className="menu-wrap">

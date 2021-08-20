@@ -72,7 +72,6 @@ export const Content = styled.div`
         font-weight: 800;
         font-size: 28px;
         line-height: 150%;
-        // text-align: center;
         letter-spacing: 0.02em;
         color: #000000;
     }
@@ -83,16 +82,6 @@ export const Content = styled.div`
         font-size: 22px;
         width: 900px;
         margin-top: 30px;
-        line-height: 150%;
-        letter-spacing: 0.02em;
-        color: #000000;
-    }
-    ul{
-        font-style: normal;
-        font-weight: 500;
-        font-size: 22px;
-        width: 900px;
-        // margin-top: 30px;
         line-height: 150%;
         letter-spacing: 0.02em;
         color: #000000;

@@ -1,6 +1,5 @@
 import React from 'react'
 import {Wrapper, Flex, Paper} from './styles'
-// import {Ruci} from '../../Pages/Brands/CafeRuci'
 import { makeStyles } from '@material-ui/core/styles';
 import {Modal, Backdrop, Fade} from '@material-ui/core'
 import CloseIcon from '@material-ui/icons/Close';
@@ -20,17 +19,21 @@ const useStyles = makeStyles((theme) => ({
     //   padding: theme.spacing(2, 4, 3),
         
     },
+    close: {
+        color: 'white',
+        cursor: 'pointer'
+    },
+    closesm: {
+        position: 'absolute',
+        color: 'black',
+        marginTop: '5px',
+        marginRight: '5px'
+    }
+    
 }));
 
 const Modals = ({src, open, handleClose, title, description, date}) => {
     const classes = useStyles();
-    // const [open, setOpen] = React.useState(false);
-    // const handleOpen = () => {
-    //     setOpen(true);
-    // };
-    // const handleClose = () => {
-    //     setOpen(false);
-    // };
 
     return(
         <Wrapper>
@@ -49,8 +52,8 @@ const Modals = ({src, open, handleClose, title, description, date}) => {
                 <Fade in={open}  >
                     <div>
                         <Flex direction="column">
-                            <Flex direction="row" justify="flex-end">
-                                <CloseIcon className="close-icon" onClick={handleClose} />
+                            <Flex direction="row" justify="flex-end" >
+                                <CloseIcon className={window.innerWidth > 700 ? classes.close : classes.closesm} onClick={handleClose} />
                             </Flex>
                             <Paper className="paper">
                                 <Flex direction="row" justify="space-around" alignItems="center" className="content-wrap">

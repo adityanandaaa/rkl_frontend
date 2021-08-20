@@ -1,14 +1,28 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import Logo from "./Media/Logo2.png";
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import FacebookIcon from './Media/facebook-icon.png'
 import { Wrapper, Flex } from "./styles";
+import axios from "axios";
+import { baseUrl } from "../../utils";
+import { useEffect } from "react";
 // import { useHistory, Link } from "react-router-dom"
 
 const Navbar2 = () => {
+    const [items, setItems] = useState([])
+    const fetchBrandName = () => {
+        axios.get(`${baseUrl}/brand`)
+        .then((res) => {
+            const items = res.data
+            setItems(items)
+        })
 
+    }
+    useEffect(() => {
+        fetchBrandName()
+    },[])
     return (
         <Fragment>
                 <Wrapper>
@@ -36,11 +50,14 @@ const Navbar2 = () => {
                             <li className="dropdown">
                                 <a className="dropbtn" href="#/">BRANDS</a>
                                 <div class="dropdown-content">
-                                    <a href="/brands/1">Café Ruci</a>
+                                    {items.map((items) => (
+                                        <a href={`/brands/${items.name}`}>{items.name}</a>
+                                    ))}
+                                    {/* <a href="/brands/1">Café Ruci</a>
                                     <a href="/brands/3">Ruci's Joint</a>
                                     <a href="/brands/2">Warget</a>
                                     <a href="/brands/4">123</a>
-                                    <a href="/brands/5">Rara</a>
+                                    <a href="/brands/5">Rara</a> */}
                                 </div>
                             </li>
                             <li><a href="/career">CAREER</a></li>

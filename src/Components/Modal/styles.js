@@ -13,14 +13,9 @@ export const Flex = styled.div`
 export const Wrapper = styled.div`
     // margin-top: 1em;
     width: 100%;
-    .paper{
-        width: 950px;
-        height: 500px;
-        font-size: 55px;
-        background: red;
-    }
-    .close-icon{
-        position: absolute;
+
+    .close{
+        // position: absolute;
         color: white;
         cursor: pointer;
         font-size: 20px;

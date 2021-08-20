@@ -1,5 +1,7 @@
-import React from 'react'
+import React, {useState} from 'react'
+import axios from 'axios'
 import {Flex, Wrapper, Header, Contact} from './styles'
+import { LinearProgress } from '@material-ui/core'
 import {Button} from 'react-bootstrap'
 import Navbar from '../../Components/Navbar2'
 import Footer from '../../Components/Footer'
@@ -7,9 +9,25 @@ import emailIcon from './Media/Email-Black.png'
 import phoneIcon from './Media/Phone-Black.png'
 import instagramIcon from './Media/Instagram-Black.png'
 import facebookIcon from './Media/Facebook-Black.png'
+import { baseUrl } from '../../utils'
 
 
 const About = () => {
+    const [setting, setSetting] = useState([{
+        status: 0,
+        text: ''
+    }])
+    const fetchSetting = (text) => {
+        axios.get(`${baseUrl}/setting?name=${text}`)
+        .then((res) => {
+            const setting = res.data
+                setSetting({
+                    status: res.status,
+                    text: setting
+                })
+        })
+        return setting.text
+    }
     return(
         <div>
         <Wrapper>
@@ -23,12 +41,16 @@ const About = () => {
             </div>
             
             <Flex direction="column" justify="center" alignItems="center">
-                <p className="description">RKL is a Food and Beverage company incepted in 2010 with a commitment to make great experience to denizens of Jakarta</p>
+                {setting.status == 200 ?
+                    <p className="description">{fetchSetting('about_text')}</p>
+                    :
+                    <LinearProgress style={{width: '80%', marginTop: '2em'}} />
+                }
                 <Button variant="dark" className="download">Download Company Profile</Button>
             </Flex>
             <Flex direction="row" justify="center" className="vision">
                 <h1>Vision</h1>
-                <p>Ruci Kebanggaan Lokal as a company that provides contemporary lifestyle concept conforming Indonesian culture</p>
+                <p>{fetchSetting('visi_text')}</p>
             </Flex>
             <Flex direction="row" justify="center">
                 <div className="moto-line" />

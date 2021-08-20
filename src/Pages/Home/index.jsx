@@ -19,9 +19,11 @@ import Brand8 from './Media/brands-8.png'
 import Brand9 from './Media/brands-9.png'
 import Brand10 from './Media/brands-10.png'
 
+import { baseUrl, fetchSetting } from '../../utils'
 
 
 const Home = () => {
+    const [setting, setSetting] = useState([])
     const [items, setItems] = useState([])
     const [event, setEvent] = useState([])
     const [hover, setHover] = useState({
@@ -31,32 +33,6 @@ const Home = () => {
         pic4: false,
         pic5: false
     })
-
-    // const Events_Promo = [
-    //     {title: 'Opening Promo at Cafe Ruci', date: '15 May 2021', img: Event1},
-    //     {title: 'Opening Promo at Cafe Ruci', date: '15 May 2021', img: Event2},
-    //     {title: 'Kawa Kawa Special Price', date: '15 May - 30 May 2021', img: Event3},
-    //     {title: 'Family Meals Packet Only 130K', date: '15 May 2021', img: Event4}
-    // ]
-
-    // const responsive = {
-    //     desktop: {
-    //         breakpoint: { max: 3000, min: 1024 },
-    //         items: 3,
-    //         slidesToSlide: 3 // optional, default to 1.
-    //     },
-    //     tablet: {
-    //         breakpoint: { max: 1024, min: 464 },
-    //         items: 2,
-    //         slidesToSlide: 2 // optional, default to 1.
-    //     },
-    //     mobile: {
-    //         breakpoint: { max: 464, min: 0 },
-    //         items: 1,
-    //         slidesToSlide: 1 // optional, default to 1.
-    //     }
-    // };
-
     
     const IMAGES2 = items.map((items) => (
         {
@@ -82,12 +58,26 @@ const Home = () => {
             alert('You must insert the text first')
         }
         else{
+            const {email} = {email: value.email}
+            axios.post(`${baseUrl}/store-mailing-list`, email)
+            .then((res) => {
+                console.log(res)
+            })
+            console.log(email)
             alert('success')
             setValue({email: ''})
         }
     }
+    const fetchSetting = (text) => {
+        axios.get(`${baseUrl}/setting?name=${text}`)
+        .then((res) => {
+            const setting = res.data
+            setSetting(setting)
+        })
+        return setting
+    }
     const fetchEvent = () => {
-        axios.get('https://admin.rklokal.com/api/event-promo')
+        axios.get(`${baseUrl}/event-promo`)
         .then((res) => {
             const items = res.data
             console.log(items)
@@ -95,19 +85,24 @@ const Home = () => {
         })
     }
     const getImages = () => {
-        axios.get('https://admin.rklokal.com/api/gallery')
+        axios.get(`${baseUrl}/gallery`)
         .then((res) => {
             const items = res.data
             console.log(items)
             setItems(items)
-        })
-        
+        })  
+    }
+    const getText = () => {
+        let text = 'lalala yeyeye'
+        text = text.replace(/\s+/g, '-').toLowerCase()
+        console.log(text)
     }
 
     useEffect(() => {
         fetchEvent()
         getImages()
         console.log(window.innerWidth)
+        getText()
     }, [])
   
 
@@ -117,14 +112,15 @@ const Home = () => {
                 <Navbar />
                 <Flex direction="row" justify="center" alignItems="center">
                     <p class="description">
-                        RKL is a Food and Beverage company incepted in 2010
+                        {/* RKL is a Food and Beverage company incepted in 2010
                         with a commitment to make great experience to
-                        denizens of Jakarta
+                        denizens of Jakarta */}
+                        {fetchSetting('homepage_text')}
                     </p>
                 </Flex>
                 <Flex direction="column" justify="center" className="brands">
                     <Flex direction="row" justify="space-around">
-                        <a href="/brands/1">
+                        <a href="/brands/Cafe Ruci">
                             <img 
                                 src={!hover.pic1 ? Brand1 : Brand6} 
                                 onMouseOver={() => setHover({pic1: true})} 
@@ -132,7 +128,7 @@ const Home = () => {
                                 alt="cafe_ruci_logo"
                             />
                         </a>
-                        <a href="/brands/2">
+                        <a href="/brands/Ruci's Joint">
                             <img 
                                 src={!hover.pic2 ? Brand2 : Brand7} 
                                 onMouseOver={() => setHover({pic2: true})} 
@@ -140,7 +136,7 @@ const Home = () => {
                                 alt="ruci's_joint_logo"
                             />
                         </a>
-                        <a href="/brands/3">
+                        <a href="/brands/Warget Bahagia">
                             <img 
                                 src={!hover.pic3 ? Brand3 : Brand8} 
                                 onMouseOver={() => setHover({pic3: true})} 
@@ -150,7 +146,7 @@ const Home = () => {
                         </a>
                     </Flex>
                     <Flex direction="row" justify="space-around" className="second">
-                        <a href="/brands/4">
+                        <a href="/brands/Rara Ramen & Bar">
                             <img 
                                 src={!hover.pic4 ? Brand4 : Brand9} 
                                 onMouseOver={() => setHover({pic4: true})} 
@@ -158,7 +154,7 @@ const Home = () => {
                                 alt="123_logo"
                             />
                         </a>
-                        <a href="/brands/4">
+                        <a href="/brands/Rara Ramen & Bar">
                             <img 
                                 src={!hover.pic5 ? Brand5 : Brand10} 
                                 onMouseOver={() => setHover({pic5: true})} 

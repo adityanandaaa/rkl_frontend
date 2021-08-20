@@ -5,6 +5,7 @@ import Carousel from "react-multi-carousel";
 import 'react-multi-carousel/lib/styles.css';
 import Modal from '../Modal'
 import dateFormat from 'dateformat'
+import { baseUrl } from '../../utils';
 
 const Carousels = ({data}) => {
     const [items, setItems] = useState(false)
@@ -28,7 +29,7 @@ const Carousels = ({data}) => {
     };
     const handleOpen = (id) => {
         console.log(id)
-        axios.get(`http://admin.rklokal.com/api/event-promo?id=${id}`)
+        axios.get(`${baseUrl}/event-promo?id=${id}`)
         .then((res) => {
             const items = res.data
             console.log(items)
