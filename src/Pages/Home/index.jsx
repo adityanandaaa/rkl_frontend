@@ -133,7 +133,7 @@ const Home = () => {
                                 src={!hover.pic2 ? Brand2 : Brand7} 
                                 onMouseOver={() => setHover({pic2: true})} 
                                 onMouseOut={() => setHover({pic2: false})} 
-                                alt="ruci's_joint_logo" 
+                                alt="ruci's_joint_logo"
                             />
                         </a>
                         <a href="/brands/Warget Bahagia">
