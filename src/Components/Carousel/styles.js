@@ -42,6 +42,21 @@ export const Wrapper = styled.div`
         margin-top: -1em;
     }
 
+    @media (max-width: 1024px){
+        .event{
+            margin-left: 3em;
+        }
+    }
+
+    @media (max-width: 768px){
+        .event{
+            margin-left: 2em;
+            img{
+                width: 220px;
+            }
+        }
+    }
+
     @media (max-width: 414px){
         .event{
             img{

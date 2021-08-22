@@ -33,7 +33,7 @@ const Footer = () => {
                         <a href="/about">About</a>
                     </Flex>
                     <Flex direction="row" justify="flex-start" className="menu">
-                        <a href="/brands/1">Brand</a>
+                        <a href="/brands/Cafe Ruci">Brand</a>
                         <a href="/">Gallery</a>
                     </Flex>
                      <Flex direction="row" justify="flex-start" className="menu">
