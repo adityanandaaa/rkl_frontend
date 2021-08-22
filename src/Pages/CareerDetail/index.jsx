@@ -45,7 +45,7 @@ const CareerDetail = ({match}) => {
                         <Flex direction="row">
                             <p>Please send your CV to <b>hrd@rkl.com</b> or click the button below if you interested this position</p>
                         </Flex>
-                        <Button onClick={handleClick} variant="dark">Apply Now</Button>
+                        <Button onClick={handleClick} variant="dark">Apply Now</Button> 
                     </div>
                 ))}
                 
