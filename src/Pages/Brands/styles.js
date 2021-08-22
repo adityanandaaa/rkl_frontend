@@ -98,6 +98,9 @@ export const Content = styled.div`
             flex-direction: column;
             align-items: center;
             margin-top: 2em;
+            h1{
+                font-size: 35px;
+            }
         }
     }
 `

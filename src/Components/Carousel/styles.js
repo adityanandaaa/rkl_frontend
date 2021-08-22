@@ -59,6 +59,7 @@ export const Wrapper = styled.div`
 
     @media (max-width: 414px){
         .event{
+            margin-left: 5em;
             img{
                 width: 260px;
                 height: 290px;
