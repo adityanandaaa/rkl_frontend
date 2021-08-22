@@ -218,10 +218,14 @@ export const Paper = styled.div`
         height: 100vh;
         img{
             width: 100%;
-            height: 375px;
+            margin-top: 1em;
         }
         .detail-wrap{
             margin-top: 1em;
+            overflow-y: scroll;
+        }
+        .title{
+            margin-top: 15px;
         }
         .description{
             p{

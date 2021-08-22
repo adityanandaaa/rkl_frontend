@@ -1,12 +1,14 @@
 import React, {useEffect, useState} from 'react'
 import {Wrapper, Flex, Header, Content, Menu, Event, Gallery, Location} from './styles'
 import axios from 'axios'
-import {Ruci} from './CafeRuci'
 import Navbar from '../../Components/Navbar2'
 import Footer from '../../Components/Footer'
 import {Carousel} from 'react-bootstrap'
 import Carousels from '../../Components/Carousel'
-import {baseUrl} from './api'
+import {baseUrl} from '../../utils'
+import Food from './Media/food.jpg'
+import Drink from './Media/drink.jpeg'
+import EventCover from './Media/event-cover.jpg'
 
 
 
@@ -15,11 +17,11 @@ const Brands = ({match}) => {
     const [data, setData] = useState([])
     const [event, setEvent] = useState([])
     const [gallery, setGallery] = useState([])
-    const [indexGal, setIndexGal] = React.useState(0);
+    // const [indexGal, setIndexGal] = React.useState(0);
 
-    const handleSelectGal = (selectedIndex, e) => {
-        setIndexGal(selectedIndex);
-    };
+    // const handleSelectGal = (selectedIndex, e) => {
+    //     setIndexGal(selectedIndex);
+    // };
 
     const convertUrl = () => {
         var str = name
@@ -47,6 +49,10 @@ const Brands = ({match}) => {
             // setGallery(items.gallery)
 
         })
+    }
+
+    const handleOpenMenu = (url) => {
+        window.open(url, "_blank")
     }
 
     // const fetchBrand = () => {
@@ -84,13 +90,13 @@ const Brands = ({match}) => {
                                 <h1 className="title">OUR MENU</h1>
                                 <span className="line" />
                             </Flex>
-                            <Flex direction="row" justify="center" className="menu">
-                                <Menu background={Ruci.menu[0]}>
+                            <Flex direction="row" justify="center" className="menu" onClick={() => handleOpenMenu(data.menu_file_link)}>
+                                <Menu background={Food}>
                                     <Flex direction="row" justify="center" alignItems="center">
                                         <h1>FOOD</h1>
                                     </Flex>
                                 </Menu>
-                                <Menu background={Ruci.menu[1]}>
+                                <Menu background={Drink}>
                                     <Flex direction="row" justify="center" alignItems="center">
                                         <h1>DRINK</h1>
                                     </Flex>
@@ -100,7 +106,7 @@ const Brands = ({match}) => {
                         </Flex>
                     </Content>
                     
-                    <Event background={Ruci.event.eventBackground}>
+                    <Event background={EventCover}>
                         <div>
                             <Flex direction="column" alignItems="center">
                                 <h1>EVENT & PROMO</h1>
@@ -149,7 +155,7 @@ const Brands = ({match}) => {
                     </Gallery>
 
                     <Location background={data.hero_footer_image_link}>
-                        <Flex direction="row" justify="flex-end" alignItems="center" className="logo">
+                        <Flex direction="row" justify="center" alignItems="center" className="logo">
                             <Flex direction="column" alignItems="center" justify="center">
                                 <img src={data.brand_image_link} alt="brand_logo" />
                             </Flex>

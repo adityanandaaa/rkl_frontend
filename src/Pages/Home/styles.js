@@ -48,19 +48,37 @@ export const Header = styled.div`
     //     padding-right: 15em;
     // }
     .second a:nth-child(1){
-        padding-left: 15em;
+        margin-left: 10em;
     }
     .second a:nth-child(2){
-        padding-right: 15em;
+        margin-right: 10em;
+    }
+
+    @media (max-width: 1024px){
+        .description{
+            font-size: 35px;
+        }
     }
     
+    @media (max-width: 768px){
+        .description{
+            font-size: 25px;
+        }
+        .brands{
+            img{
+                width: 150px;
+                height: 150px;
+            }
+        }
+    }
 
     @media (max-width: 414px){
         width: 100%;
         height: auto;
         .description{
-            font-size: 22px;
-            width: 15em;
+            font-size: 18px;
+            text-align: center;
+            width: 18em;
         }
         .brands :nth-child(1){
             flex-direction: column;
@@ -75,18 +93,18 @@ export const Header = styled.div`
             padding: 0;
         }
         .second a:nth-child(1){
-            padding: 0;
+            margin: 0;
         }
         .second a:nth-child(2){
-            padding: 0;
+            margin: 0;
         }
         .brands :nth-child(2) img:last-child {
             margin-top: 3em;
         }
         .brands{
             img{
-                width: 200px;
-                height: 200px;
+                width: 120px;
+                height: 120px;
             }
         }
     }
@@ -213,6 +231,10 @@ export const Parts = styled.div`
         border-radius: 0;
     }
 
+    @media (max-width: 1024px){
+        margin-top: 40em;
+    }
+
     @media (max-width: 414px){
         padding: 0;
         h1{
@@ -225,7 +247,7 @@ export const Parts = styled.div`
         span{
             font-size: 25px;
         }
-        .lala{
+        .parts-wrap{
             flex-direction: column;
         }
         .input{

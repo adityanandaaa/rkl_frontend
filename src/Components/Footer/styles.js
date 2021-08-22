@@ -16,7 +16,7 @@ export const Wrapper = styled.div`
     min-height: 350px;
     color: white;
     padding-top: 2em;
-    padding-left: 10em;
+    padding-left: 12em;
     padding-right: 10em;
 
     @media (width: 1280px){
@@ -90,7 +90,8 @@ export const Wrapper = styled.div`
 
     @media (max-width: 1024px){
         max-width: 100%;
-        height: 50em;
+        height: 25em;
+        padding-left: 9em;
         .logo{
             width: 100px;
             height: 45px;
@@ -127,7 +128,6 @@ export const Wrapper = styled.div`
     }
     @media (max-width: 768px){
         max-width: 100%;
-        height: 30em;
         padding-left: 70px;
         .logo{
             width: 100px;

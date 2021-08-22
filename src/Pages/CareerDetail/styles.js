@@ -97,6 +97,10 @@ export const Content = styled.div`
         margin-bottom: 300px;
     }
 
+    @media (max-width: 1024px){
+        padding-left: 100px;
+    }
+
     @media (max-width: 768px){
         padding-left: 70px;
         h1{

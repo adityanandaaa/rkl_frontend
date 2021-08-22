@@ -72,7 +72,7 @@ const Home = () => {
         axios.get(`${baseUrl}/setting?name=${text}`)
         .then((res) => {
             const setting = res.data
-            setSetting(setting)
+            setSetting(setting.substring(3, setting.length - 4))
         })
         return setting
     }
@@ -112,9 +112,6 @@ const Home = () => {
                 <Navbar />
                 <Flex direction="row" justify="center" alignItems="center">
                     <p class="description">
-                        {/* RKL is a Food and Beverage company incepted in 2010
-                        with a commitment to make great experience to
-                        denizens of Jakarta */}
                         {fetchSetting('homepage_text')}
                     </p>
                 </Flex>
@@ -193,7 +190,7 @@ const Home = () => {
             </Gallerys>
 
             <Parts>
-                <Flex direction="row" justify="center" className="lala">
+                <Flex direction="row" justify="center" className="parts-wrap">
                     <h1>
                         <span>LET'S BE</span><br /> PART OF US
                     </h1>

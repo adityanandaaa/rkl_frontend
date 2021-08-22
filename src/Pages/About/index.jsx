@@ -21,10 +21,11 @@ const About = () => {
         axios.get(`${baseUrl}/setting?name=${text}`)
         .then((res) => {
             const setting = res.data
-                setSetting({
-                    status: res.status,
-                    text: setting
-                })
+            console.log(setting)
+            setSetting({
+                status: res.status,
+                text: setting.substring(3, setting.length - 4)
+            })
         })
         return setting.text
     }
@@ -41,6 +42,7 @@ const About = () => {
             </div>
             
             <Flex direction="column" justify="center" alignItems="center">
+                {/* <p className="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nibh dolor elit faucibus non quis elit ipsum. Habitasse.</p> */}
                 {setting.status == 200 ?
                     <p className="description">{fetchSetting('about_text')}</p>
                     :
@@ -51,18 +53,21 @@ const About = () => {
             <Flex direction="row" justify="center" className="vision">
                 <h1>Vision</h1>
                 <p>{fetchSetting('visi_text')}</p>
+                {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nibh dolor elit faucibus non quis elit ipsum. Habitasse.</p> */}
             </Flex>
             <Flex direction="row" justify="center">
                 <div className="moto-line" />
             </Flex>
             <Flex direction="row" justify="center" className="mission">
-                <ul>
+                {/* <ul>
                     <li>To retain outlets in big cities and tourism hotspots in Indonesia</li>
                     <li>Create strong brand awareness that suites to the target market</li>
                     <li>Build prospective partnership with various business upholding tourism sector</li>
                     <li>Build prospective partnership with various lifestyle brand</li>
                     <li>Implementing good corporate governance</li>
-                </ul>
+                </ul> */}
+                <p>{fetchSetting('misi_text')}</p>
+                {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nibh dolor elit faucibus non quis elit ipsum. Habitasse.</p> */}
                 <h1>Mission</h1>
             </Flex>
             <Contact>

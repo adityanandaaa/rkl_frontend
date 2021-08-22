@@ -78,6 +78,7 @@ export const Content = styled.div`
             font-size: 50px;
             color: white;
         }
+        cursor: pointer;
     }
 
     @media (max-width: 414px){
@@ -312,11 +313,15 @@ export const Location = styled.div`
         margin-bottom: 1em;
     }
 
-    @media(max-width: 1280px){
-        padding-left: 31em;
+    @media (max-width: 1280px){
+        padding-left: 30em;
         .location-wrap{
             padding-left: 2em;
         }
+    }
+
+    @media (max-width: 1024px){
+        padding-left: 20em;
     }
 
     @media (max-width: 768px){
@@ -328,6 +333,7 @@ export const Location = styled.div`
             font-size: 14px;
         }
         img{
+            width: 140px;
             height: 160px;
         }
     }

@@ -65,11 +65,10 @@ export const Wrapper = styled.div`
         margin-top: 3em;
         h1{
             margin-left: 160px;
-            margin-top: 1em;
             font-size: 40px;
             font-weight: 800;
         }
-        ul{
+        p{
             font-family: Inter;
             font-style: normal;
             font-weight: 500;
@@ -81,7 +80,23 @@ export const Wrapper = styled.div`
         }
     }
 
-    @media (width: 768px){
+    @media (max-width: 1024px){
+        .description{
+            font-size: 25px;
+        }
+        .vision{
+            h1{
+                font-size: 30px;
+            }
+        }
+        .mission{
+            h1{
+                font-size: 30px;
+            }
+        }
+    }
+
+    @media (max-width: 768px){
         .description{
             font-size: 18px;
         }
@@ -92,32 +107,27 @@ export const Wrapper = styled.div`
         .vision{
             h1{
                 font-size: 30px;
-                padding-left: 2em;
-                padding-top: 0.5em;
+                margin-left: 2em;
             }
             p{
                 width: 30em;
-                font-size: 18px;
             }
         }
         .mission{
-            // width: 45em;
             h1{
                 font-size: 30px;
-                padding-right: 4em;
-                padding-top: 2em;
+                margin-right: 2em;
             }
-            ul{
-                padding-left: 5em;
-                width: 40em;
+            p{
+                width: 30em;
+                margin-left: 4em;
             }
         }
     }
     @media (max-width: 414px){
         .description{
             font-size: 16px;
-            padding-left: 1em;
-            padding-right: 1em;
+            text-align: center;
         }
         .download{
             font-size: 16px;
@@ -128,12 +138,15 @@ export const Wrapper = styled.div`
             flex-direction: column;
             align-items: center;
             h1{
-                font-size: 35px;
+                margin-left: 0;
+                font-size: 25px;
             }
             p{
                 font-size: 17px;
                 width: 20em;
-                margin-left: 2em;
+                // margin-left: 2em;
+                margin-left: 0;
+                text-align: center;
             }
         }
         .moto-line{
@@ -146,13 +159,16 @@ export const Wrapper = styled.div`
             flex-direction: column-reverse;
             align-items: center;
             h1{
-                margin-left: 10px;
-                margin-top: 0.1em;
-                font-size: 35px;
+                margin-left: 2em;
+                text-align: center;
+                font-size: 25px;
             }
-            ul{
+            p{
                 font-size: 17px;
                 width: 20em;
+                // margin-left: 2em;
+                margin-left: 0;
+                text-align: center;
             }
         }
     }

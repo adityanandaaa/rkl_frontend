@@ -13,7 +13,7 @@ const Footer = () => {
         axios.get(`${baseUrl}/setting?name=${text}`)
         .then((res) => {
             const setting = res.data
-            setSetting(setting)
+            setSetting(setting.substring(3, setting.length - 4))
         }, [])
         return setting
     }

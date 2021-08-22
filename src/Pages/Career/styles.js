@@ -129,6 +129,11 @@ export const Content = styled.div`
     .field{
         width: 250px;
     }
+
+    @media (max-width: 1024px){
+        padding-left: 5em;
+        padding-right: 5em;
+    }
     
     @media (max-width: 768px){
         padding-left: 2em;
