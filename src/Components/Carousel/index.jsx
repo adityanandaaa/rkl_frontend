@@ -81,6 +81,7 @@ const Carousels = ({data}) => {
                     handleClose={handleClose}
                     title={items.name} 
                     description={items.description}
+                    brand={items.brand_name}
                     date={dateFormat(items.start_date, "d mmmm") + " - " + dateFormat(items.end_date, "d mmmm yyyy")}
                 />
             ))}

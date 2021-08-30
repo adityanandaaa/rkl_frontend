@@ -36,7 +36,6 @@ const About = () => {
             axios.get(`${baseUrl}/setting?name=about_text`),
             axios.get(`${baseUrl}/setting?name=visi_text`),
             axios.get(`${baseUrl}/setting?name=misi_text`),
-            axios.get(`${baseUrl}/setting?name=misi_text`),
             axios.get(`${baseUrl}/setting?name=contact`),
         ]).then(([about, vision, mission, contact]) => {
             setSetting({

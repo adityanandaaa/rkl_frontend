@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     
 }));
 
-const Modals = ({src, open, handleClose, title, description, date}) => {
+const Modals = ({src, open, handleClose, title, description, date, brand}) => {
     const classes = useStyles();
 
     return(
@@ -73,7 +73,7 @@ const Modals = ({src, open, handleClose, title, description, date}) => {
                                         </div>
                                         <div className="location">
                                             <h2>Location</h2>
-                                            <p>Coffee Ruci</p>
+                                            <p>{brand}</p>
                                         </div>
                                     </Flex>
                                 </Flex>
