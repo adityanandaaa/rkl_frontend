@@ -18,6 +18,9 @@ export const Flex = styled.div`
 export const Wrapper = styled.div`
     // margin-top: 1em;
     width: 100%;
+    div{
+        scroll-behavior: smooth;
+    }
 `
 
 export const Header = styled.div`
@@ -125,20 +128,6 @@ export const Events = styled.div`
     .line{
         border: 1px solid #000000;
         width: 20em;
-    }
-    .event{
-        margin-left: 5em;
-        img{
-            width: 275px;
-            height: 290px;
-            margin-top: 1em;
-        }
-    }
-    .event_title{
-        width: 10em;
-        font-size: 24px;
-        font-weight: 600;
-        height: 2.5em;
     }
     .event_date{
         font-size: 18px;

@@ -255,7 +255,7 @@ export const Contact = styled.div`
     }
 
     @media (max-width: 768px){
-        .yeye{
+        .title{
             margin-left: -3em;
         }
         h1{
@@ -268,10 +268,10 @@ export const Contact = styled.div`
         background-size: cover;
         background-position: center;
         height: 200px;
-        .yeye{
-            flex-direction: row;
+        .title{
+            margin-left: -1em;
         }
-        .lala{
+        .wrapper{
             flex-direction: column;
             align-items: center;
         }
@@ -294,11 +294,11 @@ export const Contact = styled.div`
     }
 
     @media (max-width: 375px){
-        h1{
-            // margin-left: 3em;
+        .title{
+            margin-left: -3em;
         }
         .contact-wrap{
-            // padding-left: 3.5em;
+            padding-left: 4em;
         }
     }
 

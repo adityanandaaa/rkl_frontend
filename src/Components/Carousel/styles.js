@@ -26,7 +26,6 @@ export const Wrapper = styled.div`
         width: 10em;
         font-size: 24px;
         font-weight: 600;
-        height: 2.5em;
     }
     .cafe_name{
         font-style: normal;
@@ -79,6 +78,7 @@ export const Wrapper = styled.div`
 
     @media (max-width: 375px){
         .event{
+            margin-left: 4.7em;
             img{
                 width: 230px;
                 height: 270px;

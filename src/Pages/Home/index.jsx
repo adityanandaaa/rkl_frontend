@@ -1,8 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {Flex, Wrapper, Header, Events, Gallerys, Parts} from './styles'
 import axios from 'axios'
-// import Carousel from "react-multi-carousel";
-// import 'react-multi-carousel/lib/styles.css';
 import Carousels from '../../Components/Carousel'
 import Gallery from 'react-grid-gallery'
 import {FormControl, Button} from 'react-bootstrap'
@@ -19,7 +17,7 @@ import Brand8 from './Media/brands-8.png'
 import Brand9 from './Media/brands-9.png'
 import Brand10 from './Media/brands-10.png'
 
-import { baseUrl, fetchSetting } from '../../utils'
+import { baseUrl } from '../../utils'
 
 
 const Home = () => {
@@ -92,17 +90,16 @@ const Home = () => {
             setItems(items)
         })  
     }
-    const getText = () => {
-        let text = 'lalala yeyeye'
-        text = text.replace(/\s+/g, '-').toLowerCase()
-        console.log(text)
-    }
+    // const getText = () => {
+    //     let text = 'lalala yeyeye'
+    //     text = text.replace(/\s+/g, '-').toLowerCase()
+    //     console.log(text)
+    // }
 
     useEffect(() => {
         fetchEvent()
         getImages()
         console.log(window.innerWidth)
-        getText()
     }, [])
   
 
@@ -143,7 +140,7 @@ const Home = () => {
                         </a>
                     </Flex>
                     <Flex direction="row" justify="space-around" className="second">
-                        <a href="/brands/Rara Ramen & Bar">
+                        <a href="/brands/123">
                             <img 
                                 src={!hover.pic4 ? Brand4 : Brand9} 
                                 onMouseOver={() => setHover({pic4: true})} 
@@ -171,7 +168,7 @@ const Home = () => {
                 <Carousels data={event} />
             </Events>
             
-            <Gallerys>
+            <Gallerys id="gallery">
                 <Flex direction="column" alignItems="center" className="title">
                     <h1>Gallery</h1>
                     <div className="line" />

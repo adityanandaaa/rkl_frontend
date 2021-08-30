@@ -1,17 +1,17 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Flex, Wrapper} from './styles'
-import { Navbar, Nav, NavDropdown } from "react-bootstrap";
-import Logo from './Media/Logo2.png'
-import DehazeIcon from '@material-ui/icons/Dehaze';
-import CloseIcon from '@material-ui/icons/Close';
+import {Wrapper} from './styles'
+// import { Navbar, Nav, NavDropdown } from "react-bootstrap";
+// import Logo from './Media/Logo2.png'
+// import DehazeIcon from '@material-ui/icons/Dehaze';
+// import CloseIcon from '@material-ui/icons/Close';
 import Navbar2 from '../Navbar2'
 
 const Navbars = () => {
-    const [open, setOpen] = React.useState(false)
-    const handleOpen = () => {
-        setOpen(!open)
-    }
+    // const [open, setOpen] = React.useState(false)
+    // const handleOpen = () => {
+    //     setOpen(!open)
+    // }
     return (
         <Wrapper>
             {/* <Navbar expand="lg" variant="light" bg="transparent" style={{paddingTop: '1em'}}>

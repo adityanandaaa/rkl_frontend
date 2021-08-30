@@ -67,7 +67,7 @@ const Modals = ({src, open, handleClose, title, description, date}) => {
                                             <h2>Date</h2>
                                             <p>{date}</p>
                                         </div>
-                                        <div className="description">
+                                        <div className={open && description && description.length > 150 ? "description scroll" : "description"}>
                                             <h2>Description</h2>
                                             <p>{description}</p>
                                         </div>

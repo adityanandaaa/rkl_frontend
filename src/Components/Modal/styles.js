@@ -34,8 +34,10 @@ export const Paper = styled.div`
         padding-left: 35px;
     }
     .detail-wrap{
-        margin-top: 2em;
+        margin-top: 0.1em;
         margin-left: 1em;
+        overflow-y: scroll;
+        height: 11em;
     }
     .title{
         margin: 0;
@@ -52,6 +54,7 @@ export const Paper = styled.div`
             font-weight: 600;
             font-size: 36px;
             letter-spacing: 0.02em;
+            width: 11.5em;
             // padding-bottom: 1em;
         }
         
@@ -89,7 +92,13 @@ export const Paper = styled.div`
             font-size: 18px;
             line-height: 150%;
             letter-spacing: 0.02em;
+            width: 24em;
         }
+    }
+    .description.scroll{
+        overflow-y: scroll;
+        height: 3em;
+        margin-bottom: 10px;
     }
     .location{
         h2{
@@ -119,7 +128,8 @@ export const Paper = styled.div`
             height: 336px;
         }
         .detail-wrap{
-            margin-top: 1em;
+            margin-top: 0.4em;
+            height: 9em;
         }
         .title p{
             font-weight: 600;
@@ -127,6 +137,7 @@ export const Paper = styled.div`
         }
         .title h1{
             font-size: 24px;
+            width: 13em;
         }
         .date{
             margin-top: 0.5em;
@@ -143,6 +154,7 @@ export const Paper = styled.div`
             }
             p{
                 font-size: 16px;
+                width: 20em;
             }
         }
         .location{
@@ -171,11 +183,11 @@ export const Paper = styled.div`
         }
         .detail-wrap{
             margin-top: 1em;
+            // height: 15em;
         }
         .title p{
             font-weight: 600;
             font-size: 14px;
-            margin-top: -1em;
         }
         .title h1{
             font-size: 22px;
@@ -221,8 +233,9 @@ export const Paper = styled.div`
             margin-top: 1em;
         }
         .detail-wrap{
-            margin-top: 1em;
-            overflow-y: scroll;
+            // margin-top: 1em;
+            // overflow-y: scroll;
+            height: 10em;
         }
         .title{
             margin-top: 15px;

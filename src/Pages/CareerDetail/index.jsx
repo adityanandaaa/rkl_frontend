@@ -9,8 +9,19 @@ import { baseUrl } from '../../utils'
 const CareerDetail = ({match}) => {
     const {params: {id}} = match
     const [items, setItems] = useState([])
+    const [title, setTitle] = useState([])
+
     const handleClick = () => {
         window.location = `mailto:${items.email_to}`
+    }
+    const removeTags = (str) => {
+        if ((str===null) || (str==='')){
+            return false;
+        }
+        else{
+            str = "" + str
+            return str.replace( /(<([^>]+)>)/ig, '');
+        }
     }
 
     useEffect(() => {
@@ -19,16 +30,18 @@ const CareerDetail = ({match}) => {
             const items = res.data
             console.log(items)
             console.log(id)
+            console.log(typeof items.spesification)
             setItems(items)
+            setTitle(items.position_name.toUpperCase())
         })
-    },[])
+    },[id])
 
     return(
         <div>
             <Header>
                 <Navbar />
                 <Flex direction="row" justify="center" alignItems="center">
-                    <h1>OUTLET MANAGER</h1>
+                    <h1>{title}</h1>
                 </Flex>
             </Header>
             <Content>
@@ -40,7 +53,7 @@ const CareerDetail = ({match}) => {
                         </Flex>
                         <Flex direction="column" justify="center">
                             <h1 style={{marginTop: '50px'}}>Job Specification</h1>
-                            <p>{items.spesification}</p>
+                            <p>{removeTags(items.spesification)}</p>
                         </Flex>
                         <Flex direction="row">
                             <p>Please send your CV to <b>hrd@rkl.com</b> or click the button below if you interested this position</p>

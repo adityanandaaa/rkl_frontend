@@ -8,7 +8,6 @@ import { Wrapper, Flex } from "./styles";
 import axios from "axios";
 import { baseUrl } from "../../utils";
 import { useEffect } from "react";
-// import { useHistory, Link } from "react-router-dom"
 
 const Navbar2 = () => {
     const [items, setItems] = useState([])
@@ -46,18 +45,12 @@ const Navbar2 = () => {
                             </Flex>
                             <li><a href="/" className="home">HOME</a></li>
                             <li><a href="/about">ABOUT</a></li>
-                            {/* <li><a href="/brands/1">BRANDS</a></li> */}
                             <li className="dropdown">
                                 <a className="dropbtn" href="#/">BRANDS</a>
                                 <div class="dropdown-content">
                                     {items.map((items) => (
                                         <a href={`/brands/${items.name}`}>{items.name}</a>
                                     ))}
-                                    {/* <a href="/brands/1">Café Ruci</a>
-                                    <a href="/brands/3">Ruci's Joint</a>
-                                    <a href="/brands/2">Warget</a>
-                                    <a href="/brands/4">123</a>
-                                    <a href="/brands/5">Rara</a> */}
                                 </div>
                             </li>
                             <li><a href="/career">CAREER</a></li>

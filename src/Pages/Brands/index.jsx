@@ -9,6 +9,8 @@ import {baseUrl} from '../../utils'
 import Food from './Media/food.jpg'
 import Drink from './Media/drink.jpeg'
 import EventCover from './Media/event-cover.jpg'
+import InstagramIcon from './Media/instagram-icon.png'
+import WhatsappIcon from './Media/whatsapp-icon.png'
 
 
 
@@ -17,11 +19,6 @@ const Brands = ({match}) => {
     const [data, setData] = useState([])
     const [event, setEvent] = useState([])
     const [gallery, setGallery] = useState([])
-    // const [indexGal, setIndexGal] = React.useState(0);
-
-    // const handleSelectGal = (selectedIndex, e) => {
-    //     setIndexGal(selectedIndex);
-    // };
 
     const convertUrl = () => {
         var str = name
@@ -34,7 +31,7 @@ const Brands = ({match}) => {
         .then((res) => {
             const items = res.data
             const data = items.filter(
-                x => x.name == name
+                x => x.name === name
             )
             console.log(data)
             setData(data)
@@ -55,16 +52,6 @@ const Brands = ({match}) => {
         window.open(url, "_blank")
     }
 
-    // const fetchBrand = () => {
-    //     axios.get(`${baseUrl}/brand?id=${id}&with_gallery_event=true`)
-    //     .then((res) => {
-    //         const items = res.data
-    //         console.log(items)
-    //         setData(items)
-    //         setEvent(items.event_promo)
-    //         setGallery(items.gallery)
-    //     })
-    // }
 
     useEffect(() => {
         fetchBrand()
@@ -72,7 +59,7 @@ const Brands = ({match}) => {
         console.log(name)
         // console.log(data)
         convertUrl()
-    }, [])
+    }, [event, fetchBrand, name])
     return(
         <Wrapper>
             {data.map((data, i) => (
@@ -113,7 +100,7 @@ const Brands = ({match}) => {
                                 <span className="line" />
                             </Flex>
                             <div className="promo">
-                                {event.length == 0 ?
+                                {event.length === 0 ?
                                     <Flex direction="row" justify="center">
                                         <h1>There is no event in this period of time</h1>
                                     </Flex>
@@ -131,7 +118,7 @@ const Brands = ({match}) => {
                         </Flex>
                         <Flex direction="row" justify="center" alignItems="center" className="pic">
                             <Flex direction="row" justify="center">
-                                {gallery == 0 ? 
+                                {gallery === 0 ? 
                                     <h1>There is no picture uploaded yet</h1>
                                     :
                                     <Carousel>
@@ -144,12 +131,10 @@ const Brands = ({match}) => {
                                                     alt="First slide"
                                                     />
                                                 </Flex>
-                                                
                                             </Carousel.Item>
                                         ))}
                                     </Carousel>
                                 }
-                                
                             </Flex>
                         </Flex>
                     </Gallery>
@@ -162,8 +147,14 @@ const Brands = ({match}) => {
                             <Flex direction="column" alignItems="flex-start" justify="center" className="location-wrap">
                                 <p>{data.address}</p>
                                 <p>{data.open_hour}</p>
-                                <p>{data.contact}</p>
-                                <a href={data.instagram} className="insta">@{data.name}</a>
+                                <p>
+                                    <img src={WhatsappIcon} alt="whatsapp_icon" className="icon" />
+                                    <span>{data.contact}</span>
+                                </p>
+                                <a href={data.instagram} className="insta">
+                                    <img src={InstagramIcon} alt="instagram_icon" className="icon" />
+                                    <span>@{data.name}</span>
+                                </a>
                             </Flex>
                         </Flex>
                     </Location>

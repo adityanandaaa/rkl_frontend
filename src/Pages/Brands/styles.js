@@ -173,6 +173,12 @@ export const Event = styled.div`
         color: #828282;
     }
 
+    @media (max-width: 768px){
+        .promo h1{
+            font-size: 30px;
+        }
+    }
+
     @media (max-width: 414px){
         // background: none;
         h1{
@@ -299,6 +305,15 @@ export const Location = styled.div`
     .location-wrap{
         // margin-right: 15em;
     }
+    .icon{
+        width: 30px;
+        height: 30px;
+        margin-top: 10px;
+
+    }
+    span{
+        margin-left: 10px;
+    }
     .insta{
         // position: absolute;
         // margin-top: 3em;
@@ -329,7 +344,7 @@ export const Location = styled.div`
 
     @media (max-width: 768px){
         width: 100%;
-        height: 190px;
+        height: 250px;
         padding-left: 4em;
         padding-right: 6em;
         p{
@@ -338,6 +353,10 @@ export const Location = styled.div`
         img{
             width: 140px;
             height: 160px;
+        }
+        .icon{
+            width: 25px;
+            height: 25px;
         }
     }
 

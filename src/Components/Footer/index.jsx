@@ -34,7 +34,7 @@ const Footer = () => {
                     </Flex>
                     <Flex direction="row" justify="flex-start" className="menu">
                         <a href="/brands/Cafe Ruci">Brand</a>
-                        <a href="/">Gallery</a>
+                        <a href="#gallery">Gallery</a>
                     </Flex>
                      <Flex direction="row" justify="flex-start" className="menu">
                         <a href="/career">Career</a>

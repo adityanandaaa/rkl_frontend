@@ -10,25 +10,47 @@ import phoneIcon from './Media/Phone-Black.png'
 import instagramIcon from './Media/Instagram-Black.png'
 import facebookIcon from './Media/Facebook-Black.png'
 import { baseUrl } from '../../utils'
+import { useEffect } from 'react'
 
 
 const About = () => {
-    const [setting, setSetting] = useState([{
+    const [setting, setSetting] = useState({
         status: 0,
-        text: ''
-    }])
-    const fetchSetting = (text) => {
-        axios.get(`${baseUrl}/setting?name=${text}`)
-        .then((res) => {
-            const setting = res.data
-            console.log(setting)
+        about_text: '',
+        vision_text: '',
+        mission_text: '',
+        phone_number: '',
+        contact: ''
+    })
+
+    const removeTags = (str) => {
+        if ((str===null) || (str===''))
+        return false;
+        else
+        str = str.toString();
+        return str.replace( /(<([^>]+)>)/ig, '');
+    }
+
+    const fetchSetting = () => {
+        Promise.all([
+            axios.get(`${baseUrl}/setting?name=about_text`),
+            axios.get(`${baseUrl}/setting?name=visi_text`),
+            axios.get(`${baseUrl}/setting?name=misi_text`),
+            axios.get(`${baseUrl}/setting?name=misi_text`),
+            axios.get(`${baseUrl}/setting?name=contact`),
+        ]).then(([about, vision, mission, contact]) => {
             setSetting({
-                status: res.status,
-                text: setting.substring(3, setting.length - 4)
+                status: about.status,
+                about_text: removeTags(about.data),
+                vision_text: removeTags(vision.data),
+                mission_text: removeTags(mission.data),
+                contact: removeTags(contact.data)
             })
         })
-        return setting.text
     }
+    useEffect(() => {
+        fetchSetting()
+    }, [])
     return(
         <div>
         <Wrapper>
@@ -42,9 +64,8 @@ const About = () => {
             </div>
             
             <Flex direction="column" justify="center" alignItems="center">
-                {/* <p className="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nibh dolor elit faucibus non quis elit ipsum. Habitasse.</p> */}
-                {setting.status == 200 ?
-                    <p className="description">{fetchSetting('about_text')}</p>
+                {setting.status === 200 ?
+                    <p className="description">{setting.about_text}</p>
                     :
                     <LinearProgress style={{width: '80%', marginTop: '2em'}} />
                 }
@@ -52,27 +73,18 @@ const About = () => {
             </Flex>
             <Flex direction="row" justify="center" className="vision">
                 <h1>Vision</h1>
-                <p>{fetchSetting('visi_text')}</p>
-                {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nibh dolor elit faucibus non quis elit ipsum. Habitasse.</p> */}
+                <p>{setting.vision_text}</p>
             </Flex>
             <Flex direction="row" justify="center">
                 <div className="moto-line" />
             </Flex>
             <Flex direction="row" justify="center" className="mission">
-                {/* <ul>
-                    <li>To retain outlets in big cities and tourism hotspots in Indonesia</li>
-                    <li>Create strong brand awareness that suites to the target market</li>
-                    <li>Build prospective partnership with various business upholding tourism sector</li>
-                    <li>Build prospective partnership with various lifestyle brand</li>
-                    <li>Implementing good corporate governance</li>
-                </ul> */}
-                <p>{fetchSetting('misi_text')}</p>
-                {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nibh dolor elit faucibus non quis elit ipsum. Habitasse.</p> */}
+                <p>{setting.mission_text}</p>
                 <h1>Mission</h1>
             </Flex>
             <Contact>
-                <Flex direction="row" justify="center" className="lala">
-                    <Flex direction="column" alignItems="flex-start" className="yeye">
+                <Flex direction="row" justify="center" className="wrapper">
+                    <Flex direction="column" alignItems="flex-start" className="title">
                         <h1>Our Contact <span>Details</span></h1>
                     </Flex>
                     <Flex direction="column" justify="center" alignItems="center" className="contact-wrap">
@@ -82,7 +94,7 @@ const About = () => {
                         </Flex>
                         <Flex direction="row">
                             <img src={phoneIcon} alt="phone_icon" />
-                            <p>+62 821 6652 6245</p>
+                            <p>{setting.contact}</p>
                         </Flex>
                         <Flex direction="row">
                             <a href="www.instagram.com">
