@@ -11,17 +11,18 @@ import { useEffect } from "react";
 
 const Navbar2 = () => {
     const [items, setItems] = useState([])
-    const fetchBrandName = () => {
-        axios.get(`${baseUrl}/brand`)
-        .then((res) => {
-            const items = res.data
-            setItems(items)
-        })
+    const fetchBrandName = async() => {
+        const res = await axios.get(`${baseUrl}/brand`)
+        // .then((res) => {
+        //     const items = res.data
+        //     setItems(items)
+        // })
+        setItems(res.data)
 
     }
     useEffect(() => {
         fetchBrandName()
-    },[])
+    }, [])
     return (
         <Fragment>
                 <Wrapper>

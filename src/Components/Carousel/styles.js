@@ -14,18 +14,33 @@ export const Flex = styled.div`
 
 export const Wrapper = styled.div`
     .event{
-        margin-left: 5em;
+        background-color: white;
+        width: 350px;
+        height: 500px;
+        border-radius: 8px;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+        margin: 1em 4.5em;
+        :hover{
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            transition: 0.3s;
+        }
         img{
-            width: 275px;
+            width: 100%;
             height: 290px;
-            margin-top: 1em;
+            border-radius: 8px 8px 0 0;
+            // margin-top: 1em;
         }
         cursor: pointer;
     }
+    p{
+        padding: 5px 10px;
+    }
     .event_title{
-        width: 10em;
+        // width: 10em;
+        height: 115px;
         font-size: 24px;
         font-weight: 600;
+
     }
     .cafe_name{
         font-style: normal;
@@ -41,27 +56,33 @@ export const Wrapper = styled.div`
         margin-top: -1em;
     }
 
+    @media (max-width: 1280px){
+        .event{
+            width: 330px;
+        }
+    }
+
     @media (max-width: 1024px){
         .event{
-            margin-left: 3em;
+            margin-left: 2em;
+            width: 305px;
         }
     }
 
     @media (max-width: 768px){
         .event{
-            margin-left: 2em;
-            img{
-                width: 220px;
-            }
+            margin-left: 1.5em;
+            width: 240px;
         }
     }
 
     @media (max-width: 414px){
         .event{
             margin-left: 5em;
+            width: 260px;
+            height: 450px;
             img{
-                width: 260px;
-                height: 290px;
+                margin: 0;
             }
         }
         .event_title{
@@ -78,11 +99,7 @@ export const Wrapper = styled.div`
 
     @media (max-width: 375px){
         .event{
-            margin-left: 4.7em;
-            img{
-                width: 230px;
-                height: 270px;
-            }
+            margin-left: 4em;
         }
         .event_title{
             width: 11em;

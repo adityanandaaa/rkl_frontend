@@ -40,6 +40,21 @@ const Carousels = ({data}) => {
     const handleClose = () => {
         setOpen(false)
     }
+    const handleEventText = (text) => {
+        if(window.innerWidth > 1000){
+            if(text.length > 45){
+                return text.replace(text, text.substring(0, 45) + "...")
+            }
+            return text
+        }
+        
+        else{
+            if(text.length > 45){
+                return text.replace(text, text.substring(0, 30) + "...")
+            }
+            return text
+        }
+    }
     return(
         <Wrapper>
             <Carousel
@@ -65,11 +80,14 @@ const Carousels = ({data}) => {
             >
                 {data.map((events, i) => (
                     <div key={i} className="event" onClick={() => handleOpen(events.id)}>
-                        <Flex direction="column" justify="center" alignItems="flex-start">
+                        <Flex direction="column" justify="flex-start" alignItems="flex-start">
                             <img src={events.name_image_link} alt={events.name_image} />
-                            <p className="event_title">{events.name}</p>
-                            <p className="cafe_name">{events.brand_name}</p>
-                            <p className="event_date">{dateFormat(events.start_date, "d mmmm") + " - " + dateFormat(events.end_date, "d mmmm yyyy")}</p>
+                            <p className="event_title">{handleEventText(events.name)}</p>
+                            <div>
+                                <p className="cafe_name">{events.brand_name}</p>
+                                <p className="event_date">{dateFormat(events.start_date, "d mmmm") + " - " + dateFormat(events.end_date, "d mmmm yyyy")}</p>
+                            </div>
+                            
                         </Flex>
                     </div>
                 ))}

@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {Flex, Wrapper} from './styles'
 import axios from 'axios'
 import Logo from './Media/Logo2.png'
@@ -8,15 +8,19 @@ import InstagramIcon from '@material-ui/icons/Instagram';
 import { baseUrl } from '../../utils'
 
 const Footer = () => {
-    const [setting, setSetting] = useState()
+    const [setting, setSetting] = useState('')
     const fetchSetting = (text) => {
-        axios.get(`${baseUrl}/setting?name=${text}`)
+        axios.get(`${baseUrl}/setting?name=footer_text`)
         .then((res) => {
             const setting = res.data
             setSetting(setting.substring(3, setting.length - 4))
         }, [])
         return setting
     }
+    useEffect(() => {
+        fetchSetting()
+    }, [])
+
     return(
         <Wrapper>
             <Flex direction="row">
@@ -24,7 +28,7 @@ const Footer = () => {
             </Flex>
             <Flex direction="row" justify="flex-start" alignItems="flex-start" className="wrap">
                 <Flex direction="column" justify="center">
-                    <p className="description">{fetchSetting('footer_text')}</p>
+                    <p className="description">{setting}</p>
                     <a href="mailto:info@rklokal.com" className="email">info@rklokal.com</a>
                 </Flex>
                 <Flex direction="column" justify="flex-start" alignItems="flex-start" className="menu-wrap">

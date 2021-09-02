@@ -21,7 +21,7 @@ import { baseUrl } from '../../utils'
 
 
 const Home = () => {
-    const [setting, setSetting] = useState([])
+    const [setting, setSetting] = useState('')
     const [items, setItems] = useState([])
     const [event, setEvent] = useState([])
     const [hover, setHover] = useState({
@@ -31,6 +31,7 @@ const Home = () => {
         pic4: false,
         pic5: false
     })
+    const [rows, setRows] = useState(0)
     
     const IMAGES2 = items.map((items) => (
         {
@@ -66,13 +67,42 @@ const Home = () => {
             setValue({email: ''})
         }
     }
-    const fetchSetting = (text) => {
-        axios.get(`${baseUrl}/setting?name=${text}`)
+    const handleMaxRows = () => {
+        var initialWidth = window.innerWidth;
+
+        window.addEventListener("resize", function(){
+            // Do something with 'initialWidth'
+            initialWidth = window.innerWidth;
+            if(initialWidth > 1000){
+                setRows(2)
+            }
+            if(initialWidth > 700){
+                setRows(3)
+            }
+            else{
+                setRows(5)
+            }
+           
+        });
+        // if(1440 < initialWidth < 1000){
+        //     return 2
+        // }
+        // if(1000 < initialWidth < 700){
+        //     return 3
+        // }
+        // else{
+        //     return 5
+        // }
+
+    }
+    const fetchSetting = () => {
+        axios.get(`${baseUrl}/setting?name=homepage_text`)
         .then((res) => {
             const setting = res.data
+            console.log(setting)
             setSetting(setting.substring(3, setting.length - 4))
         })
-        return setting
+
     }
     const fetchEvent = () => {
         axios.get(`${baseUrl}/event-promo`)
@@ -90,16 +120,29 @@ const Home = () => {
             setItems(items)
         })  
     }
-    // const getText = () => {
-    //     let text = 'lalala yeyeye'
-    //     text = text.replace(/\s+/g, '-').toLowerCase()
-    //     console.log(text)
-    // }
+
+    const reportWindowSize = () => {
+        let width = window.innerWidth
+        if(1440 < width < 1000){
+            setRows(2)
+        }
+        if(width < 1000){
+            setRows(3)
+        }
+        if(width < 700){
+            setRows(5)
+        }
+
+    }
 
     useEffect(() => {
         fetchEvent()
+        fetchSetting()
         getImages()
+        handleMaxRows()
         console.log(window.innerWidth)
+        window.addEventListener('resize', reportWindowSize);
+        reportWindowSize()
     }, [])
   
 
@@ -109,7 +152,7 @@ const Home = () => {
                 <Navbar />
                 <Flex direction="row" justify="center" alignItems="center">
                     <p class="description">
-                        {fetchSetting('homepage_text')}
+                        {setting}
                     </p>
                 </Flex>
                 <Flex direction="column" justify="center" className="brands">
@@ -179,7 +222,7 @@ const Home = () => {
                     showImageCount={false}
                     enableImageSelection={false}
                     margin={0}
-                    maxRows={10}
+                    maxRows={rows}
                     // rowHeight={220} 
                     id={"test122"}
                     // tagStyle={test1}

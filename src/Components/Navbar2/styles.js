@@ -16,6 +16,8 @@ export const Wrapper = styled.div`
         padding: 0;
         box-sizing: border-box;
         font-family: 'Poppins', sans-serif;
+        z-index: 1000;
+
     } 
     nav{
         display: flex;
@@ -27,6 +29,7 @@ export const Wrapper = styled.div`
         justify-content: space-between;
         padding: 0 50px 0 100px;
         flex-wrap: wrap;
+        z-index: 1000;
     }
     nav .logo{
         height: 50px;
@@ -153,6 +156,7 @@ export const Wrapper = styled.div`
     @media (max-width: 700px) {
         nav{
             // height 100vw;
+
         }
         nav .menu-btn i{
             display: block;
@@ -177,6 +181,10 @@ export const Wrapper = styled.div`
         }
         #click:checked ~ ul{
             left: 0;
+            overflow: hidden;
+        }
+        #click:checked ~ div{
+            overflow: hidden;
         }
         nav ul li{
             width: 100%;

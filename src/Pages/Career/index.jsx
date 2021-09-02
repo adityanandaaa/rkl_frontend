@@ -4,6 +4,7 @@ import {Wrapper, Flex, Header, Content, Card} from './styles'
 import {TextField, Select, MenuItem, InputLabel, FormControl} from '@material-ui/core'
 import Navbar from '../../Components/Navbar2'
 import Footer from '../../Components/Footer'
+import {baseUrl} from '../../utils'
 
 
 const Career = () => {
@@ -11,6 +12,7 @@ const Career = () => {
     const [position, setPosition] = useState('')
     const [location, setLocation] = useState('')
     const [data, setData] = useState([])
+    const [menu, setMenu] = useState([])
 
     const handleKeyword = (event) => {
         console.log(event.target.value)
@@ -35,12 +37,19 @@ const Career = () => {
     //         Object.keys(o).some(k => o[k].toLowerCase().includes(string.toLowerCase())));
     // }
 
-    const fetchData = async() => {
-        const res = await axios.get("https://admin.rklokal.com/api/career")
+    const fetchMenu = async () => {
+        const res = await axios.get(`${baseUrl}/career`)
+        const menu = res
+    }
+
+    const fetchData = async () => {
+        const res = await axios.get(`${baseUrl}/career`)
         const items = res.data
         console.log(items)
         setData(items)
     }
+
+    const distinctLocation = [...new Set(data.map(item => item.location_name))];
 
     useEffect(() => {
         fetchData()
@@ -76,15 +85,11 @@ const Career = () => {
                             value={position}
                             onChange={handlePosition}
                             >
-                            <MenuItem value="Marketing">Marketing</MenuItem>
-                            <MenuItem value="Sales Associates">Sales Associates</MenuItem>
-                            <MenuItem value="Public Relation">Public Relation</MenuItem>
-                            <MenuItem value="Administrator Staff">Administrator Staff</MenuItem>
-                            <MenuItem value="Outlet Manager">Outlet Manager</MenuItem>
-                            <MenuItem value="Asisten Outlet Manager">Asisten Outlet Manager</MenuItem>
-                            <MenuItem value="Captain Service">Captain Service</MenuItem>
-                            <MenuItem value="Server">Server</MenuItem>
-
+                                {data.map((data) => (
+                                    <MenuItem value={data.position_name}>
+                                        {data.position_name}
+                                    </MenuItem>
+                                ))}
                             </Select>
                         </FormControl>
                         <FormControl className="field">
@@ -95,9 +100,9 @@ const Career = () => {
                             value={location}
                             onChange={handleLocation}
                             >
-                            <MenuItem value="Head Office">Head Office</MenuItem>
-                            <MenuItem value="Outlet">Outlet</MenuItem>
-                            <MenuItem value="Intern">Intern</MenuItem>
+                                {distinctLocation.map((data) => (
+                                    <MenuItem value={data}>{data}</MenuItem>
+                                ))}
                             </Select>
                         </FormControl>
                     </Flex>

@@ -19,6 +19,7 @@ const Brands = ({match}) => {
     const [data, setData] = useState([])
     const [event, setEvent] = useState([])
     const [gallery, setGallery] = useState([])
+    const [isFetching, setIsFetching] = useState(false)
 
     const convertUrl = () => {
         var str = name
@@ -41,10 +42,6 @@ const Brands = ({match}) => {
                 setEvent(items.event_promo)
                 setGallery(items.gallery)
             })
-            
-            // setEvent(items.event_promo)
-            // setGallery(items.gallery)
-
         })
     }
 
@@ -52,17 +49,17 @@ const Brands = ({match}) => {
         window.open(url, "_blank")
     }
 
-
     useEffect(() => {
         fetchBrand()
-        console.log(event)
-        console.log(name)
+        // console.log(event)
+        // console.log(name)
         // console.log(data)
         convertUrl()
-    }, [event, fetchBrand, name])
+    }, [])
+   
     return(
         <Wrapper>
-            {data.map((data, i) => (
+            {data && data.map((data, i) => (
                 <div key={i}>
                     <Header background={data.hero_header_image_link}>
                         <Navbar />
