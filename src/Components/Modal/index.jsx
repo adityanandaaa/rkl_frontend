@@ -57,7 +57,9 @@ const Modals = ({src, open, handleClose, title, description, date, brand}) => {
                             </Flex>
                             <Paper className="paper">
                                 <Flex direction="row" justify="space-around" alignItems="center" className="content-wrap">
-                                    <img src={src} alt="event_pic" />
+                                    <Flex direction="row" justify="flex-start" alignItems="center" className="image-wrap">
+                                        <img src={src} alt="event_pic" />
+                                    </Flex>
                                     <Flex direction="column" alignItems="space-around" justify="flex-start" className="detail-wrap">
                                         <div className="title">
                                             <p>Promo</p>

@@ -9,6 +9,9 @@ export const Flex = styled.div`
 `
 
 export const Wrapper = styled.div`
+    *{
+        scroll-behavior: smooth;
+    }
     background-color: black;
     position: relative;
     bottom: 0;

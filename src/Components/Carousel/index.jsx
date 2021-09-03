@@ -81,7 +81,9 @@ const Carousels = ({data}) => {
                 {data.map((events, i) => (
                     <div key={i} className="event" onClick={() => handleOpen(events.id)}>
                         <Flex direction="column" justify="flex-start" alignItems="flex-start">
-                            <img src={events.name_image_link} alt={events.name_image} />
+                            <Flex direction="row">
+                                <img src={events.name_image_link} alt={events.name_image} />
+                            </Flex>
                             <p className="event_title">{handleEventText(events.name)}</p>
                             <div>
                                 <p className="cafe_name">{events.brand_name}</p>

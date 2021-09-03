@@ -35,7 +35,7 @@ export const Paper = styled.div`
     }
     .detail-wrap{
         margin-top: 0.1em;
-        margin-left: 1em;
+        // margin-left: 1em;
         overflow-y: scroll;
         height: 11em;
     }
@@ -178,12 +178,12 @@ export const Paper = styled.div`
         img{
             width: 100%;
             height: 320px;
-            margin-top: 1em;
             padding: 0;
         }
         .detail-wrap{
-            margin-top: 1em;
-            // height: 15em;
+            height: 16em;
+            margin-left: 1em;
+
         }
         .title p{
             font-weight: 600;
@@ -230,12 +230,14 @@ export const Paper = styled.div`
         height: 100vh;
         img{
             width: 100%;
-            margin-top: 1em;
+            margin-top: 0.8em;
+        }
+        .image-wrap{
+            height: 9em;
         }
         .detail-wrap{
             // margin-top: 1em;
-            // overflow-y: scroll;
-            height: 10em;
+            // height: 8em;
         }
         .title{
             margin-top: 15px;

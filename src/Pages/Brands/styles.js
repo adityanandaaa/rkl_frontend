@@ -81,6 +81,13 @@ export const Content = styled.div`
         cursor: pointer;
     }
 
+    @media (max-width: 768px){
+        .description{
+            padding-left: 80px;
+            padding-right: 80px;
+        }
+    }
+
     @media (max-width: 414px){
         .description{
             font-size: 16px;
@@ -246,6 +253,7 @@ export const Gallery = styled.div`
     }
 
     @media (max-width: 768px){
+        margin-top: 30em;
         h1{
             font-size: 34px;
         }
@@ -259,7 +267,7 @@ export const Gallery = styled.div`
     }
 
     @media (max-width: 414px){
-        margin-top: 17em;
+        margin-top: 25em;
         h1{
             font-size: 30px;
         }
@@ -328,7 +336,7 @@ export const Location = styled.div`
     img{
         width: 200px;
         height: 200px;
-        margin-bottom: 1em;
+        // margin-bottom: 1em;
     }
 
     @media (max-width: 1280px){
@@ -374,14 +382,11 @@ export const Location = styled.div`
         }
         img{
             height: 200px;
-            // width: 250px;
         }
         .location-wrap{
-            // flex-direction: column;
-            // padding-bottom: 2em;
             p, a{
                 font-size: 14px;
-                padding-left: 2.5em;
+                padding-left: 2em;
             }
         }
     }

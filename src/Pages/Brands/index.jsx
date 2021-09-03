@@ -19,7 +19,6 @@ const Brands = ({match}) => {
     const [data, setData] = useState([])
     const [event, setEvent] = useState([])
     const [gallery, setGallery] = useState([])
-    const [isFetching, setIsFetching] = useState(false)
 
     const convertUrl = () => {
         var str = name
@@ -108,14 +107,14 @@ const Brands = ({match}) => {
                         </div>
                     </Event>
 
-                    <Gallery>
+                    <Gallery id="gallery">
                         <Flex direction="column" alignItems="center">
                             <h1>GALLERY</h1>
                             <span className="line" />
                         </Flex>
                         <Flex direction="row" justify="center" alignItems="center" className="pic">
                             <Flex direction="row" justify="center">
-                                {gallery === 0 ? 
+                                {gallery.length === 0 ? 
                                     <h1>There is no picture uploaded yet</h1>
                                     :
                                     <Carousel>

@@ -12,7 +12,6 @@ const Career = () => {
     const [position, setPosition] = useState('')
     const [location, setLocation] = useState('')
     const [data, setData] = useState([])
-    const [menu, setMenu] = useState([])
 
     const handleKeyword = (event) => {
         console.log(event.target.value)
@@ -30,16 +29,6 @@ const Career = () => {
     const handleClick = (id) => {
         window.location.href = `/career-detail/${id}`
         console.log(id)
-    }
-
-    // function filterByValue(array, string) {
-    //     return array.filter(o =>
-    //         Object.keys(o).some(k => o[k].toLowerCase().includes(string.toLowerCase())));
-    // }
-
-    const fetchMenu = async () => {
-        const res = await axios.get(`${baseUrl}/career`)
-        const menu = res
     }
 
     const fetchData = async () => {

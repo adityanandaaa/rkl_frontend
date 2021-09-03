@@ -73,6 +73,9 @@ export const Wrapper = styled.div`
         .event{
             margin-left: 1.5em;
             width: 240px;
+            img{
+                height: 290px;
+            }
         }
     }
 
@@ -83,6 +86,7 @@ export const Wrapper = styled.div`
             height: 450px;
             img{
                 margin: 0;
+                height: 250px;
             }
         }
         .event_title{
@@ -99,7 +103,7 @@ export const Wrapper = styled.div`
 
     @media (max-width: 375px){
         .event{
-            margin-left: 4em;
+            margin-left: 3.6em;
         }
         .event_title{
             width: 11em;
