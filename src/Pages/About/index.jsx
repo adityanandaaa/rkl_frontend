@@ -18,7 +18,7 @@ const About = () => {
         status: 0,
         about_text: '',
         vision_text: '',
-        mission_text: '',
+        mission_text: null,
         phone_number: '',
         contact: ''
     })
@@ -40,10 +40,10 @@ const About = () => {
         ]).then(([about, vision, mission, contact]) => {
             setSetting({
                 status: about.status,
-                about_text: removeTags(about.data),
-                vision_text: removeTags(vision.data),
-                mission_text: removeTags(mission.data),
-                contact: removeTags(contact.data)
+                about_text: about.data,
+                vision_text: vision.data,
+                mission_text: mission.data,
+                contact: contact.data
             })
         })
     }
@@ -64,7 +64,7 @@ const About = () => {
             
             <Flex direction="column" justify="center" alignItems="center">
                 {setting.status === 200 ?
-                    <p className="description">{setting.about_text}</p>
+                    <p className="description" dangerouslySetInnerHTML={{__html: setting.about_text}} />
                     :
                     <LinearProgress style={{width: '80%', marginTop: '2em'}} />
                 }
@@ -72,13 +72,13 @@ const About = () => {
             </Flex>
             <Flex direction="row" justify="center" className="vision">
                 <h1>Vision</h1>
-                <p>{setting.vision_text}</p>
+                <p dangerouslySetInnerHTML={{__html: setting.vision_text}} />
             </Flex>
             <Flex direction="row" justify="center">
                 <div className="moto-line" />
             </Flex>
             <Flex direction="row" justify="center" className="mission">
-                <p>{setting.mission_text}</p>
+                <p dangerouslySetInnerHTML={{__html: setting.mission_text}} />
                 <h1>Mission</h1>
             </Flex>
             <Contact>
@@ -93,7 +93,7 @@ const About = () => {
                         </Flex>
                         <Flex direction="row">
                             <img src={phoneIcon} alt="phone_icon" />
-                            <p>{setting.contact}</p>
+                            <div dangerouslySetInnerHTML={{__html: setting.contact}} />
                         </Flex>
                         <Flex direction="row">
                             <a href="www.instagram.com">

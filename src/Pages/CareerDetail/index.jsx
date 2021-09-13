@@ -53,7 +53,8 @@ const CareerDetail = ({match}) => {
                         </Flex>
                         <Flex direction="column" justify="center">
                             <h1 style={{marginTop: '50px'}}>Job Specification</h1>
-                            <p>{removeTags(items.spesification)}</p>
+                            {/* <p>{removeTags(items.spesification)}</p> */}
+                            <p dangerouslySetInnerHTML={{__html: items.spesification}} />
                         </Flex>
                         <Flex direction="row">
                             <p>Please send your CV to <b>hrd@rkl.com</b> or click the button below if you interested this position</p>

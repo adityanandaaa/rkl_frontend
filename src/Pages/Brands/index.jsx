@@ -137,19 +137,25 @@ const Brands = ({match}) => {
 
                     <Location background={data.hero_footer_image_link}>
                         <Flex direction="row" justify="center" alignItems="center" className="logo">
-                            <Flex direction="column" alignItems="center" justify="center">
+                            <Flex direction="column" alignItems="center" justify="center" style={{minHeight: '5em'}}>
                                 <img src={data.brand_image_link} alt="brand_logo" />
                             </Flex>
                             <Flex direction="column" alignItems="flex-start" justify="center" className="location-wrap">
                                 <p>{data.address}</p>
                                 <p>{data.open_hour}</p>
                                 <p>
-                                    <img src={WhatsappIcon} alt="whatsapp_icon" className="icon" />
-                                    <span>{data.contact}</span>
+                                    <Flex direction="row">
+                                        <img src={WhatsappIcon} alt="whatsapp_icon" className="icon" />
+                                        <span>{data.contact}</span>
+                                    </Flex>
+                                    
                                 </p>
                                 <a href={data.instagram} className="insta">
-                                    <img src={InstagramIcon} alt="instagram_icon" className="icon" />
-                                    <span>@{data.name}</span>
+                                    <Flex direction="row">
+                                        <img src={InstagramIcon} alt="instagram_icon" className="icon" />
+                                        <span>@{data.name}</span>
+                                    </Flex>
+                                    
                                 </a>
                             </Flex>
                         </Flex>

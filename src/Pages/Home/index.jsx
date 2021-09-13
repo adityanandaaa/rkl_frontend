@@ -100,7 +100,8 @@ const Home = () => {
         .then((res) => {
             const setting = res.data
             console.log(setting)
-            setSetting(setting.substring(3, setting.length - 4))
+            // setSetting(setting.substring(3, setting.length - 4))
+            setSetting(setting)
         })
 
     }
@@ -151,9 +152,7 @@ const Home = () => {
             <Header>
                 <Navbar />
                 <Flex direction="row" justify="center" alignItems="center">
-                    <p class="description">
-                        {setting}
-                    </p>
+                    <p class="description" dangerouslySetInnerHTML={{__html: setting}} />
                 </Flex>
                 <Flex direction="column" justify="center" className="brands">
                     <Flex direction="row" justify="space-around">
@@ -213,7 +212,7 @@ const Home = () => {
             
             <Gallerys id="gallery">
                 <Flex direction="column" alignItems="center" className="title">
-                    <h1>Gallery</h1>
+                    <h1>GALLERY</h1>
                     <div className="line" />
                 </Flex>
                 <Gallery

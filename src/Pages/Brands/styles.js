@@ -232,7 +232,7 @@ export const Event = styled.div`
 `
 
 export const Gallery = styled.div`
-    margin-top: 22em;
+    margin-top: 25em;
     h1{
         font-weight: 800;
         font-size: 40px;
@@ -321,6 +321,7 @@ export const Location = styled.div`
     }
     span{
         margin-left: 10px;
+        margin-top: 10px;
     }
     .insta{
         // position: absolute;
@@ -375,13 +376,13 @@ export const Location = styled.div`
             flex-direction: column;
         }
         .logo div:nth-child(1){
-            height: 130px;
+            // height: 130px;
         }
         .logo div:nth-child(2){
             margin-bottom: 3em;
         }
         img{
-            height: 200px;
+            // height: 200px;
         }
         .location-wrap{
             p, a{
