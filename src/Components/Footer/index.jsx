@@ -39,7 +39,7 @@ const Footer = () => {
                         <a href="/about">About</a>
                     </Flex>
                     <Flex direction="row" justify="flex-start" className="menu">
-                        <Link to="brand" smooth={true} duration={700}>Brand</Link>
+                        <Link to="brands" smooth={true} duration={700}>Brand</Link>
                         <Link to="gallery" smooth={true} duration={500}>Gallery</Link>
                     </Flex>
                      <Flex direction="row" justify="flex-start" className="menu">
