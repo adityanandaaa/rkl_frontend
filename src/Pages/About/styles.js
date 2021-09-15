@@ -41,6 +41,7 @@ export const Wrapper = styled.div`
         h1{
             font-size: 40px;
             font-weight: 800;
+            margin-right: 160px;
         }
         p{
             font-family: Inter;
@@ -48,7 +49,7 @@ export const Wrapper = styled.div`
             font-weight: 500;
             font-size: 17px;
             width: 35em;
-            margin-left: 160px;
+            // margin-left: 100px;
             line-height: 150%;
             letter-spacing: 0.02em;
             color: #000000;
@@ -87,11 +88,13 @@ export const Wrapper = styled.div`
         .vision{
             h1{
                 font-size: 30px;
+                margin-right: 50px;
             }
         }
         .mission{
             h1{
                 font-size: 30px;
+                margin-left: 50px;
             }
         }
     }
@@ -107,7 +110,7 @@ export const Wrapper = styled.div`
         .vision{
             h1{
                 font-size: 30px;
-                margin-left: 2em;
+                // margin-left: 2em;
             }
             p{
                 width: 30em;
@@ -128,6 +131,8 @@ export const Wrapper = styled.div`
         .description{
             font-size: 16px;
             text-align: center;
+            padding: 0;
+            width: 305px;
         }
         .download{
             font-size: 16px;
@@ -138,13 +143,12 @@ export const Wrapper = styled.div`
             flex-direction: column;
             align-items: center;
             h1{
-                margin-left: 0;
+                margin-right: 0;
                 font-size: 25px;
             }
             p{
                 font-size: 17px;
                 width: 20em;
-                // margin-left: 2em;
                 margin-left: 0;
                 text-align: center;
             }
@@ -159,14 +163,12 @@ export const Wrapper = styled.div`
             flex-direction: column-reverse;
             align-items: center;
             h1{
-                margin-left: 2em;
                 text-align: center;
                 font-size: 25px;
             }
             p{
                 font-size: 17px;
                 width: 20em;
-                // margin-left: 2em;
                 margin-left: 0;
                 text-align: center;
             }
@@ -175,16 +177,16 @@ export const Wrapper = styled.div`
     @media (max-width: 375px){
         .vision{
             h1{
-                font-size: 35px;
+                font-size: 25px;
             }
             p{
                 font-size: 16px;
-                margin-left: 1em;
+                margin-left: 0;
             }
         }
         .mission{
             h1{
-                font-size: 35px;
+                font-size: 25px;
             }
             li{
                 font-size: 16px;
@@ -194,7 +196,7 @@ export const Wrapper = styled.div`
 `
 
 export const Header = styled.div`
-     // background-image: url(${({background}) => background});
+    // background-image: url(${({background}) => background});
     background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)), url(${aboutCover});
     background-repeat:no-repeat;
     // -webkit-background-size:cover;
@@ -209,6 +211,7 @@ export const Header = styled.div`
         color: white;
         font-size: 64px;
         font-weight: 800;
+        // font-family: "Brandon Grotesque";
         margin-top: 3em;
     }
 
@@ -220,7 +223,10 @@ export const Header = styled.div`
     }
 
     @media (max-width: 414px){
-        font-size: 35px;
+        h1{
+            font-size: 35px;
+            margin-top: 5.5em;
+        }
     }
     
 `

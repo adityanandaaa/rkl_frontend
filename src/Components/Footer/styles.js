@@ -60,6 +60,9 @@ export const Wrapper = styled.div`
     }
     .menu{
         width: 15em;
+        a:nth-child(n){
+            cursor: pointer;
+        }
     }
     .menu a:nth-child(2){
         margin-left: 82px;

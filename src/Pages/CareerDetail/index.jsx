@@ -53,7 +53,6 @@ const CareerDetail = ({match}) => {
                         </Flex>
                         <Flex direction="column" justify="center">
                             <h1 style={{marginTop: '50px'}}>Job Specification</h1>
-                            {/* <p>{removeTags(items.spesification)}</p> */}
                             <p dangerouslySetInnerHTML={{__html: items.spesification}} />
                         </Flex>
                         <Flex direction="row">

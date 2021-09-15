@@ -10,12 +10,12 @@ export const Flex = styled.div`
 `;
 
 export const Wrapper = styled.div`
-    @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+    // @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
     *{
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: 'Poppins', sans-serif;
+        // font-family: 'Poppins', sans-serif;
     } 
     nav{
         display: flex;

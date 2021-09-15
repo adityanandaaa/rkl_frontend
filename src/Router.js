@@ -5,7 +5,7 @@ import About from './Pages/About'
 import Career from './Pages/Career'
 import CareerDetail from './Pages/CareerDetail'
 import Brands from './Pages/Brands'
-// import Test from './Pages/Test'
+import Test from './Pages/Test'
 
 const Router = () => {
     // const convertUrl = () => {
@@ -21,7 +21,7 @@ const Router = () => {
                 <Route exact path='/career' component={Career} />
                 <Route exact path='/career-detail/:id' component={CareerDetail} />
                 <Route exact path='/brands/:name' component={Brands} />
-                {/* <Route exact path='/test' component={Test} /> */}
+                <Route exact path='/test' component={Test} />
             </Switch>
         </BrowserRouter>
     )

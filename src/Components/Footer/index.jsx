@@ -6,6 +6,7 @@ import CopyrightIcon from './Media/Copyright-White.png'
 import FacebookIcon from './Media/Facebook-White.png'
 import InstagramIcon from '@material-ui/icons/Instagram';
 import { baseUrl } from '../../utils'
+import {Link} from 'react-scroll'
 
 const Footer = () => {
     const [setting, setSetting] = useState('')
@@ -17,6 +18,7 @@ const Footer = () => {
         }, [])
         return setting
     }
+
     useEffect(() => {
         fetchSetting()
     }, [])
@@ -37,8 +39,8 @@ const Footer = () => {
                         <a href="/about">About</a>
                     </Flex>
                     <Flex direction="row" justify="flex-start" className="menu">
-                        <a href="/brands/Cafe Ruci">Brand</a>
-                        <a href="#gallery">Gallery</a>
+                        <Link to="brand" smooth={true} duration={700}>Brand</Link>
+                        <Link to="gallery" smooth={true} duration={500}>Gallery</Link>
                     </Flex>
                      <Flex direction="row" justify="flex-start" className="menu">
                         <a href="/career">Career</a>

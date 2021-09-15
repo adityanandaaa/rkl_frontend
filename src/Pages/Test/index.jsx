@@ -1,306 +1,116 @@
-import React, {useState, useEffect} from 'react'
-import {Flex, Wrapper, Header, Events, Gallerys, Parts} from './styles'
+import React, {useState} from 'react'
 import axios from 'axios'
-import Carousel from "react-multi-carousel";
-import 'react-multi-carousel/lib/styles.css';
-import Gallery from 'react-grid-gallery'
-import {FormControl, Button} from 'react-bootstrap'
-import Navbar from '../../Components/Navbar2'
+import {Flex, Wrapper, Header, Contact} from './styles'
+import { LinearProgress } from '@material-ui/core'
+import {Button} from 'react-bootstrap'
+import Navbar from '../../Components/Navbar'
 import Footer from '../../Components/Footer'
-import Brand1 from './Media/brands-1.png'
-import Brand2 from './Media/brands-2.png'
-import Brand3 from './Media/brands-3.png'
-import Brand4 from './Media/brands-4.png'
-import Brand5 from './Media/brands-5.png'
-import Brand6 from './Media/brands-6.png'
-import Brand7 from './Media/brands-7.png'
-import Brand8 from './Media/brands-8.png'
-import Brand9 from './Media/brands-9.png'
-import Brand10 from './Media/brands-10.png'
-
-import Event1 from './Media/event-1.jpeg'
-import Event2 from './Media/event-2.jpeg'
-import Event3 from './Media/event-3.jpeg'
-import Event4 from './Media/event-4.jpeg'
-
-import Gallery1 from './Media/gallery - 1.jpg'
-import Gallery2 from './Media/gallery - 2.jpg'
-import Gallery3 from './Media/gallery - 3.jpg'
-import Gallery4 from './Media/gallery - 4.jpg'
-import Gallery5 from './Media/gallery - 5.jpg'
-import Gallery6 from './Media/gallery - 6.jpg'
-import Gallery7 from './Media/gallery - 7.jpg'
-import Gallery8 from './Media/gallery - 8.jpg'
-import Gallery9 from './Media/gallery - 9.jpg'
-import Gallery10 from './Media/gallery - 10.jpg'
+import emailIcon from './Media/Email-Black.png'
+import phoneIcon from './Media/Phone-Black.png'
+import instagramIcon from './Media/Instagram-Black.png'
+import facebookIcon from './Media/Facebook-Black.png'
+import { baseUrl } from '../../utils'
+import { useEffect } from 'react'
 
 
 const Test = () => {
-    const [hover, setHover] = useState({
-        pic1: false,
-        pic2: false,
-        pic3: false,
-        pic4: false,
-        pic5: false
+    const [setting, setSetting] = useState({
+        status: 0,
+        about_text: '',
+        vision_text: '',
+        mission_text: null,
+        phone_number: '',
+        contact: ''
     })
 
-    const Events_Promo = [
-        {title: 'Opening Promo at Cafe Ruci', date: '15 May 2021', img: Event1},
-        {title: 'Opening Promo at Cafe Ruci', date: '15 May 2021', img: Event2},
-        {title: 'Kawa Kawa Special Price', date: '15 May - 30 May 2021', img: Event3},
-        {title: 'Family Meals Packet Only 130K', date: '15 May 2021', img: Event4}
-    ]
-
-    const responsive = {
-        desktop: {
-            breakpoint: { max: 3000, min: 1024 },
-            items: 3,
-            slidesToSlide: 3 // optional, default to 1.
-        },
-        tablet: {
-            breakpoint: { max: 1024, min: 464 },
-            items: 2,
-            slidesToSlide: 2 // optional, default to 1.
-        },
-        mobile: {
-            breakpoint: { max: 464, min: 0 },
-            items: 1,
-            slidesToSlide: 1 // optional, default to 1.
-        }
-    };
-    
-
-    const IMAGESandro = [
-        {
-            src: Gallery1,
-            thumbnail: Gallery1,
-            thumbnailWidth: 350,
-            thumbnailHeight: 220,
-        },
-        {
-            src: Gallery2,
-            thumbnail: Gallery2,
-            thumbnailWidth: 350,
-            thumbnailHeight: 220,
-        },
-        {
-            src: Gallery3,
-            thumbnail: Gallery3,
-            thumbnailWidth: 350,
-            thumbnailHeight: 220,
-        },
-        {
-            src: Gallery4,
-            thumbnail: Gallery4,
-            thumbnailWidth: 350,
-            thumbnailHeight: 220,
-        },
-        {
-            src: Gallery5,
-            thumbnail: Gallery5,
-            thumbnailWidth: 350,
-            thumbnailHeight: 220,
-        },
-        {
-            src: Gallery6,
-            thumbnail: Gallery6,
-            thumbnailWidth: 350,
-            thumbnailHeight: 220,
-        },
-        {
-            src: Gallery7,
-            thumbnail: Gallery7,
-            thumbnailWidth: 350,
-            thumbnailHeight: 220,
-        },
-        {
-            src: Gallery8,
-            thumbnail: Gallery8,
-            thumbnailWidth: 350,
-            thumbnailHeight: 220,
-        },
-        {
-            src: Gallery9,
-            thumbnail: Gallery9,
-            thumbnailWidth: 350,
-            thumbnailHeight: 220,
-        },
-        {
-            src: Gallery10,
-            thumbnail: Gallery10,
-            thumbnailWidth: 350,
-            thumbnailHeight: 220,
-        },
-    ];
-
-    const [value, setValue] = useState({
-        email: ''
-    })
-    const handleChange = (event) => {
-        const values = event.target.value
-          setValue({
-              ...value,
-              [event.target.name]: values
-          })
-      }
-    const handlePost = () => {
-        if(value.email === ''){
-            alert('You must insert the text first')
-        }
-        else{
-            alert('success')
-            setValue({email: ''})
-        }
+    const removeTags = (str) => {
+        if ((str===null) || (str===''))
+        return false;
+        else
+        str = str.toString();
+        return str.replace( /(<([^>]+)>)/ig, '');
     }
 
-    const [items, setItems] = useState([])
-    useEffect(() => {
-        axios.get('http://admin.rklokal.com/api/gallery')
-        .then((res) => {
-            const items = res.data
-            console.log(items)
-            setItems(items)
+    const fetchSetting = () => {
+        Promise.all([
+            axios.get(`${baseUrl}/setting?name=about_text`),
+            axios.get(`${baseUrl}/setting?name=visi_text`),
+            axios.get(`${baseUrl}/setting?name=misi_text`),
+            axios.get(`${baseUrl}/setting?name=contact`),
+        ]).then(([about, vision, mission, contact]) => {
+            setSetting({
+                status: about.status,
+                about_text: about.data,
+                vision_text: vision.data,
+                mission_text: mission.data,
+                contact: contact.data
+            })
         })
-
+    }
+    useEffect(() => {
+        fetchSetting()
     }, [])
-
     return(
+        <div>
         <Wrapper>
-            <Header>
-                <Navbar />
-                <Flex direction="row" justify="center" alignItems="center">
-                    <p class="description">
-                        RKL is a Food and Beverage company incepted in 2010
-                        with a commitment to make great experience to
-                        denizens of Jakarta
-                    </p>
-                </Flex>
-                <Flex direction="column" justify="center" className="brands">
-                    <Flex direction="row" justify="space-around">
-                        <a href="/brands/1">
-                            <img 
-                                src={!hover.pic1 ? Brand1 : Brand6} 
-                                onMouseOver={() => setHover({pic1: true})} 
-                                onMouseOut={() => setHover({pic1: false})} 
-                                alt="cafe_ruci_logo"
-                            />
-                        </a>
-                        <a href="/brands/2">
-                            <img 
-                                src={!hover.pic2 ? Brand2 : Brand7} 
-                                onMouseOver={() => setHover({pic2: true})} 
-                                onMouseOut={() => setHover({pic2: false})} 
-                                alt="ruci's_joint_logo"
-                            />
-                        </a>
-                        <a href="/brands/3">
-                            <img 
-                                src={!hover.pic3 ? Brand3 : Brand8} 
-                                onMouseOver={() => setHover({pic3: true})} 
-                                onMouseOut={() => setHover({pic3: false})} 
-                                alt="warget_logo"
-                            />
-                        </a>
+            {/* <Navbar /> */}
+            <div style={{backgroundColor: 'black'}}>
+                <Header>
+                    <Navbar />
+                    <Flex direction="row" justify="center" alignItems="center">
+                        <h1>ABOUT</h1>    
                     </Flex>
-                    <Flex direction="row" justify="space-around">
-                        <a href="/brands/4">
-                            <img 
-                                src={!hover.pic4 ? Brand4 : Brand9} 
-                                onMouseOver={() => setHover({pic4: true})} 
-                                onMouseOut={() => setHover({pic4: false})} 
-                                alt="123_logo"
-                            />
-                        </a>
-                        <a href="/brands/4">
-                            <img 
-                                src={!hover.pic5 ? Brand5 : Brand10} 
-                                onMouseOver={() => setHover({pic5: true})} 
-                                onMouseOut={() => setHover({pic5: false})} 
-                                alt="rara_logo"
-                            />
-                        </a>
+                </Header>
+            </div>
+            
+            {/* <Flex direction="column" justify="center" alignItems="center">
+                {setting.status === 200 ?
+                    <p className="description" dangerouslySetInnerHTML={{__html: setting.about_text}} />
+                    :
+                    <LinearProgress style={{width: '80%', marginTop: '2em'}} />
+                }
+                <Button variant="dark" className="download">Download Company Profile</Button>
+            </Flex>
+            <Flex direction="row" justify="center" className="vision">
+                <h1>Vision</h1>
+                <p dangerouslySetInnerHTML={{__html: setting.vision_text}} />
+            </Flex>
+            <Flex direction="row" justify="center">
+                <div className="moto-line" />
+            </Flex>
+            <Flex direction="row" justify="center" className="mission">
+                <p dangerouslySetInnerHTML={{__html: setting.mission_text}} />
+                <h1>Mission</h1>
+            </Flex>
+            <Contact>
+                <Flex direction="row" justify="center" className="wrapper">
+                    <Flex direction="column" alignItems="flex-start" className="title">
+                        <h1>Our Contact <span>Details</span></h1>
+                    </Flex>
+                    <Flex direction="column" justify="center" alignItems="center" className="contact-wrap">
+                        <Flex direction="row">
+                            <img src={emailIcon} alt="email_icon" />
+                            <p>info@rklokal.com</p>
+                        </Flex>
+                        <Flex direction="row">
+                            <img src={phoneIcon} alt="phone_icon" />
+                            <div dangerouslySetInnerHTML={{__html: setting.contact}} />
+                        </Flex>
+                        <Flex direction="row">
+                            <a href="www.instagram.com">
+                                <img src={instagramIcon} alt="instagram_icon" />
+                            </a>
+                            <a href="www.facebook.com">
+                                <img src={facebookIcon} alt="facebook_icon" style={{marginLeft: '2em'}} />
+                            </a>
+                        </Flex>
                     </Flex>
                 </Flex>
-            </Header>
-
-            <Events>
-                <Flex direction="column" alignItems="center">
-                    <h1>EVENT & PROMO</h1>
-                    <div className="line" />
-                </Flex>
-                
-                <Carousel
-                    swipeable={true}
-                    draggable={false}
-                    showDots={false}
-                    responsive={responsive}
-                    ssr={true} // means to render carousel on server-side.
-                    infinite={false}
-                    // autoPlay={
-                    //     this.props.deviceType !== "mobile" ? true : false
-                    // }
-                    autoPlay={false}
-                    autoPlaySpeed={1000}
-                    keyBoardControl={true}
-                    // customTransition="ease .5"
-                    transitionDuration={500}
-                    containerClass="carousel-container"
-                    // removeArrowOnDeviceType={["tablet", "mobile"]}
-                    // deviceType={this.props.deviceType}
-                    dotListClass="custom-dot-list-style"
-                    itemClass="carousel-item-padding-40-px"
-                >
-                    {Events_Promo.map((events) => (
-                        <div className="event">
-                            <Flex direction="column" justify="center">
-                                <img src={events.img} alt="events_pic" />
-                                <p className="event_title">{events.title}</p>
-                                <p className="event_date">{events.date}</p>
-                            </Flex>
-                            
-                        </div>
-                    ))}
-                </Carousel>
-            </Events>
-            
-            {/* <Gallerys>
-                <Flex direction="column" alignItems="center" className="title">
-                    <h1>Gallery</h1>
-                    <div className="line" />
-                </Flex>
-                <Gallery
-                    images={IMAGESandro}
-                    backdropClosesModal={true}
-                    showImageCount={false}
-                    enableImageSelection={false}
-                    margin={0}
-                    maxRows={10}
-                    // rowHeight={220}
-                    id={"test122"}
-                    // tagStyle={test1}
-                />
-            </Gallerys> */}
-
-            <Parts>
-                <Flex direction="row" justify="center" className="lala">
-                    <h1>
-                        <span>LET'S BE</span><br /> PART OF US
-                    </h1>
-                    <FormControl
-                        placeholder="Enter your phone number/email"
-                        aria-label="Recipient's username"
-                        aria-describedby="basic-addon2"
-                        className="input"
-                        value={value.email}
-                        name="email"
-                        onChange={handleChange}
-                        />
-                    <Button variant="dark" onClick={handlePost}>SEND</Button>
-                </Flex>
-            </Parts>
-            
-            <Footer />
+            </Contact> */}
         </Wrapper>
+
+        <Footer />
+        </div>
     )
 }
 

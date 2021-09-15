@@ -133,6 +133,9 @@ const Home = () => {
         if(width < 700){
             setRows(5)
         }
+        if(width < 400){
+            setRows(5)
+        }
 
     }
 
@@ -155,7 +158,7 @@ const Home = () => {
                     <p class="description" dangerouslySetInnerHTML={{__html: setting}} />
                 </Flex>
                 <Flex direction="column" justify="center" className="brands">
-                    <Flex direction="row" justify="space-around">
+                    <Flex direction="row" justify="space-around" id="brands">
                         <a href="/brands/Cafe Ruci">
                             <img 
                                 src={!hover.pic1 ? Brand1 : Brand6} 
@@ -172,7 +175,7 @@ const Home = () => {
                                 alt="ruci's_joint_logo"
                             />
                         </a>
-                        <a href="/brands/Warget Bahagia">
+                        <a href="/brands/Warget">
                             <img 
                                 src={!hover.pic3 ? Brand3 : Brand8} 
                                 onMouseOver={() => setHover({pic3: true})} 

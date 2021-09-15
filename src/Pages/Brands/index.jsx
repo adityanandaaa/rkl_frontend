@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import {Wrapper, Flex, Header, Content, Menu, Event, Gallery, Location} from './styles'
 import axios from 'axios'
-import Navbar from '../../Components/Navbar2'
+import Navbar from '../../Components/Navbar'
 import Footer from '../../Components/Footer'
 import {Carousel} from 'react-bootstrap'
 import Carousels from '../../Components/Carousel'
