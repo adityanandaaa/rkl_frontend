@@ -46,14 +46,13 @@ export const Wrapper = styled.div`
         margin: 0 5px;
     }
     nav ul li a{
-        color: #f2f2f2;
         text-decoration: none;
         font-style: normal;
         font-weight: bold;
         font-size: 20px;
         line-height: 150%;
         letter-spacing: 0.02em;
-        color: #FFFFFF;
+        color: #000000;
         padding: 8px 15px;
         border-radius: 5px;
         letter-spacing: 1px;
@@ -91,7 +90,7 @@ export const Wrapper = styled.div`
         font-size: 20px;  
         border: none;
         outline: none;
-        color: white;
+        color: #000000;
         padding: 14px 16px;
         background-color: inherit;
         font-family: inherit;
@@ -115,7 +114,7 @@ export const Wrapper = styled.div`
     
     .dropdown-content a {
         float: none;
-        color: white;
+        color: #000000;
         padding: 12px 16px;
         text-decoration: none;
         display: block;
@@ -205,7 +204,7 @@ export const Wrapper = styled.div`
         }
         .dropdown .dropbtn{
             font-size: 26px;
-            // margin-top: -1em;
+            color: white;
         }
         
         .dropdown-content{
@@ -222,6 +221,7 @@ export const Wrapper = styled.div`
         .dropdown-content a{
             font-size: 20px;
             font-weight: 500;
+            color: white;
         }
         
         #click:checked ~ ul li a{

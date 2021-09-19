@@ -4,7 +4,7 @@ import axios from 'axios'
 import Carousels from '../../Components/Carousel'
 import Gallery from 'react-grid-gallery'
 import {FormControl, Button} from 'react-bootstrap'
-import Navbar from '../../Components/Navbar'
+import Navbar from '../../Components/HomeNav'
 import Footer from '../../Components/Footer'
 import Brand1 from './Media/brands-1.png'
 import Brand2 from './Media/brands-2.png'
@@ -20,7 +20,7 @@ import Brand10 from './Media/brands-10.png'
 import { baseUrl } from '../../utils'
 
 
-const Home = () => {
+const Home = (props) => {
     const [setting, setSetting] = useState('')
     const [items, setItems] = useState([])
     const [event, setEvent] = useState([])
@@ -47,11 +47,11 @@ const Home = () => {
     })
     const handleChange = (event) => {
         const values = event.target.value
-          setValue({
-              ...value,
-              [event.target.name]: values
-          })
-      }
+        setValue({
+            ...value,
+            [event.target.name]: values
+        })
+    }
     const handlePost = () => {
         if(value.email === ''){
             alert('You must insert the text first')
@@ -84,26 +84,14 @@ const Home = () => {
             }
            
         });
-        // if(1440 < initialWidth < 1000){
-        //     return 2
-        // }
-        // if(1000 < initialWidth < 700){
-        //     return 3
-        // }
-        // else{
-        //     return 5
-        // }
-
     }
     const fetchSetting = () => {
         axios.get(`${baseUrl}/setting?name=homepage_text`)
         .then((res) => {
             const setting = res.data
             console.log(setting)
-            // setSetting(setting.substring(3, setting.length - 4))
             setSetting(setting)
         })
-
     }
     const fetchEvent = () => {
         axios.get(`${baseUrl}/event-promo`)
@@ -139,6 +127,23 @@ const Home = () => {
 
     }
 
+    const isScroll = () => {
+        const brands = document.getElementById('brands')
+        const gallery = document.getElementById('gallery')
+        if(props.location.state.brands){
+            brands.scrollIntoView({
+                behavior: 'smooth'
+            })
+            // console.log(props.location.state.brands)
+        }
+        else if(props.location.state.gallery){
+            gallery.scrollIntoView({
+                behavior: 'smooth'
+            })
+        }
+        console.log(props.location.state)
+    }
+
     useEffect(() => {
         fetchEvent()
         fetchSetting()
@@ -147,6 +152,9 @@ const Home = () => {
         console.log(window.innerWidth)
         window.addEventListener('resize', reportWindowSize);
         reportWindowSize()
+        isScroll()
+        console.log(props.location.state)
+
     }, [])
   
 

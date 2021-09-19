@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import {Wrapper, Flex, Header, Content, Card} from './styles'
 import {TextField, Select, MenuItem, InputLabel, FormControl} from '@material-ui/core'
-import Navbar from '../../Components/Navbar2'
+import Navbar from '../../Components/Navbar'
 import Footer from '../../Components/Footer'
 import {baseUrl} from '../../utils'
 

@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import Logo from "./Media/Logo2.png";
+import Logo from "./Media/Logo-Black.png";
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 import InstagramIcon from '@material-ui/icons/Instagram';
@@ -33,7 +33,7 @@ const Navbar2 = () => {
                         <input type="checkbox" id="click" />
                         <label for="click" class="menu-btn">
                             <i>
-                                <MenuIcon fontSize="large" style={{color: 'white'}} />   
+                                <MenuIcon fontSize="large" style={{color: 'black'}} />   
                             </i>
                         </label>
                         <ul>

@@ -16,7 +16,7 @@ export const Wrapper = styled.div`
     position: relative;
     bottom: 0;
     left: 0;
-    min-height: 350px;
+    min-height: 355px;
     color: white;
     padding-top: 2em;
     padding-left: 12em;

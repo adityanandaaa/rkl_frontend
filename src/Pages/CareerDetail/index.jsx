@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {Flex, Header, Content} from './styles'
 import {Button} from 'react-bootstrap'
-import Navbar from '../../Components/Navbar2'
+import Navbar from '../../Components/Navbar'
 import Footer from '../../Components/Footer'
 import axios from 'axios'
 import { baseUrl } from '../../utils'

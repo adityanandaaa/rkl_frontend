@@ -5,14 +5,11 @@ import About from './Pages/About'
 import Career from './Pages/Career'
 import CareerDetail from './Pages/CareerDetail'
 import Brands from './Pages/Brands'
+import NotFound from './Pages/Error'
 import Test from './Pages/Test'
 
 const Router = () => {
-    // const convertUrl = () => {
-    //     var str = name
-    //     str = str.replace(/\s+/g, '-').toLowerCase();
-    //     console.log(str); // "sonic-free-games"
-    // }
+
     return(
         <BrowserRouter>
             <Switch>
@@ -21,6 +18,7 @@ const Router = () => {
                 <Route exact path='/career' component={Career} />
                 <Route exact path='/career-detail/:id' component={CareerDetail} />
                 <Route exact path='/brands/:name' component={Brands} />
+                <Route exact component={NotFound} />
                 <Route exact path='/test' component={Test} />
             </Switch>
         </BrowserRouter>
